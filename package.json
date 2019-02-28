@@ -41,9 +41,8 @@
     "url": "https://github.com/jhspark17/YAWP/issues"
   },
   "homepage": "https://github.com/jhspark17/YAWP#readme",
-  
   "engines": {
     "node": "10.13.0",
     "npm": "6.4.1"
-  } 
+  }
 }
