@@ -57,8 +57,12 @@ class SessionForm extends React.Component {
   render(){
       return(
         <form className="center-form"  onSubmit={this.handleSubmit}>
+          <div>
           {this.props.formType === "Sign In" ? <h2>Sign In to start YAWPING</h2> : <h2>Join the YAWPING community</h2>}
+          </div>
+          <div>
             {this.getFirstAndLast()}
+          </div>
             <input type="text" onChange={this.update("email")} value={this.state.email} placeholder="Email"/>
             <input type="password" onChange={this.update("password")} value={this.state.password} placeholder="Password" />
             {this.getZipCode()}
