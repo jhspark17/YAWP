@@ -1,7 +1,19 @@
-.home-body{
+.header-all{
+  background-image: url("https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_large_assets/e456d8b923f5/assets/img/home/hero_photos/DLIUyjgS7v50YRV2xfNquA.jpg");
+
+  background-repeat: no-repeat;
+  background-position: center;
+ background-size: cover;
+}
+
+
+
+.header-body{
   display: flex;
   justify-content: center;
-  align-content: center;
-  background-image: "https://www.aspicyperspective.com/wp-content/uploads/2017/01/perfect-slow-cooker-cheesecake-11.jpg"
-  
+  align-items: center;
+  height: 500px;
+  color: white;
 }
+
+

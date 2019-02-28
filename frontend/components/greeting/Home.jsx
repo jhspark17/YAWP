@@ -3,9 +3,9 @@ import NavBar from "../NavBar/navbar";
 import Greeting from "./greeting";
 const Home = () => {
   return(
-    <div>
+    <div className="header-all">
       <NavBar />
-      <div className="home-body">YAWP</div>
+      <div className="header-body">YAWP</div>
     </div>
   )
 }

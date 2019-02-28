@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start": "webpack --watch --mode=development",
-    "dev": "webpack --watch --mode=development"
+    "dev": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -39,5 +40,10 @@
   "bugs": {
     "url": "https://github.com/jhspark17/YAWP/issues"
   },
-  "homepage": "https://github.com/jhspark17/YAWP#readme"
+  "homepage": "https://github.com/jhspark17/YAWP#readme",
+  
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  } 
 }

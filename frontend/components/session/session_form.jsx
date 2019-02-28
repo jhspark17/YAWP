@@ -5,9 +5,17 @@ import Zip from 'react-zipcode';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {first_name: "", last_name: "", email: "", password: "", zip_code: ""};
+    this.state = {email: "", password: "",};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  errorHandling(){
+    if(this.props.errors.length > 0) {
+      return(this.props.errors[0])
+    };
+    return "";
+  }
+
 
   update(field){
     return e => this.setState({
@@ -48,13 +56,15 @@ class SessionForm extends React.Component {
   
   render(){
       return(
-        <form onSubmit={this.handleSubmit}>
+        <form className="center-form"  onSubmit={this.handleSubmit}>
+          {this.props.formType === "Sign In" ? <h2>Sign In to start YAWPING</h2> : <h2>Join the YAWPING community</h2>}
             {this.getFirstAndLast()}
             <input type="text" onChange={this.update("email")} value={this.state.email} placeholder="Email"/>
             <input type="password" onChange={this.update("password")} value={this.state.password} placeholder="Password" />
             {this.getZipCode()}
             <button type="submit">Submit</button>
             {this.switch()}
+            {this.errorHandling()}
         </form>
       ) 
   }
