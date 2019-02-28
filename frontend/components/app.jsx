@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import Home from './greeting/home'
+import Home from './greeting/Home'
 import SignInContainer from "../components/session/signin_container";
 import SignUpContainer from '../components/session/signup_container';
 const App = () => (
