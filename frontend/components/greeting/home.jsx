@@ -1,11 +1,15 @@
 import React from 'react';
-import NavBar from "../NavBar/navbar";
+import NavBarContainer from "../NavBar/navbar_container";
 
 const Home = () => {
   return(
     <div className="header-all">
-      <NavBar />
-      <div className="header-body">YAWP</div>
+      <NavBarContainer />
+      <div className="header-body">
+      <div className="logo">
+      YAWP
+      </div>
+      </div>
     </div>
   )
 }

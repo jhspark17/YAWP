@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Zip from 'react-zipcode';
 
 class SessionForm extends React.Component {
@@ -7,11 +7,12 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {email: "", password: "",};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoUser = this.demoUser.bind(this);
   }
 
   errorHandling(){
     if(this.props.errors.length > 0) {
-      return(this.props.errors[0])
+      return(this.props.errors[0]);
     };
     return "";
   }
@@ -25,7 +26,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state)
+    .then(() => this.props.history.push('/'));
   }
 
   getFirstAndLast(){
@@ -53,8 +55,17 @@ class SessionForm extends React.Component {
       return (<div>Aready YAWPING, then <Link to="/signin">Sign In</Link></ div> )
     }
   }
+
+  demoUser(e){
+      e.preventDefault()
+      this.props.action({ email: "jpark@mail.com", password: "123456"})
+    
+  }
   
   render(){
+    if (this.props.currentUser) {
+      <Redirect to="/" />
+    }
       return(
         <form className="center-form"  onSubmit={this.handleSubmit}>
           <div>
@@ -63,8 +74,10 @@ class SessionForm extends React.Component {
           <div>
             {this.getFirstAndLast()}
           </div>
+            <div>
             <input type="text" onChange={this.update("email")} value={this.state.email} placeholder="Email"/>
             <input type="password" onChange={this.update("password")} value={this.state.password} placeholder="Password" />
+          </div>
             {this.getZipCode()}
             <button type="submit">Submit</button>
             {this.switch()}
