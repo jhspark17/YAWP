@@ -24,14 +24,13 @@
             </div>
             <div id="logout-nav">
               <div class="dropdown">
-            
                 <button onClick={this.dropdown} class="dropbtn"><i class="fas fa-user"></i></button>
                   <div id="myDropdown" class="dropdown-content">
-                  <input type="submit" onClick={this.props.signOut} value="Log Out"/>
+                  <input type="submit" onClick={this.props.signOut} value="Log Out" />
                 </div>
               </div>
-            </div>
-          </div>
+                </div>
+              </div>
         )
       } else {
         return(

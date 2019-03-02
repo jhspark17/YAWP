@@ -7,11 +7,23 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {email: "", password: "",};
     this.handleSubmit = this.handleSubmit.bind(this);
+    this
   }
 
   errorHandling(){
     if(this.props.errors.length > 0) {
-      return(this.props.errors[0]);
+      return( 
+        <div id="show-error-container">
+          <div id="text-error"> 
+          {this.props.errors[0]}
+          </div>
+          <div>
+          <button type="button" class="close" aria-label="Close" onClick={this.props.clearErrors} className="x-button">
+            <span aria-hidden="true">&times;</span>
+          </button>          
+          </div>
+        </div>
+      );
     };
     return "";
   }
@@ -49,9 +61,9 @@ class SessionForm extends React.Component {
 
   switch(){
     if (this.props.formType === "Sign In") {
-      return (<div>New to Yawp?<Link to="/signup">Sign Up</Link></div>)
+      return (<div className="switch-link">New to Yawp?<Link to="/signup">Sign Up</Link></div>)
     } else {
-      return (<div>Aready on Yawp?<Link to="/signin">Log In</Link></ div> )
+      return (<div className="switch-link">Aready on Yawp?<Link to="/signin">Log In</Link></ div> )
     }
   }
 
@@ -92,13 +104,13 @@ class SessionForm extends React.Component {
     if (this.props.formType === "Sign In") {
       return (
         <div>
-          <h2>By logging in, you agree to nothing. </h2>
+          By logging in, you agree to nothing.
         </div>
       )
     } else {
       return (
         <div>
-          <h2>By continuing, you agree to nothing.</h2>
+          By continuing, you agree to nothing.
         </div>
       )
     }
@@ -138,17 +150,21 @@ class SessionForm extends React.Component {
               </div>
            </Link> 
        </header >
+        <div className="error-handling-container">
+          <div className="error-handling">
+            {this.errorHandling()}
+          </div>
+        </div>
         <div className="session-container">
         <div className="session-inner-container">
         <form className="session-form"  onSubmit={this.handleSubmit}>
-          {this.errorHandling()}
           <div className="red-header-session">
           {this.redHeader()}
           </div>
           <div className="below-red-header">
             {this.belowRedHeader()}
           </div>
-          <div homeName="privacy-policy">
+          <div className="privacy-policy">
             {this.privacyPolicy()}
           </div>
           <div >
@@ -168,7 +184,6 @@ class SessionForm extends React.Component {
             {this.switch()}
               </div>
         </form>
-            
           <div className="session-img">
             <img src="https://s3-media4.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png" alt=""/>
           </div>
