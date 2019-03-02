@@ -1,0 +1,203 @@
+// Place all the styles related to the api/sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+
+  @for $i from $from through $stroke {
+    @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+
+  @return $shadow;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+.header-form{
+  display: flex;
+  background-color: rgb(211, 35, 35);
+  padding: 24px;
+  justify-content: center;
+  text-shadow: stroke(2, white);
+  text-decoration: none;
+  
+}
+
+
+.session-container{
+    display: flex;
+    justify-content: space-around;
+    height: 78vh;
+    margin-bottom: 30px;
+}
+
+.session-inner-container{
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+.session-form{
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 160px;
+  padding-bottom: 60px;
+}
+
+#logo-session{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+#header-word-logo{
+  color: black;
+  text-decoration: none;
+  font-family: "RockoFLF";
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.center-form-container{
+    display: flex;
+    width: 960px;
+    margin: 0 auto;
+    padding-left: 40px;
+    justify-content: center;
+}
+
+
+.center-form-inside{
+  display: flex;
+  margin: auto;
+  padding: 0 18px;
+  max-width: 100%;
+  text-align: center;
+  justify-content:center;
+  align-content: center;
+}
+
+.session-img{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: -50%;
+  padding-right: 200px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+}
+
+.first-and-last-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.first-and-last{
+    display: block;
+    font-size: 14px;
+    margin: 0 0 9px;
+    padding: 5px 9px;
+    width: 50%;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-sizing: border-box;
+    
+}
+
+#first{
+
+}
+
+#last{
+
+}
+.email-password-form{
+    display: block;
+    font-size: 14px;
+    margin: 0 0 9px;
+    padding: 5px 9px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.red-header-session{
+  color: #d32323;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  line-height: 1.28571em;
+  text-align: center;
+}
+
+.below-red-header{
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.privacy-policy{
+  color: #333;
+  font-size: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.zip-code{
+  display: block;
+  font-size: 14px;
+  margin: 0 0 9px;
+  padding: 5px 9px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.submit{
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 8px;
+  line-height: 1.3125em;
+  color: white;
+  border: 1px solid ;
+  border-radius: 3px;
+  background-color: #db0e0e;
+  box-sizing: border-box;;
+}
+
+.switch{
+    margin-top: 3px;
+    color: #999;
+    font-weight: normal;
+    text-align: right;
+}
+
+.switch-link{
+  text-decoration: none;
+}
+
+
