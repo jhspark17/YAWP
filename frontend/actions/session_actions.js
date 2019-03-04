@@ -19,8 +19,8 @@ const receiveErrors = (errors) => ({
 });
 
 const demoUser = {
-      email: "dwyer@pandr.com",
-      password: "april123"
+      email: "demo@email.com",
+      password: "password123"
     }
 export const signUp = (user) => dispatch => (
   SessionApiUtil.signUp(user)

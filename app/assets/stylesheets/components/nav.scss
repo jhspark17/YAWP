@@ -8,7 +8,7 @@
   font-size: 14px;
   font-weight: 700;
   color: white;
-  margin: 3px;
+  
 }
 
 #logout-nav{
@@ -120,7 +120,7 @@
 
 /* Dropdown Button */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: grey;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -128,18 +128,29 @@
 }
 
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+// .dropdown {
+//     display: flex;
+//     flex-direction: row;
+//     position: absolute;
+//     right: 5px;
+//     margin-top: 5px;
+//     padding: 8px 150px 16px 12px;
+//     min-width: 217px;
+//     border: 1px solid red;
+//     border-color: rgba(0,0,0,0.2);
+//     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+//     box-sizing: border-box;
+//     z-index: 1;
+// }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: blue;
   min-width: 60px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  height: 100px;
   z-index: 1;
 }
 
@@ -155,7 +166,38 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+ 
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.drop-down-all{
+   
+}
+
+.logout-button{
+    color: #0073bb;
+    font-size: 14px;
+    margin-top: 12px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 11px;
+}
+
+.arrow-icon{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    background-color: none;
+    
+}

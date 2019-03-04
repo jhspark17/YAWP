@@ -1,0 +1,21 @@
+.main-header {
+    padding: 12px 0;
+    background-color: #d32323;
+    position: relative;
+}
+
+.show-title{
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+}
+
+.show-information{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+
+}

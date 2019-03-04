@@ -23,11 +23,13 @@
               <div className="left-side-element">Talk</div>
             </div>
             <div id="logout-nav">
+          
               <div class="dropdown">
                 <button onClick={this.dropdown} class="dropbtn"><i class="fas fa-user"></i></button>
                   <div id="myDropdown" class="dropdown-content">
-                  <input type="submit" onClick={this.props.signOut} value="Log Out" />
+                  <input className="logout-button" type="submit" onClick={this.props.signOut} value="Log Out" />
                 </div>
+                <i className="arrow-icon">arrow_drop_down</i>
               </div>
                 </div>
               </div>
