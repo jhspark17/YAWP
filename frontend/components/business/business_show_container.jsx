@@ -1,12 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import BusinessShow from './business_show';
-import { fetchBusiness } from '../../actions/business_actions';
+import { fetchBusiness} from '../../actions/business_actions';
+import {demoSignIn} from '../../actions/session_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
   const businessId = ownProps.match.params.businessId;
-  
+    
 return({
   currentUser: state.entities.users[state.session.id],
   business: state.entities.businesses[businessId],
@@ -15,7 +16,8 @@ return({
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchBusiness: id => dispatch(fetchBusiness(id))
+  fetchBusiness: id => dispatch(fetchBusiness(id)),
+  demoSignIn: (demoUser) => dispatch(demoSignIn(demoUser))
 });
 
 

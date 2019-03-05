@@ -81,7 +81,35 @@
 #temp{
   font-size: 40px;
   font-weight: bold;
+}
 
+.home-body{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.home-restaurant-container{
+  padding-top: 42px;
+  padding-bottom: 90px;
+}
+
+.home-restaurants{
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-restaurant{
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+}
+
+.home-restaurant-photo{
+    height: 180px; 
+    width: 298px;
+    overflow: hidden;
+    border-bottom: 1px solid #e6e6e6;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 

@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import {signOut} from "./actions/session_actions"
 import * as BusinessApiUtil from "./util/business_api_util";
 import {fetchBusiness} from "./actions/business_actions"
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   let preloadedState = undefined;

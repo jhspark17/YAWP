@@ -74,9 +74,10 @@
 #header-word-logo{
   color: black;
   text-decoration-line: none;
-  font-family: "RockoFLF";
+  font-family: "Helvetica Neue", Helvetica, Arial, "sans serif";
   font-weight: bold;
   font-size: 22px;
+  text-shadow: stroke(2, white);
 }
 
 .center-form-container{
@@ -188,7 +189,7 @@
   border: 1px solid ;
   border-radius: 3px;
   background-color: #db0e0e;
-  box-sizing: border-box;;
+  box-sizing: border-box;
 }
 
 .switch{

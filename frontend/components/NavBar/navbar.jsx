@@ -10,10 +10,7 @@
       document.getElementById("myDropdown").classList.toggle("show");
     }
 
-    
-
-
-    loggedIn(){
+     loggedIn(){
       if (this.props.currentUserId) {
         return(
           <div className="nav">
