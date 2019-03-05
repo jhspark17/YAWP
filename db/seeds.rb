@@ -8,21 +8,40 @@
 
 
 ActiveRecord::Base.transaction do
-
   User.destroy_all
   Business.destroy_all
   Category.destroy_all
 
   #USERS
-  demo = User.create!(first_name: "Demo", last_name: "User", email: "demo@email.com", password: "password123", zip_code: 11111)
+    demo = User.create!(first_name: "Demo", last_name: "User", email: "demo@email.com", password: "password123", zip_code: 11111)
+  
   #CATEGORIES
-  asian = Category.create!(name: "Asian")
+    restaurant = Category.create!(name: "Restaurant")
+    boba = Category.create!(name: "Boba")
+    cafe = Category.create!(name: "Cafe")
+  
   #BUSINESS
-  yoyo = Business.create!(business_name: "Yoyo", address_1: "318 Pacific Ave", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152968273", category_id: asian.id)
-  noodle_time = Business.create!(business_name: "Noodle Time", address_1: "605 Battery Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152918866", category_id: asian.id)
-  daniels_test_kitchen = Business.create!(business_name: "Daniel's Test Kitchen", address_1: "133 2nd Street", city: "San Francisco", state: "CA", zip_code: "94105", latitude: 37.787680, longitude: -122.398980, rating: 4, business_info: "New Spot", phone_number: "4156380928", category_id: asian.id)
+    #restaurants
+    yoyo = Business.create!(business_name: "Yoyo", address_1: "318 Pacific Ave", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152968273", category_id: restaurant.id)
+    noodle_time = Business.create!(business_name: "Noodle Time", address_1: "605 Battery Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152918866", category_id: restaurant.id)
+    daniels_test_kitchen = Business.create!(business_name: "Daniel's Test Kitchen", address_1: "133 2nd Street", city: "San Francisco", state: "CA", zip_code: "94105", latitude: 37.787680, longitude: -122.398980, rating: 4, business_info: "New Spot", phone_number: "4156380928", category_id: restaurant.id)
+    #boba
+    e_tea = Business.create!(business_name: "ETea", address_1: "839 Kearny Street", city: "San Francisco", state: "CA", zip_code: "94108", latitude: 37.795830, longitude: -122.405243, rating: 3, business_info: "Colorful Boba", phone_number: "4159561868", category_id: boba.id)
+    boba_butt_tea_house = Business.create!(business_name: "Boba Butt Tea House", address_1: "714 Kearny Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.794640, longitude: -122.404727, rating: 4, business_info: "MMMMMMM", phone_number: "N/A", category_id: boba.id)
+    boba_guys = Business.create!(business_name: "Boba Guys", address_1: "429 Stockton Street", city: "San Francisco", state: "CA", zip_code: "94108", latitude: 37.794640, longitude: -122.404727, rating: 4, business_info: "The Best in Town", phone_number: "4159672622", category_id: boba.id)
+    #cafe
+    jackson_place_cafe = Business.create!(business_name: "Jackson Place Cafe", address_1: "633 Battery Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797230, longitude: -122.401062, rating: 4, business_info: "Your one stop coffee shop", phone_number: "N/A", category_id: cafe.id)
+    the_coffee_movement = Business.create!(business_name: "The Coffee Movement", address_1: "1030 Washington Street", city: "San Francisco", state: "CA", zip_code: "94108", latitude: 37.794745, longitude: -122.410298, rating: 4, business_info: "This is where it begins", phone_number: "N/A", category_id: cafe.id)
+    reveille_coffee_co = Business.create!(business_name: "Reveille Coffee Co", address_1: "200 Columbus Avenue", city: "San Francisco", state: "CA", zip_code: "94133", latitude: 37.797246, longitude: -122.405534, rating: 4, business_info: "Cool cafe, with a very artsy feel", phone_number: "4157896258", category_id: cafe.id)
+
   #BUSINESS_PICTURES
-  noodle_time.photos.attach(io: File.open('./app/assets/images/business/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')
-  yoyo.photos.attach(io: File.open('./app/assets/images/business/Yoyo/Yoyo-1.jpg'), filename: 'yoyo-1.jpg')
-  daniels_test_kitchen.photos.attach(io: File.open('./app/assets/images/business/Daniels-Test-Kitchen/Daniels-Test-Kitchen-1.jpg'), filename: 'daniels-test-kitchen-1.jpg')
+    noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')
+    yoyo.photos.attach(io: File.open('./app/assets/images/business/restaurants/Yoyo/Yoyo-1.jpg'), filename: 'yoyo-1.jpg')
+    daniels_test_kitchen.photos.attach(io: File.open('./app/assets/images/business/restaurants/Daniels-Test-Kitchen/Daniels-Test-Kitchen-1.jpg'), filename: 'daniels-test-kitchen-1.jpg')
+    e_tea.photos.attach(io: File.open('./app/assets/images/business/boba/e-tea/e-tea-1.jpg'), filename: 'e-tea-1.jpg')
+    boba_butt_tea_house.photos.attach(io: File.open('./app/assets/images/business/boba/boba-butt-tea-house/boba-butt-tea-house-1.jpg'), filename: 'boba-butt-tea-house-1.jpg')
+    boba_guys.photos.attach(io: File.open('./app/assets/images/business/boba/boba-guys/boba-guys-1.jpg'), filename: 'boba-guys-1.jpg')
+    jackson_place_cafe.photos.attach(io: File.open('./app/assets/images/business/cafe/jackson-place-cafe/jackson-place-cafe-1.jpg'), filename: 'jackson-place-cafe-1.jpg')
+    the_coffee_movement.photos.attach(io: File.open('./app/assets/images/business/cafe/the-coffee-movement/the-coffee-movement-1.jpg'), filename: 'the-coffee-movement-1.jpg')
+    reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-1.jpg'), filename: 'reveille-coffee-co-1.jpg')
 end

@@ -1,0 +1,40 @@
+.index-main{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+}
+
+.business-index-container{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.business-index{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.business-index-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.business-index-info-left{
+  display: flex;
+  flex-direction: column;
+}
+
+.business-index-info-right{
+  display: flex;
+  flex-direction: column
+}
+
+.business-index-photo img{
+  display: flex;
+  justify-content: flex-start;
+  height: 250px;
+  width: 298px;
+}

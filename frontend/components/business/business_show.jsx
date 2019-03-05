@@ -20,7 +20,9 @@ class BusinessShow extends React.Component {
 
   phoneNumber() {
     let array = this.props.business.phoneNumber.split('');
-
+    if(array[3] === undefined) {
+      return this.props.business.phoneNumber;
+    }
     return `(${array[0]}${array[1]}${array[2]}) ${array[3]}${array[4]}${array[5]}-${array[6]}${array[7]}${array[8]}${array[9]}`
   }
 
@@ -51,8 +53,8 @@ class BusinessShow extends React.Component {
                   </div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
-                    <input type="button" value="Share" />
-                    <input type="button" value="Save" />
+                    <input type="button" id="add-photo" value="Share" />
+                    <input type="button" id="add-photo" value="Save" />
                   </div>
                 </div>
               </div>
@@ -73,14 +75,20 @@ class BusinessShow extends React.Component {
                   {this.phoneNumber()}
                 </div>
               </div>
-              <div>
-                <img src={this.props.business.photos[0]} alt="" />
+              <div className="restaurant-photo">
+                <img  src={this.props.business.photos[0]} alt="" />
               </div>
-              
             </div>
             
           </div>
         </div>
+          <div className="show-body">
+          <div className="temp">REVIEWS COMING SOON!!!!!!</div>
+          <div className="temp">OTHER USEFUL INFORMATION</div>
+          </div>
+        
+            
+        
       </div>
     )
   }

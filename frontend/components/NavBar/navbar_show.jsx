@@ -61,7 +61,7 @@ class NavBarShow extends React.Component {
                 </Link>
               </div>
               <div className="right-side-nav-show">
-                <Link id="signin-nav" to="/signin">Log In</Link>
+                <Link className="show-nav-login" to="/signin">Log In</Link>
                 <Link id="signup-nav" to="/signup">Sign Up</Link>
                 <button id="demo-nav" onClick={this.props.demoSignIn}>Demo Login</button>
               </div>
