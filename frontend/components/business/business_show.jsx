@@ -19,11 +19,16 @@ class BusinessShow extends React.Component {
   }
 
   phoneNumber() {
-    let array = this.props.business.phoneNumber.split('');
-    if(array[3] === undefined) {
+    if(this.props.business.phoneNumber.length < 3) {
       return this.props.business.phoneNumber;
     }
-    return `(${array[0]}${array[1]}${array[2]}) ${array[3]}${array[4]}${array[5]}-${array[6]}${array[7]}${array[8]}${array[9]}`
+    return `(${this.props.business.phoneNumber.slice(0, 3)}) ${this.props.business.phoneNumber.slice(3, 6)}-${this.props.business.phoneNumber.slice(6,10)}`
+  }
+
+  componentDidUpdate(prevProps){
+    if (prevProps.match.params.businessId !== this.props.match.params.businessId) {
+      this.props.fetchBusiness(this.props.match.params.businessId)
+    }
   }
 
 

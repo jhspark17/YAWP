@@ -28,7 +28,6 @@ const BusinessIndexItem = (props) => (
           </div>
       </div>
     </div>
-
   </div>
 )
 

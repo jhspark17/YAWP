@@ -10,21 +10,36 @@ class BusinessIndex extends React.Component {
     this.props.fetchBusinesses();
   }
 
-  render(){
+  phoneNumber(){
+  
+  }
+
+ render(){
     if (!this.props.businesses[0]) {
       return null;
     }
     return(
       <div>
         <NavBarShowContainer />
+        <div className="filter-container">
+          <div className="filter">
+            <div className="filter-right">
+              Best Places in San Francisco
+            </div>
+            <div className="filter-left">
+              Showing 1-9 of 9
+            </div>
+          </div>
+        </div>
         <div className="index-main">
+          <div className="index-left">
           <ul>
           {this.props.businesses.map(business => 
               <BusinessIndexItem business={business} key={business.id} />
             )}
           </ul>
-        
-        <div>
+          </div>
+        <div className="index-right">
           map
         </div>
         </div>
