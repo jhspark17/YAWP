@@ -24,34 +24,38 @@
 }
 
 
-.header-all{
+.header-all-container{
   background-image: url("https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_large_assets/a2a6dfbdce53/assets/img/home/hero_photos/Y52KtIDZeG8aAMBaLIjSlQ.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
+}
+
+.header-all{
+  height: 600px;
 }
 
 .header-body{
   display: flex;
   justify-content: center;
+  flex-direction: column;
   height: 473px;
   color: white;
 }
 
 #logo{
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-self: center;
   font-family: "Helvetica Neue", Helvetica, Arial, "sans serif";
   font-weight: bold;
   height: 80px;
   width: 160px;
   color:  black;
   font-size: 3.5em;
-  padding: 60px;
   text-shadow: stroke(6, white);
-  
+  margin: 0 auto;
+  padding-top: 80px;
   
 }
 
@@ -63,6 +67,56 @@
   color: red;
   margin-left:2px;
 }
+
+.search-bar{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding-top: 40px;
+ width: 100%;
+}
+
+.description{
+  font-weight: 700;
+  color: #666;
+  background-color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.description-submit{
+   font-weight: 700;
+  color: #666;
+  background-color: white;
+  padding: 12px;
+  font-size: 18px;
+  background-color: red;
+}
+
+.border-near{
+  border-left:1px solid lightgrey;
+}
+
+#search-submit{
+    color: #fff;
+    background-color: #d32323;
+    padding: 0;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 4px 4px 0px;
+
+}
+.input{
+  background-color: white;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.find{
+  border-radius: 4px 0 0 4px;
+}
+
 
 .footer{
  display: flex;

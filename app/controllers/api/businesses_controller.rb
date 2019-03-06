@@ -14,8 +14,22 @@ class Api::BusinessesController < ApplicationController
       render json: @business.errors.full_messages, status: 422
     end
   end
+  #api_util have function that send ajax call to your backend
+  #method get
+  #data {search_params: []}
+
+#api/business/search_bidy/id
+
+  def search
+    query = params[:filter][:filter];
+  end
 
   def show
+    #if params has key search_body 
+     #@business = Business.find(search_body)
+     # json.jubiler @builder
+    #entire difreent logi 
+    #else 
     @business = Business.find(params[:id])
     if @business
       render "api/businesses/_show"

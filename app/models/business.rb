@@ -24,8 +24,10 @@ class Business < ApplicationRecord
   validates :business_name, :address_1, :city, :state, :zip_code, :latitude, :longitude, :rating, :business_info, presence: true
   validates :business_name, :address_1, uniqueness: true
 
+  has_one_attached :profile_pic
   has_many_attached :photos
   belongs_to :category
+  has_many :reviews
 end 
 
 

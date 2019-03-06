@@ -1,32 +1,28 @@
 
 
-.nav{
+.nav-container{
   display: flex;
-  justify-content: space-between;
-  text-align: right;
+  justify-content: center;
   padding: 20px ; 
   font-size: 14px;
   font-weight: 700;
   color: white;
-  
 }
 
-#logout-nav{
-  text-align: right;
-  margin-right: 300px;
-  color: white;
-  
+.nav{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0;
+  padding: 0 15px;
+  width: 960px;
 }
 
 .left-side-nav{
   color: inherit;
   display: flex;
-  justify-content: space-around;
-  margin-left: 200px;
-}
-
-.left-side-element{
-  margin: 12px 9px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .right-side-nav{
@@ -34,7 +30,17 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-right: 200px;
+
+}
+
+.left-side-element{
+  margin: 12px 9px;
+}
+
+#logout-nav{
+  text-align: right;
+  color: white;
+
 }
 
 #signin-nav{
@@ -100,10 +106,6 @@
 #demo-nav:hover {
   background-color: white;
   color: #666;
-}
-
-.dropbtn{
-
 }
 
 #signout-nav{

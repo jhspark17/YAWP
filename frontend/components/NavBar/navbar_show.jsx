@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBarContainer from "../searchbar/search_bar_container"
 
 class NavBarShow extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class NavBarShow extends React.Component {
                   </div>
                 </Link>
               </div>
+              <SearchBarContainer />
               <div className="dropdown">
                 <div id="logout-nav-show">
                   <button onClick={this.dropdown} class="dropbtn"><i class="fas fa-user"></i></button>
@@ -75,7 +77,9 @@ class NavBarShow extends React.Component {
                 <div>Other</div>
               </div>
               <div className="under-header-right">
-                <div>All Businesses</div>
+                <div>
+                  All Businesses
+                  </div> 
               </div>
             </div>
           </div>

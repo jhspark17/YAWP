@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBarContainer from "../NavBar/navbar_container";
+import SearchBarContainer from "../searchbar/search_bar_container"
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
@@ -18,9 +19,9 @@ class Home extends React.Component {
     }
     return (
       <div >
-        <header className="header-all">
-          <NavBarContainer />
-          <div className="header-body">
+        <header className="header-all-container">
+          <div className="header-all">
+            <NavBarContainer />
             <div id="logo">
               <div id="word-logo">
                 yawp
@@ -29,6 +30,7 @@ class Home extends React.Component {
                 <i className="fas fa-globe"></i>
               </div>
             </div>
+            <SearchBarContainer />
           </div>
         </header>
         <div className="home-body">

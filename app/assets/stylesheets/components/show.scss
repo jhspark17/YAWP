@@ -64,14 +64,14 @@
 
 .under-header{
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 996;
+  align-content: space-between;
+  justify-content: center;
+  width: 500px;
 }
 
 .under-header-left{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
   text-align: left;
@@ -81,12 +81,9 @@
 
 .under-header-right{
   display: flex;
-  flex-direction: row;
-  text-align: right;
-  overflow: hidden;
-  padding-bottom: 1px;
-  margin-top: -1px;
-  
+  justify-content: flex-end;
+  align-items: center;
+  width: 200px;
 }
 
 .business-header-info-container{
