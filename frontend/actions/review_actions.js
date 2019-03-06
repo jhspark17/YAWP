@@ -12,7 +12,7 @@ const receiveReview = (payload) => ({
 const removeReview = (payload) => ({
   type: REMOVE_REVIEW,
   review: payload.review
-})
+});
 
 export const createReview = review => dispatch => {
   ReviewApiUtil.createReview(review)
