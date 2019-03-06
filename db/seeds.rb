@@ -14,6 +14,11 @@ ActiveRecord::Base.transaction do
 
   #USERS
     demo = User.create!(first_name: "Demo", last_name: "User", email: "demo@email.com", password: "password123", zip_code: 11111)
+    user1 = User.create!(first_name: "Hong", last_name: "Yang", email: "hong@email.com", password: "password123", zip_code: 111111)
+    user2 = User.create!(first_name: "Ivan", last_name: "Kwong", email: "ivan@email.com", password: "password123", zip_code: 111111)
+    user3 = User.create!(first_name: "Darren", last_name: "Yong", email: "darren@email.com", password: "password123", zip_code: 111111)
+    user4 = User.create!(first_name: "Dean", last_name: "Lacap", email: "dean@email.com", password: "password123", zip_code: 111111)
+    user5 = User.create!(first_name: "Aram", last_name: "Sargsyan", email: "aram@email.com", password: "password123", zip_code: 111111)
   
   #CATEGORIES
     restaurant = Category.create!(name: "Restaurant")
@@ -33,6 +38,19 @@ ActiveRecord::Base.transaction do
     jackson_place_cafe = Business.create!(business_name: "Jackson Place Cafe", address_1: "633 Battery Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797230, longitude: -122.401062, rating: 4, business_info: "Your one stop coffee shop", phone_number: "N/A", category_id: cafe.id)
     the_coffee_movement = Business.create!(business_name: "The Coffee Movement", address_1: "1030 Washington Street", city: "San Francisco", state: "CA", zip_code: "94108", latitude: 37.794745, longitude: -122.410298, rating: 4, business_info: "This is where it begins", phone_number: "N/A", category_id: cafe.id)
     reveille_coffee_co = Business.create!(business_name: "Reveille Coffee Co", address_1: "200 Columbus Avenue", city: "San Francisco", state: "CA", zip_code: "94133", latitude: 37.797246, longitude: -122.405534, rating: 4, business_info: "Cool cafe, with a very artsy feel", phone_number: "4157896258", category_id: cafe.id)
+
+  #REVIEWS
+    review1 = Review.create!(body: "Boba Life", user_id: user1.id, business_id: e_tea.id, rating: 4)
+    review2 = Review.create!(body: "It's open late", user_id: user2.id, business_id: noodle_time.id, rating: 3)
+    review3 = Review.create!(body: "Not enough food", user_id: user3.id, business_id: jackson_place_cafe.id, rating: 2)
+    review4 = Review.create!(body: "Trader Joes has better salad", user_id: user4.id, business_id: daniels_test_kitchen.id, rating: 2)
+    review5 = Review.create!(body: "This place is awesome yeah, but its too expensive yeah but a lot of food yeah", user_id: user5.id, business_id: yoyo.id, rating: 4)
+    review6 = Review.create!(body: "My son likes this place", user_id: user4.id, business_id: noodle_time.id, rating: 4)
+    review7 = Review.create!(body: "BOBA FOR LIFE", user_id: user1.id, business_id: boba_guys.id, rating: 4)
+    review8 = Review.create!(body: "This ain't no Vietnamese Coffee", user_id: user3.id, business_id: reveille_coffee_co.id, rating: 4)
+    review9 = Review.create!(body: "They are not on postmates", user_id: user2.id, business_id: the_coffee_movement.id, rating: 2)
+    review10 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
+    
 
   #BUSINESS_PICTURES
     noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')

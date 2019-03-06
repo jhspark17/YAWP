@@ -1,9 +1,11 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
   def index 
   end
 
   def create
     @review = Review.new(review_params)
+   
+    # @review.business_id = params[:business_id]
     
     if @review.save
       render :show
@@ -13,7 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review = Review.find_by(params[:review][:user_id], params[:review][:business_id])
+    @review = Review.find_by(user_id: params[:review][:user_id], business_id: params[:review][:business_id])
     if @review.update_attributes(review_params)
       render :show
     else
@@ -22,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find_by(params[:review][:id])
+    @review = Review.find(params[:id])
 
     if @review
       @review.destroy
@@ -38,6 +40,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body, :rating, :user_id, :business_id)
+    params.require(:review).permit(:body, :rating, :business_id, :user_id)
   end
 end

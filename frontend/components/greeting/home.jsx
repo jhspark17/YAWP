@@ -75,7 +75,7 @@ class Home extends React.Component {
                   <img src={`${this.props.businesses[0].photos}`} alt="" />
                 </div>
                 <div>
-                  <Link to="/businesses/10">Page</Link>
+                  <Link to="/businesses/1">Page</Link>
                 </div>
               </div>
               <div className="home-restaurant">
@@ -84,7 +84,7 @@ class Home extends React.Component {
                   <img src={`${this.props.businesses[3].photos}`} alt="" />
                 </div>
                 <div>
-                  <Link to="/businesses/13">Page</Link>
+                  <Link to="/businesses/3">Page</Link>
                 </div>
               </div>
               <div className="home-restaurant">
@@ -93,7 +93,7 @@ class Home extends React.Component {
                   <img src={`${this.props.businesses[6].photos}`} alt="" />
                 </div>
                 <div>
-                  <Link to="/businesses/16">Page</Link>
+                  <Link to="/businesses/6">Page</Link>
                 </div>
               </div>
             </div>
