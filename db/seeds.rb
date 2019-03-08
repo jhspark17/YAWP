@@ -52,19 +52,7 @@ ActiveRecord::Base.transaction do
     review10 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
     review11 = Review.create!(body: "I'd rather go to McDonalds", user_id: user1.id, business_id: noodle_time.id, rating: 1)
     
-    
-    review12 = Review.create!(body: "Boba Life", user_id: user1.id, business_id: e_tea.id, rating: 4)
-    review13 = Review.create!(body: "It's open late", user_id: user2.id, business_id: noodle_time.id, rating: 3)
-    review14 = Review.create!(body: "Not enough food", user_id: user3.id, business_id: jackson_place_cafe.id, rating: 2)
-    review15 = Review.create!(body: "Trader Joes has better salad", user_id: user4.id, business_id: daniels_test_kitchen.id, rating: 2)
-    review16 = Review.create!(body: "This place is awesome yeah, but its too expensive yeah but a lot of food yeah", user_id: user5.id, business_id: yoyo.id, rating: 4)
-    review17 = Review.create!(body: "My son likes this place", user_id: user4.id, business_id: noodle_time.id, rating: 4)
-    review18 = Review.create!(body: "BOBA FOR LIFE", user_id: user1.id, business_id: boba_guys.id, rating: 4)
-    review19 = Review.create!(body: "This ain't no Vietnamese Coffee", user_id: user3.id, business_id: reveille_coffee_co.id, rating: 4)
-    review20 = Review.create!(body: "They are not on postmates", user_id: user2.id, business_id: the_coffee_movement.id, rating: 2)
-    review21 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
-    review22 = Review.create!(body: "I'd rather go to McDonalds", user_id: user1.id, business_id: noodle_time.id, rating: 1)
-    
+
 
   #BUSINESS_PICTURES
     noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')
