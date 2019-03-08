@@ -8,10 +8,11 @@ const receiveBusinesses = (businesses) => ({
   businesses
 });
 
-const receiveBusiness = (business) => ({
+const receiveBusiness = (payload) => ({
   type: RECEIVE_BUSINESS,
-  business
+  payload
 });
+
 
 export const fetchBusinesses = () => dispatch => (
   BusinessApiUtil.fetchBusinesses()
@@ -22,3 +23,8 @@ export const fetchBusiness = (id) => dispatch => (
   BusinessApiUtil.fetchBusiness(id)
   .then(business => dispatch(receiveBusiness(business)))
 );
+
+export const searchBusinesses = (search) => dispatch => (
+  BusinessApiUti.searchBusinesses(search)
+  .then(businesses => dispatch(foundBusinesses(businesses)))
+)

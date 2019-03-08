@@ -7,11 +7,14 @@ import {demoSignIn} from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const businessId = ownProps.match.params.businessId;
-    
+  const reviews = Object.values(state.entities.reviews);
+  const users = Object.values(state.entities.users)
+  
 return({
   currentUser: state.entities.users[state.session.id],
   business: state.entities.businesses[businessId],
-  businessId
+  reviews,
+  users,
 });
 };
 

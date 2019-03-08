@@ -32,7 +32,7 @@ class Api::BusinessesController < ApplicationController
     #else 
     @business = Business.find(params[:id])
     if @business
-      render "api/businesses/_show"
+      render "api/businesses/show"
     else
       render json: @business.errors.full_messages, status: 422
     end

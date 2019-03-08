@@ -56,6 +56,7 @@
   text-shadow: stroke(6, white);
   margin: 0 auto;
   padding-top: 80px;
+  padding-bottom: 30px;
   
 }
 
@@ -72,8 +73,8 @@
  display: flex;
  flex-direction: row;
  justify-content: center;
- padding-top: 40px;
- width: 100%;
+ width: 70%;
+ margin: 0 auto;
 }
 
 .description{
@@ -82,10 +83,12 @@
   background-color: white;
   padding: 12px;
   font-size: 18px;
+  justify-content: center;
+  align-items: center;
 }
 
 .description-submit{
-   font-weight: 700;
+  font-weight: 700;
   color: #666;
   background-color: white;
   padding: 12px;
@@ -95,13 +98,15 @@
 
 .border-near{
   border-left:1px solid lightgrey;
+  display: flex;
+  
 }
 
 #search-submit{
     color: #fff;
     background-color: #d32323;
     padding: 0;
-    width: 64px;
+    width: 54px;
     display: flex;
     justify-content: center;
     border-radius: 0px 4px 4px 0px;
@@ -115,6 +120,7 @@
 
 .find{
   border-radius: 4px 0 0 4px;
+  display: flex;
 }
 
 
@@ -155,16 +161,23 @@
   padding-top: 10px;
 }
 
+.city-names-container{
+  display: flex;
+  justify-content: center;  
+}
+
 .city-names{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
   border-bottom: 1px solid #ccc;
   padding: 10px 10px;
+  width: 400px;
+  
 }
 
 .home-restaurant-container{
-  padding-top: 42px;
+  padding-top: 32px;
   padding-bottom: 90px;
 }
 
@@ -200,12 +213,13 @@
   font-size: 20px;
   color: rgb(211, 35, 35);
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .home-restaurant-photo img{
   display: flex;
   justify-content: space-between;
+  object-fit: cover;
   height: 250px;
   width: 298px;
 }
@@ -223,6 +237,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.left-side-search{
+   color: #666;
+   background-color: #F1F2F1;
+   padding: 15px;
+   font-size: 16px;
+   width: 300px;
+  
+   border: none;
+   outline: none;
+}
+
+.middle-search{
+  color: #666;
+  background-color: #F1F2F1;
+  padding: 15px;
+  font-size: 16px;
+  width: 150px;
+  border: none;
+  outline: none;
+}
+
+.home-business-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 12px;
+}
+
+.title-business-description{
+  color: #0073bb;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  font-family:"Open Sans", sans-serif;
+  padding-top: 2px;
+}
+
+.category-business-description{
+  font-size: 16px;
+  color: #333;
+  margin-top: 6px;
 }
 
 

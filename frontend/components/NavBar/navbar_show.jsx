@@ -40,7 +40,7 @@ class NavBarShow extends React.Component {
             <div className="under-header">
               <div className="under-header-left">
                 <div>Food</div>
-                <div>Drinks</div>
+                <div id="under-header-left-middle">Drinks</div>
                 <div>Other</div>
               </div>
               <div className="under-header-right">
@@ -62,9 +62,8 @@ class NavBarShow extends React.Component {
                   </div>
                 </Link>
               </div>
+              <SearchBarContainer />
               <div className="right-side-nav-show">
-                <Link className="show-nav-login" to="/signin">Log In</Link>
-                <Link id="signup-nav" to="/signup">Sign Up</Link>
                 <button id="demo-nav" onClick={this.props.demoSignIn}>Demo Login</button>
               </div>
             </div>
@@ -73,7 +72,9 @@ class NavBarShow extends React.Component {
             <div className="under-header">
               <div className="under-header-left">
                 <div>Food</div>
-                <div>Drinks</div>
+                <div id="under-header-left-middle">
+                  Drinks
+                </div>
                 <div>Other</div>
               </div>
               <div className="under-header-right">

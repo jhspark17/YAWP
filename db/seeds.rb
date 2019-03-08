@@ -27,7 +27,7 @@ ActiveRecord::Base.transaction do
   
   #BUSINESS
     #restaurants
-    yoyo = Business.create!(business_name: "Yoyo", address_1: "318 Pacific Ave", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152968273", category_id: restaurant.id)
+    yoyo = Business.create!(business_name: "Yo Yo's", address_1: "318 Pacific Ave", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152968273", category_id: restaurant.id)
     noodle_time = Business.create!(business_name: "Noodle Time", address_1: "605 Battery Street", city: "San Francisco", state: "CA", zip_code: "94111", latitude: 37.797729, longitude: -122.401237, rating: 4, business_info: "Delicious and Cheap", phone_number: "4152918866", category_id: restaurant.id)
     daniels_test_kitchen = Business.create!(business_name: "Daniel's Test Kitchen", address_1: "133 2nd Street", city: "San Francisco", state: "CA", zip_code: "94105", latitude: 37.787680, longitude: -122.398980, rating: 4, business_info: "New Spot", phone_number: "4156380928", category_id: restaurant.id)
     #boba
@@ -50,16 +50,48 @@ ActiveRecord::Base.transaction do
     review8 = Review.create!(body: "This ain't no Vietnamese Coffee", user_id: user3.id, business_id: reveille_coffee_co.id, rating: 4)
     review9 = Review.create!(body: "They are not on postmates", user_id: user2.id, business_id: the_coffee_movement.id, rating: 2)
     review10 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
+    review11 = Review.create!(body: "I'd rather go to McDonalds", user_id: user1.id, business_id: noodle_time.id, rating: 1)
+    
+    
+    review12 = Review.create!(body: "Boba Life", user_id: user1.id, business_id: e_tea.id, rating: 4)
+    review13 = Review.create!(body: "It's open late", user_id: user2.id, business_id: noodle_time.id, rating: 3)
+    review14 = Review.create!(body: "Not enough food", user_id: user3.id, business_id: jackson_place_cafe.id, rating: 2)
+    review15 = Review.create!(body: "Trader Joes has better salad", user_id: user4.id, business_id: daniels_test_kitchen.id, rating: 2)
+    review16 = Review.create!(body: "This place is awesome yeah, but its too expensive yeah but a lot of food yeah", user_id: user5.id, business_id: yoyo.id, rating: 4)
+    review17 = Review.create!(body: "My son likes this place", user_id: user4.id, business_id: noodle_time.id, rating: 4)
+    review18 = Review.create!(body: "BOBA FOR LIFE", user_id: user1.id, business_id: boba_guys.id, rating: 4)
+    review19 = Review.create!(body: "This ain't no Vietnamese Coffee", user_id: user3.id, business_id: reveille_coffee_co.id, rating: 4)
+    review20 = Review.create!(body: "They are not on postmates", user_id: user2.id, business_id: the_coffee_movement.id, rating: 2)
+    review21 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
+    review22 = Review.create!(body: "I'd rather go to McDonalds", user_id: user1.id, business_id: noodle_time.id, rating: 1)
     
 
   #BUSINESS_PICTURES
     noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')
+    noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-2.jpg'), filename: 'noodle-time-2.jpg')
+    noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-3.jpg'), filename: 'noodle-time-3.jpg')
     yoyo.photos.attach(io: File.open('./app/assets/images/business/restaurants/Yoyo/Yoyo-1.jpg'), filename: 'yoyo-1.jpg')
+    yoyo.photos.attach(io: File.open('./app/assets/images/business/restaurants/Yoyo/Yoyo-2.jpg'), filename: 'yoyo-2.jpg')
+    yoyo.photos.attach(io: File.open('./app/assets/images/business/restaurants/Yoyo/Yoyo-3.jpg'), filename: 'yoyo-3.jpg')
     daniels_test_kitchen.photos.attach(io: File.open('./app/assets/images/business/restaurants/Daniels-Test-Kitchen/Daniels-Test-Kitchen-1.jpg'), filename: 'daniels-test-kitchen-1.jpg')
+    daniels_test_kitchen.photos.attach(io: File.open('./app/assets/images/business/restaurants/Daniels-Test-Kitchen/Daniels-Test-Kitchen-2.jpg'), filename: 'daniels-test-kitchen-2.jpg')
+    daniels_test_kitchen.photos.attach(io: File.open('./app/assets/images/business/restaurants/Daniels-Test-Kitchen/Daniels-Test-Kitchen-3.jpg'), filename: 'daniels-test-kitchen-3.jpg')
     e_tea.photos.attach(io: File.open('./app/assets/images/business/boba/e-tea/e-tea-1.jpg'), filename: 'e-tea-1.jpg')
+    e_tea.photos.attach(io: File.open('./app/assets/images/business/boba/e-tea/e-tea-2.jpg'), filename: 'e-tea-2.jpg')
+    e_tea.photos.attach(io: File.open('./app/assets/images/business/boba/e-tea/e-tea-3.jpg'), filename: 'e-tea-3.jpg')
     boba_butt_tea_house.photos.attach(io: File.open('./app/assets/images/business/boba/boba-butt-tea-house/boba-butt-tea-house-1.jpg'), filename: 'boba-butt-tea-house-1.jpg')
+    boba_butt_tea_house.photos.attach(io: File.open('./app/assets/images/business/boba/boba-butt-tea-house/boba-butt-tea-house-2.jpg'), filename: 'boba-butt-tea-house-2.jpg')
+    boba_butt_tea_house.photos.attach(io: File.open('./app/assets/images/business/boba/boba-butt-tea-house/boba-butt-tea-house-3.jpg'), filename: 'boba-butt-tea-house-3.jpg')
     boba_guys.photos.attach(io: File.open('./app/assets/images/business/boba/boba-guys/boba-guys-1.jpg'), filename: 'boba-guys-1.jpg')
+    boba_guys.photos.attach(io: File.open('./app/assets/images/business/boba/boba-guys/boba-guys-2.jpg'), filename: 'boba-guys-2.jpg')
+    boba_guys.photos.attach(io: File.open('./app/assets/images/business/boba/boba-guys/boba-guys-3.jpg'), filename: 'boba-guys-3.jpg')
     jackson_place_cafe.photos.attach(io: File.open('./app/assets/images/business/cafe/jackson-place-cafe/jackson-place-cafe-1.jpg'), filename: 'jackson-place-cafe-1.jpg')
+    jackson_place_cafe.photos.attach(io: File.open('./app/assets/images/business/cafe/jackson-place-cafe/jackson-place-cafe-2.jpg'), filename: 'jackson-place-cafe-2.jpg')
+    jackson_place_cafe.photos.attach(io: File.open('./app/assets/images/business/cafe/jackson-place-cafe/jackson-place-cafe-3.jpg'), filename: 'jackson-place-cafe-3.jpg')
     the_coffee_movement.photos.attach(io: File.open('./app/assets/images/business/cafe/the-coffee-movement/the-coffee-movement-1.jpg'), filename: 'the-coffee-movement-1.jpg')
+    the_coffee_movement.photos.attach(io: File.open('./app/assets/images/business/cafe/the-coffee-movement/the-coffee-movement-2.jpg'), filename: 'the-coffee-movement-2.jpg')
+    the_coffee_movement.photos.attach(io: File.open('./app/assets/images/business/cafe/the-coffee-movement/the-coffee-movement-3.jpg'), filename: 'the-coffee-movement-3.jpg')
     reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-1.jpg'), filename: 'reveille-coffee-co-1.jpg')
+    reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-2.jpg'), filename: 'reveille-coffee-co-2.jpg')
+    reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-3.jpg'), filename: 'reveille-coffee-co-3.jpg')
 end

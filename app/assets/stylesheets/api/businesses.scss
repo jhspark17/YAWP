@@ -1,3 +1,31 @@
 // Place all the styles related to the api/businesses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.business-index{
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-index-photo img{
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 18px;
+}
+
+.business-index-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-index-info-left{
+  width: 252px;
+}

@@ -16,12 +16,16 @@ class Api::ReviewsController < ApplicationController
 
   def update
     @review = Review.find_by(user_id: params[:review][:user_id], business_id: params[:review][:business_id])
-    if @review.update_attributes(review_params)
+    
+    if @review.user_id != current_user.id
+      render :show
+    elsif @review.update_attributes(review_params)
       render :show
     else
       render json: @review.errors.full_messages, status: 422
     end
   end
+
 
   def destroy
     @review = Review.find(params[:id])

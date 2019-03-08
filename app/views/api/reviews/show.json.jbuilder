@@ -1,6 +1,5 @@
-
 json.review do
-  json.extract! @review, :id, :body, :user_id, :business_id
+json.partial! 'api/reviews/review', review: @review
 end
 
 json.user do

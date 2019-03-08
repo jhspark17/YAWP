@@ -20,5 +20,12 @@ export const fetchBusinesses = () => (
   })
 );
 
+export const searchBusinesses = (search) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/businesses/?search=${search}`
+  })
+);
+
 
 

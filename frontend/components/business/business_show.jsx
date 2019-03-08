@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarShowContainer from '../NavBar/navbar_show_container';
+import Review from './review';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
 class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
+
+    let businessId = this.props.match.params.businessId;
   }
   componentDidMount() {
-    this.props.fetchBusiness(this.props.businessId);
+    this.props.fetchBusiness(this.props.match.params.businessId);
   }
 
-  ratingSign() {
+  costSign() {
     let dollarSign = [];
     for (let i = 0; i < this.props.business.rating; i++) {
       dollarSign.push('$');
@@ -19,18 +23,47 @@ class BusinessShow extends React.Component {
   }
 
   phoneNumber() {
-    if(this.props.business.phoneNumber.length < 3) {
+    if (this.props.business.phoneNumber.split('').length < 3) {
       return this.props.business.phoneNumber;
     }
-    return `(${this.props.business.phoneNumber.slice(0, 3)}) ${this.props.business.phoneNumber.slice(3, 6)}-${this.props.business.phoneNumber.slice(6,10)}`
+    return `(${this.props.business.phoneNumber.slice(0, 3)}) ${this.props.business.phoneNumber.slice(3, 6)}-${this.props.business.phoneNumber.slice(6, 10)}`
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (prevProps.match.params.businessId !== this.props.match.params.businessId) {
       this.props.fetchBusiness(this.props.match.params.businessId)
     }
   }
 
+  getStars(num) {
+    let stars = [];
+
+    for (let i = 0; i < num; i++) {
+      stars.push(<div key={i} className={`mystar fa fa-star checked`}></div>);
+    }
+    return (stars);
+  }
+
+
+  hasReview() {
+    if (this.props.currentUser === undefined) {
+      return (
+        <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+      )
+    }
+
+    for (let i = 0; i < this.props.users.length; i++) {
+      let userId = this.props.users[i].user_id;
+      if (userId === this.props.currentUser.id) {
+        return (
+          <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+        )
+      }
+    }
+    return (
+      <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+    )
+  }
 
 
   render() {
@@ -48,13 +81,16 @@ class BusinessShow extends React.Component {
                   <div>
                     {this.props.business.businessName}
                   </div>
+                  <div>
+                    {this.getStars(this.props.business.rating)}
+                  </div>
                   <div id="rating-sign">
-                    {this.ratingSign()}
+                    {this.costSign()}
                   </div>
                 </div>
                 <div className="under-header-right">
                   <div>
-                    <input id="write-a-review" type="button" value="Write a Review" />
+                    {this.hasReview()}
                   </div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
@@ -65,36 +101,62 @@ class BusinessShow extends React.Component {
               </div>
             </div>
           </div>
-          <div className="info-pictures-container">
-            <div className="info-pictures">
-              <div className="mapbox-container">
-              <div className="mapbox">
-                <div>
-                    <img alt="Map" height="135" src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk=" width="286" />
+          <div className="outer">
+            <div className="info-pictures-container">
+              <div className="info-pictures">
+                <div className="mapbox-container">
+                  <div className="mapbox">
+                    <div>
+                      <img alt="Map" height="135" src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk=" width="286" />
+                    </div>
+                  </div>
+                  <div>
+                    {this.props.business.address1}
+                  </div>
+                  <div>
+                    {`${this.props.business.city}, ${this.props.business.state} ${this.props.business.zipCode}`}
+                  </div>
+                  <div>
+                    {this.phoneNumber()}
+                  </div>
                 </div>
-              </div>
-                <div>
-                  {this.props.business.address1}
-                </div>
-                <div>
-                  {this.phoneNumber()}
-                </div>
-              </div>
-              <div className="restaurant-photo">
-                <img  src={this.props.business.photos[0]} alt="" />
               </div>
             </div>
-            
+            <div className="restaurant-photo">
+              <img src={this.props.business.photos[0]} />
+              <img src={this.props.business.photos[1]} />
+              <img src={this.props.business.photos[2]} />
+            </div>
           </div>
         </div>
-          <div className="show-body">
-          <div className="temp">REVIEWS COMING SOON!!!!!!</div>
-          <div className="temp">OTHER USEFUL INFORMATION</div>
+        <div className="show-body">
+          <div className="body-header">
+            <h2 className="top-recommended">
+              {"Recommended Reviews "}
+            </h2>
+            <div className="business-name-review">
+              {` for ${this.props.business.businessName}`}
+            </div>
           </div>
-        
+          <div className="comments-more-information">
             
-        
+            <ul>
+              {this.props.reviews.map(review =>
+                <Review review={review} key={review.id} />
+              )}
+            </ul>
+           
+            <div>
+              fake-information
+            </div>
+          </div>
+          
+        </div>
       </div>
+
+
+
+ 
     )
   }
 }

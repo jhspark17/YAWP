@@ -8,6 +8,8 @@ import BusinessIndexContainer from '../components/business/business_index_contai
 import Home from '../components/greeting/home'
 import Footer from "../components/footer/footer";
 import {AuthRoute, ProtectedRoute} from "../util/route_util";
+import CreateReviewContainer from'./business/create_review._container';
+import EditReviewContainer from './business/edit_review_container';
 
 const App = () => (
   <div>
@@ -16,7 +18,9 @@ const App = () => (
     <Route exact path="/businesses" component={BusinessIndexContainer} />
     <AuthRoute path="/signin" component={SignInContainer} />
     <AuthRoute path="/signup" component={SignUpContainer} />
-    <Route path="/businesses/:businessId" component={BusinessShowContainer} />
+    <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+    <Route path="/businesses/:businessId/reviews" component={CreateReviewContainer} />
+    <Route path ="/businesses/:businessId/review/:reviewId" component={EditReviewContainer} />
     <Route path ="/" component={Home}/>
     </Switch>
     <Footer />

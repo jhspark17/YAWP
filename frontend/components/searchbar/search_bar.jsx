@@ -1,32 +1,23 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 
 class SearchBar extends React.Component {
   constructor(props){
     super(props);
   }
 
-  update(){
-
-  }
 
 
   render(){
     return(
      <form className="search-bar" >
-      <div>
+      
         <span className="description find">Find</span>
-          <span className="description input ">
-        <input type="text" onChange={this.update('query')} placeholder="burgers,boba,coffee..." />
-          </span>
-        </div>
-        <div>
+        <input className="left-side-search" type="text" placeholder="burgers,boba,coffee..." />
         <span className="description border-near ">Near</span>
-          <span className="description "> 
-        <input type="text"/>
-          </span>
-        </div>
-          <button id="search-submit"  type="submit"><i  class="material-icons">search</i></button>
+        <input className="middle-search" type="text" placeholder="App Academy"/>
+        
+        <button id="search-submit" type="submit"><Link to="/businesses"><i class="material-icons">search</i></Link></button>
      </form>
     )
   }

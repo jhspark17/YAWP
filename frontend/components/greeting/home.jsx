@@ -14,7 +14,8 @@ class Home extends React.Component {
 
 
   render() {
-    if (!this.props.businesses[0]) {
+
+    if (this.props.businesses.length === 0) {
       return null
     }
     return (
@@ -33,67 +34,74 @@ class Home extends React.Component {
             <SearchBarContainer />
           </div>
         </header>
+        <div className="business-index-home-container">
+          <div className="business-index-home">
+            <Link to="/businesses"><img src="" alt="" /></Link>
+          </div>
+        </div>
         <div className="home-body">
           <div className="san-francisco">
             <div>Yelp in San Francisco</div>
           </div>
-          <div className="city-names">
-            <div>
-              Los Angeles
+          <div className="city-names-container">
+            <div className="city-names">
+              <div>
+                Los Angeles
                 </div>
-            <div>
-              New York
+              <div>
+                New York
                 </div>
-            <div>
-              Seoul
+              <div>
+                Seoul
                 </div>
-            <div>
-              London
+              <div>
+                London
                 </div>
-            <div>
-              Rome
+              <div>
+                Rome
                 </div>
-          </div>
-          <div>
-            <div className="business-index-home-container">
-              <div className="business-index-home">
                 <div>
-                  
+                  Oakland
                 </div>
-                <Link to="/businesses"><i class="material-icons">business</i></Link>
-              </div>
             </div>
           </div>
+          <div>
+
+          </div>
           <div className="top-restaurants-in-sf">
-            <div>Top Restaurants in San Francisco</div>
+            <div>Top Spots</div>
           </div>
           <div className="home-restaurant-container">
             <div className="home-restaurants" >
               <div className="home-restaurant">
-                <div className="title-home">{this.props.businesses[0].businessName}</div>
                 <div className="home-restaurant-photo">
                   <img src={`${this.props.businesses[0].photos}`} alt="" />
                 </div>
-                <div>
-                  <Link to="/businesses/1">Page</Link>
+                <div className="home-business-description">
+                  <Link className="title-business-description" to="/businesses/1">{this.props.businesses[0].businessName}</Link>
+                  <div className="category-business-description">Japanese</div>
+                  <div className="category-business-description">Embarcadero</div>
                 </div>
               </div>
               <div className="home-restaurant">
-                <div className="title-home">{this.props.businesses[3].businessName}</div>
                 <div className="home-restaurant-photo">
                   <img src={`${this.props.businesses[3].photos}`} alt="" />
                 </div>
-                <div>
-                  <Link to="/businesses/3">Page</Link>
+                <div className="home-business-description">
+                  <Link to="/businesses/3" className="title-business-description">{this.props.businesses[3].businessName}</Link>
+                  <div className="category-business-description">Boba</div>
+                  <div className="category-business-description">Chinatown</div>
                 </div>
               </div>
               <div className="home-restaurant">
-                <div className="title-home">{this.props.businesses[6].businessName}</div>
+                <div className="title-home"></div>
                 <div className="home-restaurant-photo">
                   <img src={`${this.props.businesses[6].photos}`} alt="" />
                 </div>
-                <div>
-                  <Link to="/businesses/6">Page</Link>
+                <div className="home-business-description">
+                  <Link to="/businesses/6" className="title-business-description">{this.props.businesses[6].businessName}</Link>
+                  <div className="category-business-description">Cafe</div>
+                  <div className="category-business-description">North Beach</div>
                 </div>
               </div>
             </div>
