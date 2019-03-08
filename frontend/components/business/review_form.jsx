@@ -23,7 +23,6 @@ class ReviewForm extends React.Component {
   onSubmit(e){
     e.preventDefault();
     this.props.action(this.state)
-      .then(() => this.props.history.push(`/businesses/${businessId}`))
   }
 
   update(field) {
@@ -50,7 +49,9 @@ class ReviewForm extends React.Component {
             <textarea name="" id="" cols="800" rows="10" placeholder="IM FUCKED" onChange={this.update("body")}>
             
             </textarea>
+            <Link to={`/businesses/${this.props.businessId}`}>
             <input type="submit" value={this.props.formType}/>
+            </Link>
           </form>
         </div>
       </>

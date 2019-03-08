@@ -45,31 +45,32 @@ class BusinessShow extends React.Component {
   }
 
 
-  hasReview() {
-    if (this.props.currentUser === undefined) {
-      return (
-        <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
-      )
-    }
+  // hasReview() {
+  //   if (!this.props.currentUser) {
+  //     return (
+  //       <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+  //     )
+  //   }
 
-    for (let i = 0; i < this.props.users.length; i++) {
-      let userId = this.props.users[i].user_id;
-      if (userId === this.props.currentUser.id) {
-        return (
-          <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
-        )
-      }
-    }
-    return (
-      <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
-    )
-  }
+  //   for (let i = 0; i < this.props.users.length; i++) {
+  //     let userId = this.props.users[i].userId;
+  //     if (userId === this.props.currentUser.id) {
+  //       return (
+  //         <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+  //       )
+  //     }
+  //   }
+  //   return (
+      
+  //   )
+  // }
 
 
   render() {
     if (this.props.business === undefined) {
       return "";
     }
+    console.log(this.props.users[0].picture)
     return (
       <div>
         <NavBarShowContainer />
@@ -90,7 +91,7 @@ class BusinessShow extends React.Component {
                 </div>
                 <div className="under-header-right">
                   <div>
-                    {this.hasReview()}
+                    <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
                   </div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
@@ -130,6 +131,7 @@ class BusinessShow extends React.Component {
           </div>
         </div>
         <div className="show-body">
+          <div className="main-body-content">
           <div className="body-header">
             <h2 className="top-recommended">
               {"Recommended Reviews "}
@@ -142,14 +144,15 @@ class BusinessShow extends React.Component {
             
             <ul>
               {this.props.reviews.map(review =>
-                <Review review={review} key={review.id} />
+                <Review users={this.props.users} review={review} key={review.id} />
               )}
             </ul>
-           
-            <div>
-              fake-information
             </div>
           </div>
+            <div>
+             
+            </div>
+          
           
         </div>
       </div>

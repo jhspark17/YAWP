@@ -1,20 +1,48 @@
 import React from 'react';
 
-const Review = props =>(
-<>
-  <div className="comment-box-container">
-    <div className="comment-box-profile">
-      <img class="review-user-pic" src="/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc0FCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ab90ae0a3c84b5604da4be11da5916a5f2059408/demo.png"></img>
-      
-    </div>
-      <div className="comment-box-body">
-        <div className="comment-box-rating-date">
-        </div>
-          <div className="comment-box-body">
-            {props.review.body}
+
+class Review extends React.Component{
+  constructor(props){
+    super(props)
+    
+  }
+
+  findUser(){
+   
+   for (let i = 0; i < this.props.users.length; i ++) {
+     let user = this.props.users[i];
+     let id = user.id
+    
+     
+     if (id === this.props.review.userId) {
+        return user;
+     }
+   }
+  
+  }
+
+  render(){
+    let current = this.findUser();
+    let picture = current.picture
+    return(
+      <>
+        <div className="comment-box-container">
+          <div className="comment-box-profile">
+            <img class="review-user-pic" src={picture}></img>
+            <div>{`${current.firstName}`}</div>
           </div>
-      </div>
-  </div>
-</>
-)
+          <div className="comment-box-body">
+            <div className="comment-box-rating-date">
+              
+            </div>
+            <div >
+              {this.props.review.body}
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  }
+}
+
 export default Review

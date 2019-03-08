@@ -206,7 +206,7 @@
 
 .show-body{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   max-width: 960px;
   margin: 0 auto;
   padding-top: 20px;
@@ -240,6 +240,8 @@
   border-bottom: 1px solid #e6e6e6;
   display: flex;
   flex-direction: row;
+  width: inherit;
+  
 }
 
 .comment-box-profile-picture{
@@ -250,8 +252,17 @@
 }
 
 .comment-box-profile{
-  
+  display: flex;
+  flex-direction: row;
   flex: 1;
+  padding-right: 40px;
+}
+
+.review-user-pic{
+  margin-right: 9px;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
 }
 
 .comment-box-body{
@@ -270,6 +281,12 @@
   font-size: 14px;
 }
 
+.main-body-content{
+  flex: 2;
+  min-width: 660px;
+  padding-right: 30px;
+  border-right: 1px solid #e6e6e6;
+}
 
 
 

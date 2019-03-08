@@ -19,8 +19,9 @@ ActiveRecord::Base.transaction do
     user3 = User.create!(first_name: "Darren", last_name: "Yong", email: "darren@email.com", password: "password123", zip_code: 111111)
     user4 = User.create!(first_name: "Dean", last_name: "Lacap", email: "dean@email.com", password: "password123", zip_code: 111111)
     user5 = User.create!(first_name: "Aram", last_name: "Sargsyan", email: "aram@email.com", password: "password123", zip_code: 111111)
-  
-  #CATEGORIES
+    user6 = User.create!(first_name: "Vanessa", last_name: "Chen", email: "vanessa@email.com", password: "password123", zip_code: 111111)
+    user7 = User.create!(first_name: "Brent", last_name: "Buneman", email: "brent@email.com", password: "password123", zip_code: 111111)
+    #CATEGORIES
     restaurant = Category.create!(name: "Restaurant")
     boba = Category.create!(name: "Boba")
     cafe = Category.create!(name: "Cafe")
@@ -40,7 +41,6 @@ ActiveRecord::Base.transaction do
     reveille_coffee_co = Business.create!(business_name: "Reveille Coffee Co", address_1: "200 Columbus Avenue", city: "San Francisco", state: "CA", zip_code: "94133", latitude: 37.797246, longitude: -122.405534, rating: 4, business_info: "Cool cafe, with a very artsy feel", phone_number: "4157896258", category_id: cafe.id)
 
   #REVIEWS
-    review1 = Review.create!(body: "Boba Life", user_id: user1.id, business_id: e_tea.id, rating: 4)
     review2 = Review.create!(body: "It's open late", user_id: user2.id, business_id: noodle_time.id, rating: 3)
     review3 = Review.create!(body: "Not enough food", user_id: user3.id, business_id: jackson_place_cafe.id, rating: 2)
     review4 = Review.create!(body: "Trader Joes has better salad", user_id: user4.id, business_id: daniels_test_kitchen.id, rating: 2)
@@ -52,7 +52,33 @@ ActiveRecord::Base.transaction do
     review10 = Review.create!(body: "Yeah Yeah Yeah", user_id: user5.id, business_id: boba_butt_tea_house.id, rating: 5)
     review11 = Review.create!(body: "I'd rather go to McDonalds", user_id: user1.id, business_id: noodle_time.id, rating: 1)
     
-
+    review1 = Review.create!(body: "These days, there is no shortage of new drink places, specifically boba and tea shops.  Guess it makes sense since global warming has set in as weather is craaazy everywhere. Walking by, there is often lines emanating 
+    from this small shop in the middle of this block.  Conveniently located a half block from the Financial District Hilton Hotel, my friend and I were fortunate to walk by when the shop was empty.  Being parched, I looked for something icy so the Winnie the Pooh (yelp.com/user_local_phot…) on the menu caught my eye.  After asking about size, sweetness level, and the amount of ice, my drink was ready about five minutes later.  Being conservative on the ice level, I found the drink just temperature cool and made a note to increase the ice level next visit.  It was tasty and not overly sweet.  
+    The cashier was efficient and cordial though a bit on the cold side.  No complaints here and now I understand the reason for the lines given the location.  The flavors seems to be more tropical and have less of an emphasis on the milk tea drinks.",
+    user_id: user1.id, business_id: e_tea.id, rating: 4)
+    review12 = Review.create!(body: "A pretty standard bubble tea spot. I'm pretty sure this is owned by enjoy veggie next door since the only thing separately them is a thin wall that is detachable. Also when we paid with card, it was charged to enjoy veggie. 
+    I was drawn to this place from their cute reusable cups but we ended up just getting the plain cups since we probably wouldn't keep the reusable cups. My boyfriend and I got the regular fruit teas. Drinks were okay, standard, not bad and not great. ", 
+    user_id: demo.id, business_id: e_tea.id, rating: 4)
+    review13 = Review.create!(body: "Tiny hole in the wall spot with various combination flavors. Looks like they're popular for their concoctions of different teas with different jelly. I ordered the M&M (mango + matcha) with clear boba. The drink itself was good but the boba was different. It wasnt in a full ball form and it was stuck together which makes me believe it wasn't fresh. 
+    Not the best place I've tried but definitely glad I did. If I happen to come again, I'd order the winnie the pooh since that seems to be a popular choice.", 
+    user_id: user2.id, business_id: e_tea.id, rating: 4)
+    review14 = Review.create!(body: "Just okay. First time trying this spot and I'm a little underwhelmed. Maybe I didn't order the right drink? 
+    I got the caramel ice milk tea at 75% sweetness with regular ice. This drink was sweet. Even at 75%, it tasted like 110%. And, the drink barely had any ice in it. That could've been why it didn't taste as refreshing. 
+    Maybe, I'll give it a try again but only if I see it. Not a place I seek nor dislike. It's average.", 
+    user_id: user3.id, business_id: e_tea.id, rating: 4)
+    review15 = Review.create!(body: "Small but cute and compact. The cow logo was what caught my attention at first, but they have a surprisingly large selection of drinks. I hesitated between the Winnie the Pooh and just a regular, so I went with the House boba to be safe. Their cups are pretty big, and it's only $3.99! I'd say pricing was very fair, and the tea was very good! My one complaint is that the server wasn't the friendliest and she sounded sick so I'm not sure about the hygiene of this place..... boba was also very bland and not sweet enough.",
+    user_id: user4.id, business_id: e_tea.id, rating: 4)
+    review16 = Review.create!(body: "Went to this place for the first time and tried the Winnie the Pooh because the name was just too cute. It also sounds and is delicious: mango milk with lychee jelly on bottom, topped with strawberry green tea. I added boba. It was really good!  Nice and refreshing. I got 75% sugar and it was still pretty sweet (and I have a sweet tooth).
+    They asked me what kind of cup I want- the normal plastic cup or the reusable one (which costs extra).  When I saw that the normal cup held more ounces than the reusable, the choice was a no-brainer!  The cow on the cup is super cute.  The size of the drinks is the typical large size at other boba places, but doesn't cost more than other places- love that the price is reasonable!",
+    user_id: user5.id, business_id: e_tea.id, rating: 4)
+    review17 = Review.create!(body: "Boba tea is boba tea! I do like that their drink prices include boba....so you don't have to do a silly add on for the one ingredient that makes it boba tea.....and they have some interesting flavors....but it takes so long to actually get your order that it is not worth it! When you go there you see a line outside the door, so you are subconsciously 
+    thinking that it is a happening place. Um... no, those are people who have already ordered and are waiting the 10-15 minutes that it takes to get your drink. No lie, I ordered a house green tea with NO boba, NO milk, NO ice and NO sugar (don't ask me why), and it still took 15 minutes for my order! They need more than just 2 people making the drinks, because it is suppose to be faster paced. I've been there before and it was like that the first time, but I was so busy talking to friends that I didn't really mind. This time I did!", 
+    user_id: user6.id, business_id: e_tea.id, rating: 4)
+    review18 = Review.create!(body: "Oh my goodness, thank you my dear coworker for taking me here! The first drink I tried was Winnie The Pooh, which was my favorite drink until I decided that Melinda needed a smoothie instead. 
+    Their passion fruit smoothie is amazing! D: (It's so good, I'm sad) This is the best passion fruit smoothie I've ever had. I think the only difference is that they're adding milk? But whatever it is, gahhh deliciousness overload! 
+    Great service! Tiny spot, so it can get really crowded. Will definitely stop by again whenever I'm in the area.", 
+    user_id: user7.id, business_id: e_tea.id, rating: 4)
+   
 
   #BUSINESS_PICTURES
     noodle_time.photos.attach(io: File.open('./app/assets/images/business/restaurants/Noodle-Time/Noodle-Time-1.jpg'), filename: 'noodle-time-1.jpg')
@@ -82,4 +108,15 @@ ActiveRecord::Base.transaction do
     reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-1.jpg'), filename: 'reveille-coffee-co-1.jpg')
     reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-2.jpg'), filename: 'reveille-coffee-co-2.jpg')
     reveille_coffee_co.photos.attach(io: File.open('./app/assets/images/business/cafe/reveille-coffee-co/reveille-coffee-co-3.jpg'), filename: 'reveille-coffee-co-3.jpg')
+
+    #PROFILE_PICS
+    demo.profile_pic.attach(io: File.open('./app/assets/images/user/demo.jpg'), filename: 'demo.jpg')
+    user1.profile_pic.attach(io: File.open('./app/assets/images/user/user-1.jpg'), filename: 'user-1.jpg')
+    user2.profile_pic.attach(io: File.open('./app/assets/images/user/user-2.jpg'), filename: 'user-2.jpg')
+    user3.profile_pic.attach(io: File.open('./app/assets/images/user/user-3.jpg'), filename: 'user-3.jpg')
+    user4.profile_pic.attach(io: File.open('./app/assets/images/user/user-4.jpg'), filename: 'user-4.jpg')
+    user5.profile_pic.attach(io: File.open('./app/assets/images/user/user-5.jpg'), filename: 'user-5.jpg')
+    user6.profile_pic.attach(io: File.open('./app/assets/images/user/user-6.jpg'), filename: 'user-6.jpg')
+    user7.profile_pic.attach(io: File.open('./app/assets/images/user/user-7.jpg'), filename: 'user-7.jpg')
+    
 end
