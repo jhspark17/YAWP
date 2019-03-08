@@ -1,20 +1,41 @@
 import { connect } from "react-redux";
 import { updateReview } from "../../actions/review_actions";
 import { fetchBusiness } from "../../actions/business_actions"
+import { selectReviewsForBusiness } from "../../reducers/selectors";
 import ReviewForm from "./review_form";
 import React from 'react';
 
+class EditReviewForm extends React.Component {
+  componentDidMount() {
+    this.props.fetchBusiness(this.props.businessId);
+  }
 
-const mapStateToProps = state => ({
-  businesses: state.entities.businesses,
-  currentUser: state.entities.users[state.session.id],
-  review: state.entities.reviews[ownProps.match.params.reviewId],
-  formType: 'Edit Review'
-})
+  render() {
+    if (!this.props.business) return null;
+    const props = this.props;
+    return (
+      <ReviewForm {...props}/>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  let businessId = parseInt(ownProps.match.params.businessId);
+  let business = state.entities.businesses[businessId];
+  return {
+    businessId,
+    business,
+    businesses: state.entities.businesses,
+    currentUser: state.entities.users[state.session.id],
+    review: state.entities.reviews[ownProps.match.params.reviewId],
+    businessReviews: selectReviewsForBusiness(state, businessId),
+    formType: 'Edit Review'
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
-  action: (review) => dispatch(createReview(review)),
+  action: (review) => dispatch(updateReview(review)),
   fetchBusiness: (id) => dispatch(fetchBusiness(id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditReviewForm);

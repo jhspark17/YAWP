@@ -67,10 +67,10 @@ class BusinessShow extends React.Component {
 
 
   render() {
-    if (this.props.business === undefined) {
+    if (!this.props.business) {
       return "";
     }
-    console.log(this.props.users[0].picture)
+    
     return (
       <div>
         <NavBarShowContainer />
@@ -134,10 +134,10 @@ class BusinessShow extends React.Component {
           <div className="main-body-content">
           <div className="body-header">
             <h2 className="top-recommended">
-              {"Recommended Reviews "}
+              Recommended Reviews <br/>
             </h2>
             <div className="business-name-review">
-              {` for ${this.props.business.businessName}`}
+              {`for ${this.props.business.businessName}`}
             </div>
           </div>
           <div className="comments-more-information">

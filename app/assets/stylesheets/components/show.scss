@@ -288,6 +288,49 @@
   border-right: 1px solid #e6e6e6;
 }
 
+.review-form{
+  border: 0;
+  padding: 0;
+  outline: none;
+  resize: none;
+  width: 960px;
+  margin: 0 auto;
+  height: 60vh;
+}
+.review-title-container{
+  margin-top: 24px;
+}
+.review-title{
+  color: #0073bb;
+  text-decoration: none;
+  font-size: 36px;
+  
+}
+
+#review-box{
+  padding-top: 50px;
+}
+
+.mystar{
+  color: #d32323;
+
+}
+
+.review-submit{
+  min-width: 240px;
+  height: 48px;
+  margin: 15px 0px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #d32323;
+  border: 1px solid #d32323;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: background-color 0.6s ease, border-color 0.6s ease;
+}
 
 
 

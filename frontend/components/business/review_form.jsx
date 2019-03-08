@@ -7,7 +7,7 @@ class ReviewForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      body: this.props.review,
+      body: this.props.review.body,
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
       rating: 4,
@@ -17,17 +17,38 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchBusiness(this.props.businessId)
+    if (this.props.business && this.props.formType === 'Create Review') {
+      this.currentUserReview();
+    } else {
+      this.props.fetchBusiness(this.props.businessId)
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.business && this.props.business && this.props.formType === 'Create Review') {
+      this.currentUserReview();
+    }
   }
 
   onSubmit(e){
     e.preventDefault();
     this.props.action(this.state)
+    .then(() => this.props.history.push(`/businesses/${this.props.businessId}`))
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.target.value
+    });
+  }
+
+  currentUserReview(){
+    let foundReview = false
+    this.props.businessReviews.forEach(review => {
+      if (!foundReview && review.userId === currentUser.id) {
+        this.props.history.push(`/businesses/${this.props.businessId}/reviews/${review.id}`)
+        foundReview = true;
+      }
     });
   }
 
@@ -43,15 +64,23 @@ class ReviewForm extends React.Component {
     return(
       <>
         <NavBarShowContainer />
-        <div>
-          <Link to={`/businesses/${this.props.businessId}`} > { this.props.business.businessName }</Link>
+        <div className="review-form">
+          <div className="review-title-container">
+          <Link to={`/businesses/${this.props.businessId}`} className="review-title"> {this.props.business.businessName}</Link>
+          </div>
           <form onSubmit={this.onSubmit}>
-            <textarea name="" id="" cols="800" rows="10" placeholder="IM FUCKED" onChange={this.update("body")}>
-            
-            </textarea>
-            <Link to={`/businesses/${this.props.businessId}`}>
-            <input type="submit" value={this.props.formType}/>
-            </Link>
+          <div id="review-box">
+            <textarea  
+              cols="80"
+              rows="20" 
+              placeholder="Create a Review" 
+              onChange={this.update("body")}
+              value={this.state.body}
+            />
+            <div>
+            <input className="review-submit" type="submit" value={this.props.formType}/>
+            </div>
+            </div>
           </form>
         </div>
       </>

@@ -16,17 +16,17 @@ const removeReview = (payload) => ({
 
 
 export const createReview = review => dispatch => {
-  ReviewApiUtil.createReview(review)
+return ReviewApiUtil.createReview(review)
   .then(review => dispatch(receiveReview(review)));
 };
 
 export const updateReview = review => dispatch => {
-  ReviewApiUtil.updateReview(review)
+  return ReviewApiUtil.updateReview(review)
   .then(review => dispatch(receiveReview(review)));
 };
 
 export const deleteReview = reviewId => {
-  ReviewApiUtil.deleteReview(reviewId)
+  return ReviewApiUtil.deleteReview(reviewId)
   .then(() => dispatch(removeReview(reviewId)));
 };
 

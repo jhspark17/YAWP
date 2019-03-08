@@ -19,8 +19,8 @@ const App = () => (
     <AuthRoute path="/signin" component={SignInContainer} />
     <AuthRoute path="/signup" component={SignUpContainer} />
     <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+    <ProtectedRoute path ="/businesses/:businessId/reviews/:reviewId" component={EditReviewContainer} />
     <ProtectedRoute path="/businesses/:businessId/reviews" component={CreateReviewContainer} />
-    <ProtectedRoute path ="/businesses/:businessId/review/:reviewId" component={EditReviewContainer} />
     <Route path ="/" component={Home}/>
     </Switch>
     <Footer />

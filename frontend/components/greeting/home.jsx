@@ -14,7 +14,6 @@ class Home extends React.Component {
 
 
   render() {
-
     if (this.props.businesses.length === 0) {
       return null
     }
@@ -34,14 +33,9 @@ class Home extends React.Component {
             <SearchBarContainer />
           </div>
         </header>
-        <div className="business-index-home-container">
-          <div className="business-index-home">
-            <Link to="/businesses"><img src="" alt="" /></Link>
-          </div>
-        </div>
         <div className="home-body">
           <div className="san-francisco">
-            <div>Yelp in San Francisco</div>
+            <div>Yawp San Francisco</div>
           </div>
           <div className="city-names-container">
             <div className="city-names">
@@ -88,7 +82,7 @@ class Home extends React.Component {
                   <img src={`${this.props.businesses[3].photos}`} alt="" />
                 </div>
                 <div className="home-business-description">
-                  <Link to="/businesses/3" className="title-business-description">{this.props.businesses[3].businessName}</Link>
+                  <Link to="/businesses/4" className="title-business-description">{this.props.businesses[3].businessName}</Link>
                   <div className="category-business-description">Boba</div>
                   <div className="category-business-description">Chinatown</div>
                 </div>
@@ -99,7 +93,7 @@ class Home extends React.Component {
                   <img src={`${this.props.businesses[6].photos}`} alt="" />
                 </div>
                 <div className="home-business-description">
-                  <Link to="/businesses/6" className="title-business-description">{this.props.businesses[6].businessName}</Link>
+                  <Link to="/businesses/7" className="title-business-description">{this.props.businesses[6].businessName}</Link>
                   <div className="category-business-description">Cafe</div>
                   <div className="category-business-description">North Beach</div>
                 </div>
