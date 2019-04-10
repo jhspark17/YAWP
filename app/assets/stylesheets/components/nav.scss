@@ -3,7 +3,7 @@
 .nav-container{
   display: flex;
   justify-content: center;
-  padding: 20px ; 
+  padding: 20px 0px; 
   font-size: 14px;
   font-weight: 700;
   color: white;
@@ -14,11 +14,10 @@
   justify-content: space-between;
   flex-direction: row;
   margin: 0;
-  padding: 0 15px;
   width: 960px;
 }
 
-.left-side-nav{
+.left-side-nav{ 
   color: inherit;
   display: flex;
   justify-content: space-between;
@@ -95,7 +94,6 @@
   text-decoration: none;
   border: 2px solid white;
   border-radius: 4px;
-  margin-right: 20px;
   transition: 1.0s;
   transition-property: background-color,
   background-position,

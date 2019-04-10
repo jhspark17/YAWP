@@ -34,8 +34,8 @@ class Home extends React.Component {
           </div>
         </header>
         <div className="home-body">
-          <div className="san-francisco">
-            <div>Yawp San Francisco</div>
+          <div>
+            <div className="san-francisco">Yawp San Francisco</div>
           </div>
           <div className="city-names-container">
             <div className="city-names">

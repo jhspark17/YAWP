@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :email, :session_token, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
   after_initialize :ensure_session_token
+  after_initialize :ensure_profile_pic
   attr_reader :password
 
   has_many :reviews
@@ -46,5 +47,13 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  def ensure_profile_pic
+    if !self.profile_pic.attached?
+     self.profile_pic.attach(io: File.open('./app/assets/images/user/demo.jpg'), filename: 'demo.jpg')
+    else
+      self
+    end
   end
 end

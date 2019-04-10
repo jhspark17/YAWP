@@ -13,21 +13,23 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-const receiveErrors = (errors) => ({
+const receiveErrors = (errors) => {
+  return({
   type: RECEIVE_SESSION_ERRORS,
   errors
-});
+})};
 
 const demoUser = {
       email: "demo@email.com",
       password: "password123"
     }
-export const signUp = (user) => dispatch => (
+export const signUp = (user) => dispatch => {
+  return(
   SessionApiUtil.signUp(user)
-    .then(user => (dispatch(receiveCurrentUser(user))), 
+    .then(user =>  (dispatch(receiveCurrentUser(user))), 
           err => (dispatch(receiveErrors(err.responseJSON))) 
   )
-);
+  )};
 
 
 export const signIn = (user) => dispatch => (

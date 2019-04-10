@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
      <form className="search-bar" >
       
         <span className="description find">Find</span>
-        <input className="left-side-search" type="text" placeholder="burgers,boba,coffee..." />
+        <input className="left-side-search" type="text" placeholder="burgers, boba, coffee..." />
         <span className="description border-near ">Near</span>
         <input className="middle-search" type="text" placeholder="App Academy"/>
         
