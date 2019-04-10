@@ -103,10 +103,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: -50%;
-  padding-right: 200px;
-  padding-bottom: 100px;
-  padding-left: 140px;
+}
+.session-img img{
+  width: 400%;
+  height: 400%;
 }
 
 .first-and-last-container{

@@ -66,7 +66,7 @@ class ReviewForm extends React.Component {
         <NavBarShowContainer />
         <div className="review-form">
           <div className="review-title-container">
-          <Link to={`/businesses/${this.props.businessId}`} className="review-title"> {this.props.business.businessName}</Link>
+          <Link to={`/businesses/${this.props.businessId}`} className="review-title">{this.props.business.businessName}</Link>
           </div>
           <form onSubmit={this.onSubmit}>
           <div id="review-box">

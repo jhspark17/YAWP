@@ -55,6 +55,7 @@ class SessionForm extends React.Component {
             placeholder="First Name"
             className="first-and-last"
           />
+          &nbsp;
           <input
             type="text"
             onChange={this.update("last_name")}
@@ -86,13 +87,13 @@ class SessionForm extends React.Component {
     if (this.props.formType === "Sign In") {
       return (
         <div className="switch-link">
-          New to Yawp?<Link to="/signup">Sign Up</Link>
+          New to Yawp?&nbsp;&nbsp;<Link to="/signup">Sign Up</Link>
         </div>
       );
     } else {
       return (
         <div className="switch-link">
-          Aready on Yawp?<Link to="/signin">Log In</Link>
+          Aready on Yawp?&nbsp;&nbsp;<Link to="/signin">Log In</Link>
         </div>
       );
     }
@@ -128,7 +129,7 @@ class SessionForm extends React.Component {
         <div>
           <h2>
             Connect with a great{" "}
-            <a href="https://github.com/jhspark17">developer</a>
+            <a className="link" href="https://github.com/jhspark17">developer</a>
           </h2>
         </div>
       );

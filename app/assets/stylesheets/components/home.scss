@@ -83,7 +83,7 @@
   font-weight: 700;
   color: #666;
   background-color: white;
-  padding: 12px;
+  padding: 4px 12px;
   font-size: 18px;
   justify-content: center;
   align-items: center;
@@ -159,15 +159,17 @@
   display: flex;
   justify-content: center;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin: 24px;
   font-size: 21px;
   color: #d32323;
-  padding-top: 10px;
+  padding: 10px 0px;
 }
 
 .city-names-container{
   display: flex;
-  justify-content: center;  
+  justify-content: space-around;  
+  padding-bottom: 12px;
+  border-bottom: 1px lightgray solid;
 }
 
 .city-names{
@@ -177,7 +179,16 @@
   border-bottom: 1px solid #ccc;
   padding: 10px 10px;
   width: 400px;
-  
+}
+
+.top-spots{
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  margin: 24px;
+  font-size: 21px;
+  color: #d32323;
+ 
 }
 
 .home-restaurant-container{
