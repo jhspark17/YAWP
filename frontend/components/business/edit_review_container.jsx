@@ -6,6 +6,9 @@ import ReviewForm from "./review_form";
 import React from 'react';
 
 class EditReviewForm extends React.Component {
+  constructor(props){
+    super(props)
+  }
   componentDidMount() {
     this.props.fetchBusiness(this.props.businessId);
   }
@@ -26,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
     businessId,
     business,
     businesses: state.entities.businesses,
-    currentUser: state.entities.users[state.session.id],
+    currentUser: state.entities.users[state.session.currentUser].id,
     review: state.entities.reviews[ownProps.match.params.reviewId],
     businessReviews: selectReviewsForBusiness(state, businessId),
     formType: 'Edit Review'

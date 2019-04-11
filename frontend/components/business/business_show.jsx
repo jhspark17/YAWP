@@ -47,6 +47,7 @@ class BusinessShow extends React.Component {
 
 
   // hasReview() {
+  //   debugger
   //   if (!this.props.currentUser) {
   //     return (
   //       <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
@@ -57,13 +58,15 @@ class BusinessShow extends React.Component {
   //     let userId = this.props.users[i].userId;
   //     if (userId === this.props.currentUser.id) {
   //       return (
-  //         <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+  //         <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Update Review" /></Link>
   //       )
   //     }
   //   }
   //   return (
-      
-  //   )
+  //     <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}>
+  //       <input id="write-a-review" type="button" value="Write a Review" />
+  //     </Link>
+  //   );
   // }
 
 
@@ -91,11 +94,13 @@ class BusinessShow extends React.Component {
                         this.props.match.params.businessId
                       }/reviews`}
                     >
+                      {" "}
                       <input
                         id="write-a-review"
                         type="button"
                         value="Write a Review"
                       />
+                      {" "}
                     </Link>
                   </div>
                   <div className="add-share-save">

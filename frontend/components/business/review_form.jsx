@@ -63,7 +63,7 @@ class ReviewForm extends React.Component {
     console.log(this.props.currentUser)
     return(
       <>
-        <NavBarShowContainer />
+        <NavBarShowContainer type="review-form"/>
         <div className="review-form">
           <div className="review-title-container">
           <Link to={`/businesses/${this.props.businessId}`} className="review-title">{this.props.business.businessName}</Link>
