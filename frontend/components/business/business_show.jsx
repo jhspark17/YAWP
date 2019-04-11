@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import NavBarShowContainer from '../NavBar/navbar_show_container';
 import Review from './review';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
+import FakeInformation from './fake_information'
 
 class BusinessShow extends React.Component {
   constructor(props) {
@@ -73,25 +74,29 @@ class BusinessShow extends React.Component {
     
     return (
       <div>
-        <NavBarShowContainer />
+        <NavBarShowContainer type="show" />
         <div className="main">
           <div className="main-header">
             <div className="business-header-info-container">
               <div className="business-header-info">
                 <div>
-                  <div>
-                    {this.props.business.businessName}
-                  </div>
-                  <div>
-                    {this.getStars(this.props.business.rating)}
-                  </div>
-                  <div id="rating-sign">
-                    {this.costSign()}
-                  </div>
+                  <div>{this.props.business.businessName}</div>
+                  <div>{this.getStars(this.props.business.rating)}</div>
+                  <div id="rating-sign">{this.costSign()}</div>
                 </div>
                 <div className="under-header-right">
                   <div>
-                    <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+                    <Link
+                      to={`/businesses/${
+                        this.props.match.params.businessId
+                      }/reviews`}
+                    >
+                      <input
+                        id="write-a-review"
+                        type="button"
+                        value="Write a Review"
+                      />
+                    </Link>
                   </div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
@@ -108,18 +113,21 @@ class BusinessShow extends React.Component {
                 <div className="mapbox-container">
                   <div className="mapbox">
                     <div>
-                      <img alt="Map" height="135" src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk=" width="286" />
+                      <img
+                        alt="Map"
+                        height="135"
+                        src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk="
+                        width="286"
+                      />
                     </div>
                   </div>
+                  <div>{this.props.business.address1}</div>
                   <div>
-                    {this.props.business.address1}
+                    {`${this.props.business.city}, ${
+                      this.props.business.state
+                    } ${this.props.business.zipCode}`}
                   </div>
-                  <div>
-                    {`${this.props.business.city}, ${this.props.business.state} ${this.props.business.zipCode}`}
-                  </div>
-                  <div>
-                    {this.phoneNumber()}
-                  </div>
+                  <div>{this.phoneNumber()}</div>
                 </div>
               </div>
             </div>
@@ -132,35 +140,32 @@ class BusinessShow extends React.Component {
         </div>
         <div className="show-body">
           <div className="main-body-content">
-          <div className="body-header">
-            <h2 className="top-recommended">
-              Recommended Reviews <br/>
-            </h2>
-            <div className="business-name-review">
-              {`for ${this.props.business.businessName}`}
+            <div className="body-header">
+              <h2 className="top-recommended">
+                Recommended Reviews <br />
+              </h2>
+              <div className="business-name-review">
+                {`for ${this.props.business.businessName}`}
+              </div>
+            </div>
+            <div className="comments-more-information">
+              <ul>
+                {this.props.reviews.map(review => (
+                  <Review
+                    users={this.props.users}
+                    review={review}
+                    key={review.id}
+                  />
+                ))}
+              </ul>
+              <div />
             </div>
           </div>
-          <div className="comments-more-information">
-            
-            <ul>
-              {this.props.reviews.map(review =>
-                <Review users={this.props.users} review={review} key={review.id} />
-              )}
-            </ul>
-            </div>
-          </div>
-            <div>
-             
-            </div>
-          
-          
+          <FakeInformation />
+          <div />
         </div>
       </div>
-
-
-
- 
-    )
+    );
   }
 }
 

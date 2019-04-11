@@ -45,7 +45,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
   font-weight: 700;
   font-size: 13px;
   border-radius: 3px;
@@ -331,6 +330,43 @@
   border-radius: 3px;
   transition: background-color 0.6s ease, border-color 0.6s ease;
 }
+
+.fake-information-container{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.hours h1{
+  color: #d32323;
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.hours div{
+  margin-bottom: 10px;
+}
+
+.hours div span{
+  font-weight: bold;
+}
+.more-business-information h1{
+  color: #d32323;
+  margin: 12px 0px;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+.more-business-information div{
+  margin-bottom: 10px;
+}
+
+.more-business-information div span{
+  font-weight: bold;
+}
+
+
 
 
 

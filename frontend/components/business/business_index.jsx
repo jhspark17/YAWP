@@ -20,7 +20,7 @@ class BusinessIndex extends React.Component {
     }
     return(
       <div>
-        <NavBarShowContainer />
+        <NavBarShowContainer type="non-home"/>
         <div className="filter-container">
           <div className="filter">
             <div className="filter-right">

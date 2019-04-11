@@ -77,6 +77,21 @@
  justify-content: center;
  width: 100%;
  margin: 0 auto;
+ 
+}
+
+.search-bar-show{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ width: 50px;
+ height: 40px;
+ margin: 0 auto;
+}
+
+.show-search-icon{
+  height: 100%;
+  width: 100%;
 }
 
 .description{
@@ -299,6 +314,10 @@
 
 .material-icons{
   color: white;
+}
+
+.search-bar-container{
+
 }
 
 
