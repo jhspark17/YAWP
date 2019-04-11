@@ -46,35 +46,35 @@ class BusinessShow extends React.Component {
   }
 
 
-  // hasReview() {
-  //   debugger
-  //   if (!this.props.currentUser) {
-  //     return (
-  //       <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
-  //     )
-  //   }
+  hasReview() {
+    debugger
+    if (!this.props.currentUser) {
+      return (
+        <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
+      )
+    }
 
-  //   for (let i = 0; i < this.props.users.length; i++) {
-  //     let userId = this.props.users[i].userId;
-  //     if (userId === this.props.currentUser.id) {
-  //       return (
-  //         <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Update Review" /></Link>
-  //       )
-  //     }
-  //   }
-  //   return (
-  //     <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}>
-  //       <input id="write-a-review" type="button" value="Write a Review" />
-  //     </Link>
-  //   );
-  // }
+    for (let i = 0; i < this.props.reviews.length; i++) {
+      let userId = this.props.reviews[i].userId;
+      if (userId === this.props.currentUser) {
+        return (
+          <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Update Review" /></Link>
+        )
+      }
+    }
+    return (
+      <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}>
+        <input id="write-a-review" type="button" value="Write a Review" />
+      </Link>
+    );
+  }
 
 
   render() {
     if (!this.props.business) {
       return "";
     }
-    
+    debugger
     return (
       <div>
         <NavBarShowContainer type="show" />
@@ -89,19 +89,7 @@ class BusinessShow extends React.Component {
                 </div>
                 <div className="under-header-right">
                   <div>
-                    <Link
-                      to={`/businesses/${
-                        this.props.match.params.businessId
-                      }/reviews`}
-                    >
-                      {" "}
-                      <input
-                        id="write-a-review"
-                        type="button"
-                        value="Write a Review"
-                      />
-                      {" "}
-                    </Link>
+                   {this.hasReview()}
                   </div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
