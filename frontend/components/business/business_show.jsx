@@ -47,7 +47,6 @@ class BusinessShow extends React.Component {
 
 
   hasReview() {
-    debugger
     if (!this.props.currentUser) {
       return (
         <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
@@ -74,7 +73,6 @@ class BusinessShow extends React.Component {
     if (!this.props.business) {
       return "";
     }
-    debugger
     return (
       <div>
         <NavBarShowContainer type="show" />

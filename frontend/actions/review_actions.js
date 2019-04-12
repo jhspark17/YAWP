@@ -9,10 +9,13 @@ const receiveReview = (payload) => ({
   user:   payload.user
 });
 
-const removeReview = (payload) => ({
+const removeReview = (payload) => {
+  debugger
+  return({
   type: REMOVE_REVIEW,
-  reviewId: payload.reviewId
-});
+  reviewId: payload.review.id
+  })
+};
 
 
 export const createReview = review => dispatch => {
@@ -25,9 +28,9 @@ export const updateReview = review => dispatch => {
   .then(review => dispatch(receiveReview(review)));
 };
 
-export const deleteReview = reviewId => {
+export const deleteReview = reviewId => dispatch => {
   return ReviewApiUtil.deleteReview(reviewId)
-  .then(() => dispatch(removeReview(reviewId)));
+  .then(reviewId => dispatch(removeReview(reviewId)));
 };
 
 

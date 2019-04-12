@@ -4,9 +4,10 @@ import {merge} from 'lodash'
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state)
   let newState = Object.assign({}, state);
+  console.log(action.type)
   switch (action.type) {
     case RECEIVE_BUSINESS:
-       return action.payload.reviews; 
+       return Object.assign({},action.payload.reviews); 
     case RECEIVE_REVIEW:
       newState = merge(newState, { [action.review.id]: action.review });
       return newState;

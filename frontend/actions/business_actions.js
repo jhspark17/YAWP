@@ -8,10 +8,11 @@ const receiveBusinesses = (businesses) => ({
   businesses
 });
 
-const receiveBusiness = (payload) => ({
-  type: RECEIVE_BUSINESS,
-  payload
-});
+const receiveBusiness = (payload) => {
+  return({
+    type: RECEIVE_BUSINESS,
+    payload
+  })};
 
 
 export const fetchBusinesses = () => dispatch => (

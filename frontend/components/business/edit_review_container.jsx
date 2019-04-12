@@ -32,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.entities.users[state.session.currentUser].id,
     review: state.entities.reviews[ownProps.match.params.reviewId],
     businessReviews: selectReviewsForBusiness(state, businessId),
-    formType: 'Edit Review'
+    formType: 'Update Review'
   }
 };
 

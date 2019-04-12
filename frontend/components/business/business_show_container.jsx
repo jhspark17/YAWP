@@ -9,7 +9,6 @@ const mapStateToProps = (state, ownProps) => {
   const businessId = ownProps.match.params.businessId;
   const reviews = Object.values(state.entities.reviews);
   const users = Object.values(state.entities.users)
-  debugger
 return({
   currentUser: state.session.currentUser,
   business: state.entities.businesses[businessId],
