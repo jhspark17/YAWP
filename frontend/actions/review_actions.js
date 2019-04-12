@@ -10,7 +10,6 @@ const receiveReview = (payload) => ({
 });
 
 const removeReview = (payload) => {
-  debugger
   return({
   type: REMOVE_REVIEW,
   reviewId: payload.review.id

@@ -86,13 +86,13 @@ class ReviewForm extends React.Component {
   }
 
   checkType() {
-    debugger;
     if (this.props.formType === "Update Review") {
       return (
-        <input
-          type="submit"
+        <i
+          class="fas fa-trash-alt fa-2x"
+          style={{padding: 25}}
           onClick={() => this.deleteReview()}
-          value="Delete"
+          
         />
       );
     }
@@ -124,16 +124,16 @@ class ReviewForm extends React.Component {
                 onChange={this.update("body")}
                 value={this.state.body}
               />
-              <div>
+              <div className="formSubmit">
                 <input
                   className="review-submit"
                   type="submit"
                   value={this.props.formType}
                 />
+                {this.checkType()}
               </div>
             </div>
           </form>
-          <div className ="deleteButton">{this.checkType()}</div>
         </div>
       </>
     );

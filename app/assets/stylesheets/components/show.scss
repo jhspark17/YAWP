@@ -294,7 +294,7 @@
   resize: none;
   width: 960px;
   margin: 0 auto;
-  height: 60vh;
+  height: 70vh;
 }
 .review-title-container{
   margin-top: 24px;
@@ -366,6 +366,14 @@
   font-weight: bold;
 }
 
+.formSubmit{
+  display: flex;
+  flex-direction: row;
+}
+
+.delete{
+  padding-left: 20px 0px 0px 20px;
+}
 
 
 
