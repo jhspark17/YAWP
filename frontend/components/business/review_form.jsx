@@ -92,7 +92,6 @@ class ReviewForm extends React.Component {
           class="fas fa-trash-alt fa-2x"
           style={{padding: 25}}
           onClick={() => this.deleteReview()}
-          
         />
       );
     }

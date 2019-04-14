@@ -12,26 +12,38 @@
 
      loggedIn(){
       if (this.props.currentUserId) {
-        return(
+        return (
           <div className="nav-container">
             <div className="nav">
-            <div className="left-side-nav">
-              <div className="left-side-element">Write a Review</div>
-              <div className="left-side-element">Events</div>
-              <div className="left-side-element">Talk</div>
-            </div>
-            <div id="logout-nav">
-              <div class="dropdown">
-                <button onClick={this.dropdown} class="dropbtn"><i class="fas fa-user"></i></button>
+              <div className="left-side-nav">
+                <div className="left-side-element">Write a Review</div>
+                <div className="left-side-element">Events</div>
+                <div className="left-side-element">Talk</div>
+              </div>
+              <div id="logout-nav">
+                <div class="dropdown">
+                  <button onClick={this.dropdown} class="dropbtn">
+                    <i class="fas fa-user" />
+                  </button>
                   <div id="myDropdown" class="dropdown-content">
-                  <input className="logout-button" type="submit" onClick={this.props.signOut} value="Log Out" />
+                    <div className="top-dropdown">
+                      {this.props.currentUser.firstName}
+                    </div>
+                    <div>
+                      <input
+                        className="logout-button"
+                        type="submit"
+                        onClick={this.props.signOut}
+                        value="Log Out"
+                      />
+                    </div>
+                  </div>
+                  <i className="arrow-icon">arrow_drop_down</i>
                 </div>
-                <i className="arrow-icon">arrow_drop_down</i>
               </div>
-                </div>
-              </div>
+            </div>
           </div>
-        )   
+        );   
       } else {
         return(
           <div className="nav-container">
@@ -53,7 +65,7 @@
     }
 
     render(){
-      
+      debugger;
       return(
         <div> 
           {this.loggedIn()}
