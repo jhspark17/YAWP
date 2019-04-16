@@ -10,7 +10,7 @@ class ReviewForm extends React.Component {
       body: this.props.review.body,
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
-      rating: 4
+      rating: this.rating,
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -116,6 +116,11 @@ class ReviewForm extends React.Component {
           </div>
           <form onSubmit={this.onSubmit}>
             <div id="review-box">
+            <div className="review-stars-container">
+              <ul id="starlist">
+
+              </ul>
+            </div>
               <textarea
                 cols="80"
                 rows="20"

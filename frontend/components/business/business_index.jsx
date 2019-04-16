@@ -6,6 +6,7 @@ import NavBarShowContainer from '../NavBar/navbar_show_container';
 class BusinessIndex extends React.Component {
   constructor(props) {
     super(props)
+    
   }
 
   componentDidMount(){
@@ -37,7 +38,9 @@ class BusinessIndex extends React.Component {
               ))}
             </ul>
           </div>
-          <BusinessMap />
+          <div className="map-container">
+              <BusinessMap businesses={this.props.businesses} />
+          </div>
         </div>
       </div>
     );
