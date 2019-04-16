@@ -6,12 +6,13 @@ export default class MarkerManager {
   }
 
   updateMarkers(businesses) {
-    businesses.forEach(business => {
+      businesses.forEach(business => {
       if (!this.markers[business.id]) {
         this.createMarkerForBusiness(business);
         this.markerLabel++;
       }
     });
+  
   }
 
   createMarkerForBusiness(business) {

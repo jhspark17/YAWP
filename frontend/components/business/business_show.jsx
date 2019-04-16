@@ -4,6 +4,7 @@ import NavBarShowContainer from '../NavBar/navbar_show_container';
 import Review from './review';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import FakeInformation from './fake_information'
+import BusinessMap from './business_map'
 
 class BusinessShow extends React.Component {
   constructor(props) {
@@ -86,9 +87,7 @@ class BusinessShow extends React.Component {
                   <div id="rating-sign">{this.costSign()}</div>
                 </div>
                 <div className="under-header-right">
-                  <div>
-                   {this.hasReview()}
-                  </div>
+                  <div>{this.hasReview()}</div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
                     <input type="button" id="add-photo" value="Share" />
@@ -103,14 +102,14 @@ class BusinessShow extends React.Component {
               <div className="info-pictures">
                 <div className="mapbox-container">
                   <div className="mapbox">
-                    <div>
-                      <img
+              
+                      <BusinessMap businesses={[this.props.business]} type="show" zoom="false" />
+                      {/* <img
                         alt="Map"
                         height="135"
                         src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk="
                         width="286"
-                      />
-                    </div>
+                      /> */}
                   </div>
                   <div>{this.props.business.address1}</div>
                   <div>
@@ -123,9 +122,17 @@ class BusinessShow extends React.Component {
               </div>
             </div>
             <div className="restaurant-photo">
-              <img src={this.props.business.photos[0]} />
-              <img src={this.props.business.photos[1]} />
-              <img src={this.props.business.photos[2]} />
+              
+                <div className="restaurant-photo-inside">
+                  <img src={this.props.business.photos[0]} />
+                </div>
+                <div className="restaurant-photo-inside">
+                  <img src={this.props.business.photos[1]} />
+                </div>
+                <div className="restaurant-photo-inside">
+                  <img src={this.props.business.photos[2]} />
+                </div>
+             
             </div>
           </div>
         </div>

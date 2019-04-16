@@ -65,7 +65,6 @@
     }
 
     render(){
-      debugger;
       return(
         <div> 
           {this.loggedIn()}

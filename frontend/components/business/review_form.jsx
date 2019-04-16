@@ -10,7 +10,7 @@ class ReviewForm extends React.Component {
       body: this.props.review.body,
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
-      rating: this.rating,
+      rating: 4,
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -90,7 +90,7 @@ class ReviewForm extends React.Component {
       return (
         <i
           class="fas fa-trash-alt fa-2x"
-          style={{padding: 25}}
+          style={{ padding: 25 }}
           onClick={() => this.deleteReview()}
         />
       );
@@ -115,29 +115,22 @@ class ReviewForm extends React.Component {
             </Link>
           </div>
           <form onSubmit={this.onSubmit}>
-            <div id="review-box">
-            <div className="review-stars-container">
-              <ul id="starlist">
-
-              </ul>
-            </div>
-              <textarea
-                cols="80"
-                rows="20"
-                placeholder="Create a Review"
-                onChange={this.update("body")}
-                value={this.state.body}
+            <textarea
+              cols="80"
+              rows="20"
+              placeholder="Create a Review"
+              onChange={this.update("body")}
+              value={this.state.body}
+            />
+            <div className="formSubmit">
+              <input
+                className="review-submit"
+                type="submit"
+                value={this.props.formType}
               />
-              <div className="formSubmit">
-                <input
-                  className="review-submit"
-                  type="submit"
-                  value={this.props.formType}
-                />
-                {this.checkType()}
-              </div>
             </div>
           </form>
+          {this.checkType()}
         </div>
       </>
     );
