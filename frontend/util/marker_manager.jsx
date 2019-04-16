@@ -15,7 +15,6 @@ export default class MarkerManager {
   }
 
   createMarkerForBusiness(business) {
-    debugger
     const position = new google.maps.LatLng(business.latitude, business.longitude);
     const marker = new google.maps.Marker({
       position,
