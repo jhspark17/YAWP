@@ -71,8 +71,11 @@ class BusinessShow extends React.Component {
 
 
   render() {
+    let final;
     if (!this.props.business) {
       return "";
+    } else{
+      final = Math.floor(this.props.business.avgRating * 2);
     }
     return (
       <div>
@@ -83,9 +86,13 @@ class BusinessShow extends React.Component {
               <div className="business-header-info">
                 <div>
                   <div>{this.props.business.businessName}</div>
-                  <div>{this.getStars(this.props.business.rating)}</div>
-                  <div id="rating-sign">{this.costSign()}</div>
+                  <img
+                    className={`star-lrg-${final}` + ` star-lrg`}
+                    src="https://i.imgur.com/UkZkm0D.png"
+                  />
+                  <div>$$</div>
                 </div>
+
                 <div className="under-header-right">
                   <div>{this.hasReview()}</div>
                   <div className="add-share-save">
@@ -102,9 +109,12 @@ class BusinessShow extends React.Component {
               <div className="info-pictures">
                 <div className="mapbox-container">
                   <div className="mapbox">
-              
-                      <BusinessMap businesses={[this.props.business]} type="show" zoom="false" />
-                      {/* <img
+                    <BusinessMap
+                      businesses={[this.props.business]}
+                      type="show"
+                      zoom="false"
+                    />
+                    {/* <img
                         alt="Map"
                         height="135"
                         src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk="
@@ -122,17 +132,15 @@ class BusinessShow extends React.Component {
               </div>
             </div>
             <div className="restaurant-photo">
-              
-                <div className="restaurant-photo-inside">
-                  <img src={this.props.business.photos[0]} />
-                </div>
-                <div className="restaurant-photo-inside">
-                  <img src={this.props.business.photos[1]} />
-                </div>
-                <div className="restaurant-photo-inside">
-                  <img src={this.props.business.photos[2]} />
-                </div>
-             
+              <div className="restaurant-photo-inside">
+                <img src={this.props.business.photos[0]} />
+              </div>
+              <div className="restaurant-photo-inside">
+                <img src={this.props.business.photos[1]} />
+              </div>
+              <div className="restaurant-photo-inside">
+                <img src={this.props.business.photos[2]} />
+              </div>
             </div>
           </div>
         </div>

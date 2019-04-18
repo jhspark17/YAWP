@@ -21,12 +21,35 @@ class BusinessIndexItem extends React.Component{
     return `(${this.props.business.phoneNumber.slice(0, 3)}) ${this.props.business.phoneNumber.slice(3, 6)}-${this.props.business.phoneNumber.slice(6, 10)}`
   }
 
+  pickPrice(){
+    let price = [];
+    let num = Math.floor(Math.random() * 4) + 1
+    for (let i = 0; i < num; i ++) {
+      price.push("$")
+    }
+    return price.join('')
+  }
+
+  pickComment(){
+    let id = this.props.business.reviewIds[0];
+    
+    for (let i = 0; i < this.props.reviews.length; i ++) {
+      let comment = this.props.reviews[i];
+
+      if (comment.id === id) {
+        return(
+          <div className="index-comment">
+            "{comment.body}"
+          </div>
+        )
+      }
+    }
+    return ""
+  }
 
 
   getStars(num) {
   let stars = [];
-
-  
 
   for (let i = 0; i < num; i++) {
     stars.push(<div key={i} className={`mystar fa fa-star checked`}></div>);
@@ -36,28 +59,47 @@ class BusinessIndexItem extends React.Component{
 
 
   render(){
-    return(
+    let starRating = Math.floor(this.props.business.avgRating * 2); 
+    return (
       <div className="business-index-container">
         <div className="business-index">
           <div className="business-index-photo">
             <img src={`${this.props.business.photos}`} alt="" />
           </div>
           <div className="business-index-info">
-            <div className="business-index-info-left">
-              <Link className="title-business-description" to={`/businesses/${this.props.business.id}`}>{this.props.business.businessName}</Link>
-              <div className="index-item-rating">
-                {this.getStars(this.props.business.rating)}
+            <div className="business-index-info-top">
+              <div className="business-index-info-left">
+                <Link
+                  className="title-business-description"
+                  to={`/businesses/${this.props.business.id}`}
+                >
+                  {this.props.business.businessName}
+                </Link>
+                <div>
+                  <img
+                    className={`star-medium-${starRating}` + " star-medium"}
+                    src="https://i.imgur.com/UkZkm0D.png"
+                  />
+                  <span className="review-text">
+                    {" "}
+                    {this.props.business.reviewIds.length} reviews
+                  </span>
+                </div>
+                <div>{this.pickPrice()}</div>
+              </div>
+              <div className="business-index-info-right">
+                <div>{this.phoneNumber()}</div>
+                <div>{this.props.business.address1}</div>
+                <div> {this.props.business.city}</div>
               </div>
             </div>
-            <div className="business-index-info-right">
-              <div>{this.phoneNumber()}</div>
-              <div>{this.props.business.address1}</div>
-              <div> {this.props.business.city}</div>
+            <div>
+              {this.pickComment()}
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

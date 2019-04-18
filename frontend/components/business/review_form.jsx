@@ -99,26 +99,26 @@ class ReviewForm extends React.Component {
   }
 
   render() {
+    const placeholder = "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
     if (this.props.business === undefined) {
       return null;
     }
     return (
       <>
         <NavBarShowContainer type="review-form" />
-        <div className="review-form">
-          <div className="review-title-container">
-            <Link
-              to={`/businesses/${this.props.businessId}`}
-              className="review-title"
-            >
-              {this.props.business.businessName}
-            </Link>
-          </div>
-          <form onSubmit={this.onSubmit}>
+        <div className="review-title-container">
+          <Link
+            to={`/businesses/${this.props.businessId}`}
+            className="review-title"
+          >
+            {this.props.business.businessName}
+          </Link>
+        </div>
+        <form onSubmit={this.onSubmit}>
             <textarea
               cols="80"
               rows="20"
-              placeholder="Create a Review"
+              placeholder={placeholder}
               onChange={this.update("body")}
               value={this.state.body}
             />
@@ -129,9 +129,8 @@ class ReviewForm extends React.Component {
                 value={this.props.formType}
               />
             </div>
-          </form>
-          {this.checkType()}
-        </div>
+        </form>
+        {this.checkType()}
       </>
     );
   }

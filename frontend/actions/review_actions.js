@@ -2,6 +2,9 @@ import * as ReviewApiUtil from "../util/review_api_util";
 
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
+export const RECEIVE_REVIEWS = "RECEIVE_REVIEWS"
+
+
 
 const receiveReview = (payload) => ({
   type:   RECEIVE_REVIEW,
@@ -15,6 +18,7 @@ const removeReview = (payload) => {
   reviewId: payload.review.id
   })
 };
+
 
 
 export const createReview = review => dispatch => {

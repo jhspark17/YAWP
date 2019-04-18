@@ -3,10 +3,9 @@ import {RECEIVE_ALL_BUSINESSES, RECEIVE_BUSINESS} from "../actions/business_acti
 const businessesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let newState;
-
   switch(action.type) {
     case RECEIVE_ALL_BUSINESSES:
-      return action.businesses;
+      return Object.assign({}, action.payload.businesses)
     case RECEIVE_BUSINESS:
       newState = Object.assign({}, oldState, { [action.payload.business.id]: action.payload.business } )
       return newState;

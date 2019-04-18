@@ -10,7 +10,7 @@ class BusinessIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchBusinesses();
+    this.props.fetchBusinesses()
   }
 
   phoneNumber(){
@@ -34,7 +34,7 @@ class BusinessIndex extends React.Component {
           <div>
             <ul>
               {this.props.businesses.map(business => (
-                <BusinessIndexItem business={business} key={business.id} />
+                <BusinessIndexItem reviews={this.props.reviews} business={business} key={business.id} />
               ))}
             </ul>
           </div>

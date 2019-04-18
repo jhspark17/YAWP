@@ -3,9 +3,9 @@ import * as BusinessApiUtil from '../util/business_api_util'
 export const RECEIVE_ALL_BUSINESSES = "RECEIVE_ALL_BUSINESSES"
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
 
-const receiveBusinesses = (businesses) => ({
+const receiveBusinesses = (payload) => ({
   type: RECEIVE_ALL_BUSINESSES,
-  businesses
+  payload
 });
 
 const receiveBusiness = (payload) => {
