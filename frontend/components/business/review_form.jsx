@@ -10,7 +10,7 @@ class ReviewForm extends React.Component {
       body: this.props.review.body,
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
-      rating: 4,
+      rating: 3,
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -98,14 +98,17 @@ class ReviewForm extends React.Component {
     return "";
   }
 
+     
   render() {
     const placeholder = "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
     if (this.props.business === undefined) {
       return null;
     }
     return (
-      <>
+      <div>
+        
         <NavBarShowContainer type="review-form" />
+        <div className="review-container">
         <div className="review-title-container">
           <Link
             to={`/businesses/${this.props.businessId}`}
@@ -131,7 +134,8 @@ class ReviewForm extends React.Component {
             </div>
         </form>
         {this.checkType()}
-      </>
+        </div>
+      </div>
     );
   }
 }
