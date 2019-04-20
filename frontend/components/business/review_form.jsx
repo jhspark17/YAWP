@@ -43,15 +43,7 @@ class ReviewForm extends React.Component {
       );
   }
 
-  deleteReview() {
-    let review = this.findReview();
-    this.props
-      .delete(review)
-      .then(() =>
-        this.props.history.push(`/businesses/${this.props.businessId}`)
-      );
-  }
-
+  
   update(field) {
     return e =>
       this.setState({
@@ -59,15 +51,7 @@ class ReviewForm extends React.Component {
       });
   }
 
-  findReview() {
-    for (let i = 0; i < this.props.businessReviews.length; i++) {
-      let review = this.props.businessReviews[i];
-      if (review.userId === currentUser.id) {
-        return review.id;
-      }
-    }
-    return null;
-  }
+
 
   currentUserReview() {
     let foundReview = false;
@@ -85,20 +69,7 @@ class ReviewForm extends React.Component {
     return `/businesses/${businessId}`;
   }
 
-  checkType() {
-    if (this.props.formType === "Update Review") {
-      return (
-        <i
-          class="fas fa-trash-alt fa-2x"
-          style={{ padding: 25 }}
-          onClick={() => this.deleteReview()}
-        />
-      );
-    }
-    return "";
-  }
 
-     
   render() {
     const placeholder = "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
     if (this.props.business === undefined) {
@@ -133,7 +104,7 @@ class ReviewForm extends React.Component {
               />
             </div>
         </form>
-        {this.checkType()}
+
         </div>
       </div>
     );

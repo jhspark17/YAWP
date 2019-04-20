@@ -161,6 +161,8 @@ class BusinessShow extends React.Component {
                     users={this.props.users}
                     review={review}
                     key={review.id}
+                    currentUser={this.props.currentUser}
+                    delete = {this.props.deleteReview}
                   />
                 ))}
               </ul>
