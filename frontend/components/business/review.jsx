@@ -22,7 +22,6 @@ class Review extends React.Component {
       return (
         <i
           class="fas fa-trash-alt fa-2x"
-          style={{ padding: 25 }}
           onClick={() => this.deleteReview()}
         />
       );
@@ -58,7 +57,7 @@ class Review extends React.Component {
     } else {
       picture = current.picture;
       userRating = this.props.review.rating * 2;
-      debugger;
+     
     }
 
     return (
@@ -76,8 +75,8 @@ class Review extends React.Component {
               />
               <span>4/18/2019</span>
             </div>
-            <div>
-              {this.props.review.body}
+            <div className="review-body">
+              <div className="review-text-body">{this.props.review.body}</div>
               {this.checkUser()}
             </div>
           </div>

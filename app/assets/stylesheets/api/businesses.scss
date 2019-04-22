@@ -35,3 +35,12 @@
   height: 500px;
 }
 
+.review-body{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.review-text-body{
+  width: 70%;
+}

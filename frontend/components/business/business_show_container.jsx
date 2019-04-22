@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
   let rating = findAvgRatingShow(state, businessId)
   
   state.entities.businesses[businessId].avgRating = rating;
-  debugger;
+  
   }
   
 return({
