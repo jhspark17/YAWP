@@ -8,11 +8,13 @@ import {findAvgRating} from '../../reducers/selectors'
 const mapStateToProps = state => {
   let businesses = Object.values(state.entities.businesses)
   let reviews = Object.values(state.entities.reviews)
+  if (businesses.length > 0) {
   for (let i = 0; i < businesses.length; i ++) {
     let business = businesses[i];
     let avg = findAvgRating(state, business.id);
     business.avgRating = avg
   }
+}
   return ({
     currentUser: state.session.currentUser,
     businesses,

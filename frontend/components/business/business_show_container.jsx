@@ -13,19 +13,21 @@ const mapStateToProps = (state, ownProps) => {
   const reviews = Object.values(state.entities.reviews);
   const users = Object.values(state.entities.users)
   const currentUser = state.session.currentUser
-  if (reviews.length > 0 && stateTemp.length > 0) {
-  let rating = findAvgRatingShow(state, businessId)
+  let avgRating = findAvgRatingShow(state, businessId);
   
-  state.entities.businesses[businessId].avgRating = rating;
-  
-  }
+  // if (reviews.length > 0 && stateTemp.length > 0) {
+    
+    
+  //   state.entities.businesses[businessId].avgRating = rating;
+  // }
   
 return({
   currentUser: state.session.currentUser,
   business: state.entities.businesses[businessId],
   reviews,
   users,
-  currentUser
+  currentUser,
+  avgRating: avgRating
 });
 };
 

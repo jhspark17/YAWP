@@ -75,8 +75,9 @@ class BusinessShow extends React.Component {
     if (!this.props.business) {
       return "";
     } else{
-      final = Math.floor(this.props.business.avgRating * 2);
+      final = Math.floor(this.props.avgRating * 2);
     }
+    debugger
     return (
       <div>
         <NavBarShowContainer type="show" />
