@@ -170,14 +170,21 @@
 .dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
-  width: 80px;
+  width: 100px;
+}
+
+.myDropdown{
+  width: 100%;
 }
 
 .top-dropdown{
-  height: 80%;
+  height: 90%;
+  width: 100%;
   display: flex;
-  align-content: center;
-  color: blue;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: black;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
@@ -192,7 +199,13 @@
     border-top: 1px solid #e6e6e6;
     padding-top: 11px;
     background-color: white;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     
+
 }
 
 .arrow-icon{

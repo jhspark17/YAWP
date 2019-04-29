@@ -27,7 +27,7 @@
                   </button>
                   <div id="myDropdown" class="dropdown-content">
                     <div className="top-dropdown">
-                      {this.props.currentUser.firstName}
+                     Hello, {this.props.currentUser.firstName}
                     </div>
                     <div>
                       <input
