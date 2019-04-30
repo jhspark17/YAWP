@@ -27,6 +27,7 @@ class BusinessIndex extends React.Component {
         <div className="filter-container">
           <div className="filter">
             <div className="filter-right">Best Places in San Francisco</div>
+            <span></span>
             <div className="filter-left">Showing 1-9 of 9</div>
           </div>
         </div>
