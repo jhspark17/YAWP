@@ -30,6 +30,7 @@ class Review extends React.Component {
   }
 
   findReview() {
+    debugger
     for (let i = 0; i < this.props.businessReviews.length; i++) {
       let review = this.props.businessReviews[i];
       if (review.userId === currentUser.id) {
@@ -40,9 +41,9 @@ class Review extends React.Component {
   }
 
   deleteReview() {
-    let review = this.findReview();
+    
     this.props
-      .delete(review)
+      .delete(this.props.review.id)
       .then(() =>
         this.props.history.push(`/businesses/${this.props.businessId}`)
       );

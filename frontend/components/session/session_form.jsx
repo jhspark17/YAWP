@@ -87,13 +87,19 @@ class SessionForm extends React.Component {
     if (this.props.formType === "Sign In") {
       return (
         <div className="switch-link">
-          New to Yawp?&nbsp;&nbsp;<Link to="/signup">Sign Up</Link>
+          New to Yawp?&nbsp;&nbsp;
+          <Link className="link-session" to="/signup">
+            Sign Up
+          </Link>
         </div>
       );
     } else {
       return (
         <div className="switch-link">
-          Aready on Yawp?&nbsp;&nbsp;<Link to="/signin">Log In</Link>
+          Aready on Yawp?&nbsp;&nbsp;
+          <Link className="link-session" to="/signin">
+            Log In
+          </Link>
         </div>
       );
     }
@@ -120,7 +126,11 @@ class SessionForm extends React.Component {
       return (
         <div>
           <h2>
-            New to Yawp? <Link to="/signup"> Sign Up</Link>{" "}
+            New to Yawp?{" "}
+            <Link className="link-session" to="/signup">
+              {" "}
+              Sign Up
+            </Link>{" "}
           </h2>
         </div>
       );
@@ -129,7 +139,7 @@ class SessionForm extends React.Component {
         <div>
           <h2>
             Connect with a great{" "}
-            <a className="link" href="https://github.com/jhspark17">developer</a>
+            <a className="link-session" href="https://github.com/jhspark17">developer</a>
           </h2>
         </div>
       );
@@ -181,9 +191,10 @@ class SessionForm extends React.Component {
     return (
       <div>
         <header className="header-form">
-          <Link to="/">
+          <Link className="header-word-logo-decoration" to="/">
             <div id="header-word-logo">
-              yawp<i id="icon-logo" className="fas fa-globe" />
+              yawp
+              <i id="icon-logo" className="fas fa-globe" />
             </div>
           </Link>
         </header>
@@ -194,7 +205,9 @@ class SessionForm extends React.Component {
           <div className="session-inner-container">
             <form className="session-form" onSubmit={this.handleSubmit}>
               <div className="red-header-session">{this.redHeader()}</div>
-              <div className="below-red-header">{this.belowRedHeader()}</div>
+              <div className="below-red-header">
+                {this.belowRedHeader()}
+              </div>
               <div className="privacy-policy">{this.privacyPolicy()}</div>
               <div>{this.getFirstAndLast()}</div>
               <div>

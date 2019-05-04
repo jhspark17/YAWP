@@ -18,7 +18,7 @@ class NavBarShow extends React.Component {
           <div className="nav-show">
             <div className="nav-show-inner">
               <div className="left-side-nav-show">
-                <Link to="/">
+                <Link className="header-word-logo-decoration" to="/">
                   <div id="header-word-logo">
                     yawp<i id="icon-logo" className="fas fa-globe" />
                   </div>
@@ -63,7 +63,7 @@ class NavBarShow extends React.Component {
           <div className="nav-show">
             <div className="nav-show-inner">
               <div className="left-side-nav-show">
-                <Link to="/">
+                <Link className="header-word-logo-decoration" to="/">
                   <div id="header-word-logo">
                     yawp
                     <i id="icon-logo" className="fas fa-globe" />

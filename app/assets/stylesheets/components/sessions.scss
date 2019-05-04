@@ -70,7 +70,7 @@
 
 #header-word-logo {
   color: black;
-  text-decoration-line: none;
+  text-decoration: none;
   font-family: "Helvetica Neue", Helvetica, Arial, "sans serif";
   font-weight: bold;
   font-size: 22px;
@@ -195,6 +195,7 @@
 
 .switch-link {
   text-decoration: none;
+  
 }
 
 .error-handling-container {
@@ -227,4 +228,12 @@
 .x-button {
   display: flex;
   justify-content: flex-end;
+}
+
+.header-word-logo-decoration{
+  text-decoration: none;
+}
+
+.link-session{
+  color: blue;
 }
