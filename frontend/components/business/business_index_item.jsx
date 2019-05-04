@@ -31,11 +31,12 @@ class BusinessIndexItem extends React.Component{
   }
 
   pickComment(){
+
     let id = this.props.business.reviewIds[0];
     
     for (let i = 0; i < this.props.reviews.length; i ++) {
       let comment = this.props.reviews[i];
-
+      
       if (comment.id === id) {
         return(
           <div className="index-comment">

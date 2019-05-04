@@ -20,7 +20,8 @@ class NavBarShow extends React.Component {
               <div className="left-side-nav-show">
                 <Link className="header-word-logo-decoration" to="/">
                   <div id="header-word-logo">
-                    yawp<i id="icon-logo" className="fas fa-globe" />
+                    yawp
+                    <i id="icon-logo" className="fas fa-globe" />
                   </div>
                 </Link>
               </div>
@@ -31,6 +32,9 @@ class NavBarShow extends React.Component {
                     <i class="fas fa-user" />
                   </button>
                   <div id="myDropdown" class="dropdown-content">
+                    <div className="top-dropdown">
+                      Hello, {this.props.currentUser.firstName}
+                    </div>
                     <input
                       className="logout-button"
                       type="submit"
