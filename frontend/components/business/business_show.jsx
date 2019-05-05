@@ -9,11 +9,11 @@ import BusinessMap from './business_map'
 class BusinessShow extends React.Component {
   constructor(props) {
     super(props);
-
     let businessId = this.props.match.params.businessId;
   }
   componentDidMount() {
     this.props.fetchBusiness(this.props.match.params.businessId);
+    
   }
 
   costSign() {
@@ -77,6 +77,7 @@ class BusinessShow extends React.Component {
     } else{
       final = Math.floor(this.props.avgRating * 2);
     }
+    
     return (
       <div>
         <NavBarShowContainer type="show" />
@@ -156,7 +157,9 @@ class BusinessShow extends React.Component {
             </div>
             <div className="comments-more-information">
               <ul>
+                
                 {this.props.reviews.map(review => (
+                  
                   <Review
                     users={this.props.users}
                     review={review}

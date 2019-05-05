@@ -48,6 +48,12 @@ class Review extends React.Component {
       );
   }
 
+  getDate(){
+    let date = this.props.review.updatedAt;
+
+    return(`${date.slice(8, 10)}/${date.slice(5, 7)}/${date.slice(0, 4)}`)
+  }
+
 
 
   render() {
@@ -62,7 +68,6 @@ class Review extends React.Component {
      
     }
 
-
     return (
       <>
         <div className="comment-box-container">
@@ -76,7 +81,7 @@ class Review extends React.Component {
                 className={`star-medium-${userRating}` + " star-medium"}
                 src="https://i.imgur.com/UkZkm0D.png"
               />
-              <span>{this.props.date}</span>
+              <span>{this.getDate()}</span>
             </div>
             <div className="review-body">
               <div className="review-text-body">{this.props.review.body}</div>

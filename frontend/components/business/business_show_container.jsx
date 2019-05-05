@@ -14,7 +14,6 @@ const mapStateToProps = (state, ownProps) => {
   const users = Object.values(state.entities.users)
   const currentUser = state.session.currentUser
   let avgRating = findAvgRatingShow(state, businessId);
-  
   // if (reviews.length > 0 && stateTemp.length > 0) {
     
     
