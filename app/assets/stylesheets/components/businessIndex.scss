@@ -137,6 +137,39 @@
   background-repeat: no-repeat;
 }
 
+.stars-extra-large {
+    width: 162px;
+    height: 30px;
+    background-image: url('https://i.imgur.com/Xg9ghe7.png');
+    background-size: 162px 180px;
+    background-repeat: no-repeat;
+}
+
+.stars-extra-large-0 {
+    background-position: 0 0;
+}
+
+.stars-extra-large-1 {
+    background-position: 0 -30px;
+}
+
+.stars-extra-large-2 {
+    background-position: 0 -60px;
+}
+
+.stars-extra-large-3 {
+    background-position: 0 -90px;
+}
+
+.stars-extra-large-4 {
+    background-position: 0 -120px;
+}
+
+.stars-extra-large-5 {
+    background-position: 0 -150px;
+}
+
+
 .stars-huge-0 {
   background-position: 0 0;
 }
@@ -263,5 +296,49 @@
 .review-container{
   width: 960px;
   margin: 0 auto;
+}
+
+.review-form-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: text;
+    padding: 18px;
+    max-width: 630px;
+}
+
+.review-form-stars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.review-form-stars-list {
+    display: flex;
+    margin-right: 8px;
+}
+
+.review-form-stars-container {
+    padding-left: 3px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.review-form-stars-list li:first-child {
+    padding-left: 0px;
+}
+
+.review-form-stars-input {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.review-form-stars-description {
+    color: #333;
+    font-size: 14px;
 }
 

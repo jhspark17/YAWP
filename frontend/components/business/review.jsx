@@ -30,7 +30,6 @@ class Review extends React.Component {
   }
 
   findReview() {
-    debugger
     for (let i = 0; i < this.props.businessReviews.length; i++) {
       let review = this.props.businessReviews[i];
       if (review.userId === currentUser.id) {
@@ -49,6 +48,8 @@ class Review extends React.Component {
       );
   }
 
+
+
   render() {
     let current = this.findUser();
     let picture;
@@ -60,6 +61,7 @@ class Review extends React.Component {
       userRating = this.props.review.rating * 2;
      
     }
+
 
     return (
       <>
@@ -74,7 +76,7 @@ class Review extends React.Component {
                 className={`star-medium-${userRating}` + " star-medium"}
                 src="https://i.imgur.com/UkZkm0D.png"
               />
-              <span>4/18/2019</span>
+              <span>{this.props.date}</span>
             </div>
             <div className="review-body">
               <div className="review-text-body">{this.props.review.body}</div>

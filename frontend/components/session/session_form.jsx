@@ -199,7 +199,7 @@ class SessionForm extends React.Component {
           </Link>
         </header>
         <div className="error-handling-container">
-          <div className="error-handling">{this.errorHandling()}</div>
+          {this.errorHandling()}
         </div>
         <div className="session-container">
           <div className="session-inner-container">
