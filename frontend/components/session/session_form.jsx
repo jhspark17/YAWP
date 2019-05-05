@@ -96,7 +96,7 @@ class SessionForm extends React.Component {
     } else {
       return (
         <div className="switch-link">
-          Aready on Yawp?&nbsp;&nbsp;
+          Already on Yawp?&nbsp;&nbsp;
           <Link className="link-session" to="/signin">
             Log In
           </Link>
