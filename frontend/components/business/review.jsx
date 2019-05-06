@@ -50,7 +50,9 @@ class Review extends React.Component {
 
   getDate(){
     let date = this.props.review.updatedAt;
-
+    if (date === undefined) {
+      return null;
+    }
     return(`${date.slice(8, 10)}/${date.slice(5, 7)}/${date.slice(0, 4)}`)
   }
 
