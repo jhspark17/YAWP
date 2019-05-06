@@ -53,7 +53,7 @@ class Review extends React.Component {
     if (date === undefined) {
       return null;
     }
-    return(`${date.slice(8, 10)}/${date.slice(5, 7)}/${date.slice(0, 4)}`)
+    return `${date.slice(5, 7)}/${date.slice(8, 10)}/${date.slice(0, 4)}`;
   }
 
 
