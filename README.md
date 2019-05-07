@@ -1,4 +1,4 @@
-[Live Demo](https://yawp-joseph.herokuapp.com/?#/)
+[Live Demo](https://yawp-jp.herokuapp.com/?#/)
 
 # Welcome to Yawp!!
 
