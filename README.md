@@ -14,9 +14,8 @@ price and pictures of the restaurant.
   * User Authentication for user security.
   * An index page where users can see restaurants in the area.
   * CRUD (Create, read, update, destroy) feature where users can leave reviews.
-  [In Progress]
   * GoogleMap API for location of business
-  * Search Bar
+  * Interactive Rating for reviews
   
   
 The Business Index Page where snippets of information is show on the page. Each Business on the index will have a link where users can
@@ -34,7 +33,8 @@ will be shown.
 A user, when logged in, can write a review for a specific business. If a user wants to write another review, they will be redirected to an
 update review page where they can modify their original review.
 ### Review Page
-![Screen Shot 2019-03-10 at 9 57 23 PM](https://user-images.githubusercontent.com/42100510/54101233-b3535000-437f-11e9-9c66-5e558b50331c.png)
+<img width="1278" alt="Screen Shot 2019-05-08 at 4 36 28 PM" src="https://user-images.githubusercontent.com/42100510/57415053-87055580-71af-11e9-9310-74fed2b7eaa6.png">
+(https://user-images.githubusercontent.com/42100510/54101233-b3535000-437f-11e9-9c66-5e558b50331c.png)
 
 
 
