@@ -27,7 +27,7 @@ go to each of the businesses's show page.
 Users can either login or sign up through the a forms page. If email is already taken or password parameters doesn't match, errors
 will be shown.
 ### Login Page
-![Screen Shot 2019-03-10 at 9 55 21 PM](https://user-images.githubusercontent.com/42100510/54101144-3fb14300-437f-11e9-8690-0d98b9280529.png)
+<img width="1280" alt="Screen Shot 2019-05-08 at 4 40 49 PM" src="https://user-images.githubusercontent.com/42100510/57415197-1ca0e500-71b0-11e9-80b6-37ee0d422230.png">
 
 
 A user, when logged in, can write a review for a specific business. If a user wants to write another review, they will be redirected to an
