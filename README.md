@@ -34,7 +34,7 @@ A user, when logged in, can write a review for a specific business. If a user wa
 update review page where they can modify their original review.
 ### Review Page
 <img width="1278" alt="Screen Shot 2019-05-08 at 4 36 28 PM" src="https://user-images.githubusercontent.com/42100510/57415053-87055580-71af-11e9-9310-74fed2b7eaa6.png">
-(https://user-images.githubusercontent.com/42100510/54101233-b3535000-437f-11e9-9c66-5e558b50331c.png)
+
 
 
 
