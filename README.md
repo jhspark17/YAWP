@@ -33,7 +33,8 @@ will be shown.
 A user, when logged in, can write a review for a specific business. If a user wants to write another review, they will be redirected to an
 update review page where they can modify their original review.
 ### Review Page
-<img width="1278" alt="Screen Shot 2019-05-08 at 4 36 28 PM" src="https://user-images.githubusercontent.com/42100510/57415053-87055580-71af-11e9-9310-74fed2b7eaa6.png">
+<img width="1277" alt="Screen Shot 2019-05-08 at 4 39 06 PM" src="https://user-images.githubusercontent.com/42100510/57415151-e6fbfc00-71af-11e9-8b42-aee2ce16dd50.png">
+
 
 
 
