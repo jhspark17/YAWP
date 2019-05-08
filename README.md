@@ -21,7 +21,8 @@ price and pictures of the restaurant.
 The Business Index Page where snippets of information is show on the page. Each Business on the index will have a link where users can
 go to each of the businesses's show page.
 ### Index Page
-![Screen Shot 2019-03-10 at 9 44 26 PM](https://user-images.githubusercontent.com/42100510/54100927-47bcb300-437e-11e9-8f07-3334f9e1fe1a.png)
+<img width="1280" alt="Screen Shot 2019-05-08 at 4 40 49 PM" src="https://user-images.githubusercontent.com/42100510/57415197-1ca0e500-71b0-11e9-80b6-37ee0d422230.png">
+
 
 
 Users can either login or sign up through the a forms page. If email is already taken or password parameters doesn't match, errors
