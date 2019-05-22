@@ -118,7 +118,7 @@ class ReviewForm extends React.Component {
       "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
     const options = [
       "Select your rating",
-      "Eek! Methinks not.",
+      "Eek! Me thinks not.",
       "Meh. I've experienced better.",
       "A-OK",
       "Yay! I'm a fan.",

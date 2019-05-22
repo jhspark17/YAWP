@@ -46,14 +46,14 @@ ActiveRecord::Base.transaction do
     
     #E-Tea
     review0 = Review.create!(body: "Conveniently location next to and almost inside the Super Pan establishment, this place proves to be an easy option for a party concert sweet treat.",
-    user_id: demo.id, business_id: e_tea.id, rating: 4)
+    user_id: user2.id, business_id: e_tea.id, rating: 4)
     review13 = Review.create!(body: "Tiny hole in the wall spot with various combination flavors. Looks like they're popular for their concoctions of different teas with different jelly. I ordered the M&M (mango + matcha) with clear boba. The drink itself was good but the boba was different. It wasnt in a full ball form and it was stuck together which makes me believe it wasn't fresh. 
     Not the best place I've tried but definitely glad I did. If I happen to come again, I'd order the winnie the pooh since that seems to be a popular choice.", 
-    user_id: user2.id, business_id: e_tea.id, rating: 4)
+    user_id: demo.id, business_id: e_tea.id, rating: 3)
     review14 = Review.create!(body: "Just okay. First time trying this spot and I'm a little underwhelmed. Maybe I didn't order the right drink? 
     I got the caramel ice milk tea at 75% sweetness with regular ice. This drink was sweet. Even at 75%, it tasted like 110%. And, the drink barely had any ice in it. That could've been why it didn't taste as refreshing. 
     Maybe, I'll give it a try again but only if I see it. Not a place I seek nor dislike. It's average.", 
-    user_id: user3.id, business_id: e_tea.id, rating: 4)
+    user_id: user3.id, business_id: e_tea.id, rating: 5)
     review15 = Review.create!(body: "Small but cute and compact. The cow logo was what caught my attention at first, but they have a surprisingly large selection of drinks. I hesitated between the Winnie the Pooh and just a regular, so I went with the House boba to be safe. Their cups are pretty big, and it's only $3.99! I'd say pricing was very fair, and the tea was very good! My one complaint is that the server wasn't the friendliest and she sounded sick so I'm not sure about the hygiene of this place..... boba was also very bland and not sweet enough.",
     user_id: user4.id, business_id: e_tea.id, rating: 4)
     review16 = Review.create!(body: "Went to this place for the first time and tried the Winnie the Pooh because the name was just too cute. It also sounds and is delicious: mango milk with lychee jelly on bottom, topped with strawberry green tea. I added boba. It was really good!  Nice and refreshing. I got 75% sugar and it was still pretty sweet (and I have a sweet tooth).
