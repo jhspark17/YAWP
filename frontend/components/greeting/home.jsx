@@ -9,12 +9,15 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.fetchBusinesses();
   }
 
+ 
+
   render() {
     if (this.props.businesses.length === 0) {
-      return null;
+      return "";
     }
     return (
       <div>
