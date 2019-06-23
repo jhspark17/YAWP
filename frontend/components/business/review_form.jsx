@@ -11,7 +11,7 @@ class ReviewForm extends React.Component {
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
       rating: 0,
-      date: this.getDate()
+      
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -55,7 +55,7 @@ class ReviewForm extends React.Component {
   currentUserReview() {
     let foundReview = false;
     this.props.businessReviews.forEach(review => {
-      if (!foundReview && review.userId === currentUser.id) {
+      if (!foundReview && review.userId === this.state.userId) {
         this.props.history.push(
           `/businesses/${this.props.businessId}/reviews/${review.id}`
         );
@@ -126,6 +126,8 @@ class ReviewForm extends React.Component {
     ];
     if (this.props.business === undefined) {
       return null;
+    } else if (this.props.currentUser === null) {
+      this.props.history.push(`/businesses/${this.props.businessId}`)
     }
     return (
       <div>

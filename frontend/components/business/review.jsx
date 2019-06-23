@@ -4,6 +4,13 @@ import React from 'react';
 class Review extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      current: this.findUser()
+    }
+  }
+
+  componentDidMount(){
+
   }
 
   findUser() {

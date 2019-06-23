@@ -9,7 +9,6 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchBusinesses();
   }
 
@@ -54,7 +53,7 @@ class Home extends React.Component {
             <div className="home-restaurants">
               <div className="home-restaurant">
                 <div className="home-restaurant-photo">
-                  <img src={`${this.props.businesses[0].photos}`} alt="" />
+                  <img src={this.props.businesses[0].photos} alt="" />
                 </div>
                 <div className="home-business-description">
                   <Link

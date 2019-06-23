@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavBarShowContainer from '../NavBar/navbar_show_container';
 import Review from './review';
+import SignInContainer from '../session/signin_container'
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import FakeInformation from './fake_information'
 import BusinessMap from './business_map'
@@ -13,53 +14,66 @@ class BusinessShow extends React.Component {
   }
   componentDidMount() {
     this.props.fetchBusiness(this.props.match.params.businessId);
-    
+    window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate(prevProps) {
+    if ( prevProps.match.params.businessId !== this.props.match.params.businessId) {
+      this.props.fetchBusiness(this.props.match.params.businessId);
+    }
   }
 
   costSign() {
     let dollarSign = [];
     for (let i = 0; i < this.props.business.rating; i++) {
-      dollarSign.push('$');
+      dollarSign.push("$");
     }
-    return dollarSign.join('');
+    return dollarSign.join("");
   }
 
   phoneNumber() {
-    if (this.props.business.phoneNumber.split('').length < 3) {
+    if (this.props.business.phoneNumber.split("").length < 3) {
       return this.props.business.phoneNumber;
     }
-    return `(${this.props.business.phoneNumber.slice(0, 3)}) ${this.props.business.phoneNumber.slice(3, 6)}-${this.props.business.phoneNumber.slice(6, 10)}`
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.params.businessId !== this.props.match.params.businessId) {
-      this.props.fetchBusiness(this.props.match.params.businessId)
-    }
+    return `(${this.props.business.phoneNumber.slice(
+      0,
+      3
+    )}) ${this.props.business.phoneNumber.slice(
+      3,
+      6
+    )}-${this.props.business.phoneNumber.slice(6, 10)}`;
   }
 
   getStars(num) {
     let stars = [];
 
     for (let i = 0; i < num; i++) {
-      stars.push(<div key={i} className={`mystar fa fa-star checked`}></div>);
+      stars.push(<div key={i} className={`mystar fa fa-star checked`} />);
     }
-    return (stars);
+    return stars;
   }
-
 
   hasReview() {
     if (!this.props.currentUser) {
       return (
-        <Link to={`/signin`}><input id="write-a-review" type="button" value="Write a Review" /></Link>
-      )
+        <Link to={`/signin`}>
+          <input id="write-a-review" type="button" value="Write a Review" />
+        </Link>
+      );
     }
 
     for (let i = 0; i < this.props.reviews.length; i++) {
       let userId = this.props.reviews[i].userId;
       if (userId === this.props.currentUser) {
         return (
-          <Link to={`/businesses/${this.props.match.params.businessId}/reviews/${this.props.reviews[i].id}`}><input id="write-a-review" type="button" value="Update Review" /></Link>
-        )
+          <Link
+            to={`/businesses/${this.props.match.params.businessId}/reviews/${
+              this.props.reviews[i].id
+            }`}
+          >
+            <input id="write-a-review" type="button" value="Update Review" />
+          </Link>
+        );
       }
     }
     return (
@@ -69,15 +83,14 @@ class BusinessShow extends React.Component {
     );
   }
 
-
   render() {
     let final;
     if (!this.props.business) {
       return "";
-    } else{
+    } else {
       final = Math.floor(this.props.avgRating * 2);
     }
-    
+
     return (
       <div>
         <NavBarShowContainer type="show" />
@@ -157,16 +170,14 @@ class BusinessShow extends React.Component {
             </div>
             <div className="comments-more-information">
               <ul>
-                
                 {this.props.reviews.map(review => (
-                  
                   <Review
                     users={this.props.users}
                     review={review}
                     key={review.id}
                     date={this.props.date}
                     currentUser={this.props.currentUser}
-                    delete = {this.props.delete}
+                    delete={this.props.delete}
                   />
                 ))}
               </ul>
