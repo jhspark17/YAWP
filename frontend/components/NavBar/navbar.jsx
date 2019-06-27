@@ -11,6 +11,7 @@
     }
 
      loggedIn(){
+      let pictureURL = this.props.currentUser ? this.props.currentUser.picture : null
       if (this.props.currentUserId) {
         return (
           <div className="nav-container">
@@ -22,12 +23,15 @@
               </div>
               <div id="logout-nav">
                 <div class="dropdown">
-                  <button onClick={this.dropdown} class="dropbtn">
-                    <i class="fas fa-user" />
-                  </button>
+                    <img
+                      onClick={this.dropdown}
+                      className="logout-nav-show-picture"
+                      src={`${pictureURL}`}
+                      alt=""
+                    />
                   <div id="myDropdown" class="dropdown-content">
                     <div className="top-dropdown">
-                     Hello, {this.props.currentUser.firstName}
+                      Hello, {this.props.currentUser.firstName}
                     </div>
                     <div>
                       <input

@@ -120,13 +120,6 @@
 }
 
 /* Dropdown Button */
-.dropbtn {
-  background-color: grey;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
 
 /* The container <div> - needed to position the dropdown content */
 // .dropdown {
@@ -193,7 +186,7 @@
 }
 
 .logout-button{
-    color: lightgray;
+    color: black;
     font-size: 14px;
     margin-top: 12px;
     border-top: 1px solid #e6e6e6;
@@ -224,4 +217,9 @@
     -webkit-font-smoothing: antialiased;
     background-color: none;
     
+}
+
+.logout-nav-show-picture{
+  height: 40%;
+  width: 40%;
 }

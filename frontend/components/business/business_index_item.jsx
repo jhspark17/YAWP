@@ -40,7 +40,9 @@ class BusinessIndexItem extends React.Component{
       if (comment.id === id) {
         return(
           <div className="index-comment">
-            "{comment.body}"
+            "
+            {comment.body}
+            "
           </div>
         )
       }

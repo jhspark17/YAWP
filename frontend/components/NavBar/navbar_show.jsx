@@ -12,6 +12,7 @@ class NavBarShow extends React.Component {
   }
 
   loggedIn() {
+   
     if (this.props.currentUserId) {
       return (
         <div>
@@ -28,9 +29,14 @@ class NavBarShow extends React.Component {
               <SearchBarContainer type={this.props.type} />
               <div className="dropdown">
                 <div id="logout-nav-show">
-                  <button onClick={this.dropdown} class="dropbtn">
-                    <i class="fas fa-user" />
-                  </button>
+               
+                    <img
+                      onClick={this.dropdown}
+                      className="logout-nav-show-picture"
+                      src={`${this.props.currentUser.picture}`}
+                      alt=""
+                    />
+                 
                   <div id="myDropdown" class="dropdown-content">
                     <div className="top-dropdown">
                       Hello, {this.props.currentUser.firstName}

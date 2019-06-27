@@ -11,6 +11,10 @@ const Home = props => {
     fetchBusinesses();
   }, [])
 
+if (!props.businesses.length) {
+  return null;
+}
+
 const content =  ( 
     <div>
       <header className="header-all-container">
@@ -79,7 +83,7 @@ const content =  (
             <div className="home-restaurant">
               <div className="title-home" />
               <div className="home-restaurant-photo">
-                <img src={`${this.props.businesses[6].photos}`} alt="" />
+                <img src={`${props.businesses[6].photos}`} alt="" />
               </div>
               <div className="home-business-description">
                 <Link
@@ -100,7 +104,7 @@ const content =  (
     </div>
   );
 
-  return (props.businesses.length ? content  : null);
+  return content  
 }
 
 

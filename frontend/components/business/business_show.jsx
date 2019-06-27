@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import NavBarShowContainer from '../NavBar/navbar_show_container';
 import Review from './review';
@@ -9,6 +9,8 @@ import BusinessMap from './business_map'
 
 const BusinessShow = props => {
   let businessId = props.match.params.businessId;
+  let fetchBusiness = props.fetchBusiness
+  let final;
   // componentDidMount() {
   //   this.props.fetchBusiness(this.props.match.params.businessId);
   //   window.scrollTo(0, 0);
@@ -22,6 +24,7 @@ const BusinessShow = props => {
 
   useEffect(() => {
     console.log("it works")
+    fetchBusiness(props.match.params.businessId);
   },[])
 
   const costSign = () => {
@@ -33,7 +36,8 @@ const BusinessShow = props => {
   }
 
   const phoneNumber = () => {
-    if (props.business.phoneNumber.split("").length < 3) {
+    
+    if (props.business.phoneNumber.split("").length < 4) {
       return props.business.phoneNumber;
     }
     return `(${props.business.phoneNumber.slice(
