@@ -26,6 +26,10 @@ class ReviewForm extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+
+  }
+
   componentDidUpdate(prevProps) {
     if (
       !prevProps.business &&

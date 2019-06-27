@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import NavBarShowContainer from '../NavBar/navbar_show_container';
 import Review from './review';
@@ -7,44 +7,45 @@ import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import FakeInformation from './fake_information'
 import BusinessMap from './business_map'
 
-class BusinessShow extends React.Component {
-  constructor(props) {
-    super(props);
-    let businessId = this.props.match.params.businessId;
-  }
-  componentDidMount() {
-    this.props.fetchBusiness(this.props.match.params.businessId);
-    window.scrollTo(0, 0);
-  }
+const BusinessShow = props => {
+  let businessId = props.match.params.businessId;
+  // componentDidMount() {
+  //   this.props.fetchBusiness(this.props.match.params.businessId);
+  //   window.scrollTo(0, 0);
+  // }
 
-  componentDidUpdate(prevProps) {
-    if ( prevProps.match.params.businessId !== this.props.match.params.businessId) {
-      this.props.fetchBusiness(this.props.match.params.businessId);
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if ( prevProps.match.params.businessId !== this.props.match.params.businessId) {
+  //     this.props.fetchBusiness(this.props.match.params.businessId);
+  //   }
+  // }
 
-  costSign() {
+  useEffect(() => {
+    console.log("it works")
+  },[])
+
+  const costSign = () => {
     let dollarSign = [];
-    for (let i = 0; i < this.props.business.rating; i++) {
+    for (let i = 0; i < props.business.rating; i++) {
       dollarSign.push("$");
     }
     return dollarSign.join("");
   }
 
-  phoneNumber() {
-    if (this.props.business.phoneNumber.split("").length < 3) {
-      return this.props.business.phoneNumber;
+  const phoneNumber = () => {
+    if (props.business.phoneNumber.split("").length < 3) {
+      return props.business.phoneNumber;
     }
-    return `(${this.props.business.phoneNumber.slice(
+    return `(${props.business.phoneNumber.slice(
       0,
       3
-    )}) ${this.props.business.phoneNumber.slice(
+    )}) ${props.business.phoneNumber.slice(
       3,
       6
-    )}-${this.props.business.phoneNumber.slice(6, 10)}`;
+    )}-${props.business.phoneNumber.slice(6, 10)}`;
   }
 
-  getStars(num) {
+  const getStars = (num) => {
     let stars = [];
 
     for (let i = 0; i < num; i++) {
@@ -53,8 +54,8 @@ class BusinessShow extends React.Component {
     return stars;
   }
 
-  hasReview() {
-    if (!this.props.currentUser) {
+  const hasReview = () => {
+    if (!props.currentUser) {
       return (
         <Link to={`/signin`}>
           <input id="write-a-review" type="button" value="Write a Review" />
@@ -62,13 +63,13 @@ class BusinessShow extends React.Component {
       );
     }
 
-    for (let i = 0; i < this.props.reviews.length; i++) {
-      let userId = this.props.reviews[i].userId;
-      if (userId === this.props.currentUser) {
+    for (let i = 0; i < props.reviews.length; i++) {
+      let userId = props.reviews[i].userId;
+      if (userId === props.currentUser) {
         return (
           <Link
-            to={`/businesses/${this.props.match.params.businessId}/reviews/${
-              this.props.reviews[i].id
+            to={`/businesses/${props.match.params.businessId}/reviews/${
+              props.reviews[i].id
             }`}
           >
             <input id="write-a-review" type="button" value="Update Review" />
@@ -77,21 +78,20 @@ class BusinessShow extends React.Component {
       }
     }
     return (
-      <Link to={`/businesses/${this.props.match.params.businessId}/reviews`}>
+      <Link to={`/businesses/${props.match.params.businessId}/reviews`}>
         <input id="write-a-review" type="button" value="Write a Review" />
       </Link>
     );
   }
 
-  render() {
-    let final;
-    if (!this.props.business) {
+
+    if (!props.business) {
       return "";
     } else {
-      final = Math.floor(this.props.avgRating * 2);
+      final = Math.floor(props.avgRating * 2);
     }
 
-    return (
+    const content = (
       <div>
         <NavBarShowContainer type="show" />
         <div className="main">
@@ -99,7 +99,7 @@ class BusinessShow extends React.Component {
             <div className="business-header-info-container">
               <div className="business-header-info">
                 <div>
-                  <div>{this.props.business.businessName}</div>
+                  <div>{props.business.businessName}</div>
                   <img
                     className={`star-lrg-${final}` + ` star-lrg`}
                     src="https://i.imgur.com/UkZkm0D.png"
@@ -108,7 +108,7 @@ class BusinessShow extends React.Component {
                 </div>
 
                 <div className="under-header-right">
-                  <div>{this.hasReview()}</div>
+                  <div>{hasReview()}</div>
                   <div className="add-share-save">
                     <input type="button" id="add-photo" value="Add Photo" />
                     <input type="button" id="add-photo" value="Share" />
@@ -124,7 +124,7 @@ class BusinessShow extends React.Component {
                 <div className="mapbox-container">
                   <div className="mapbox">
                     <BusinessMap
-                      businesses={[this.props.business]}
+                      businesses={[props.business]}
                       type="show"
                       zoom="false"
                     />
@@ -135,25 +135,25 @@ class BusinessShow extends React.Component {
                         width="286"
                       /> */}
                   </div>
-                  <div>{this.props.business.address1}</div>
+                  <div>{props.business.address1}</div>
                   <div>
-                    {`${this.props.business.city}, ${
-                      this.props.business.state
-                    } ${this.props.business.zipCode}`}
+                    {`${props.business.city}, ${
+                      props.business.state
+                    } ${props.business.zipCode}`}
                   </div>
-                  <div>{this.phoneNumber()}</div>
+                  <div>{phoneNumber()}</div>
                 </div>
               </div>
             </div>
             <div className="restaurant-photo">
               <div className="restaurant-photo-inside">
-                <img src={this.props.business.photos[0]} />
+                <img src={props.business.photos[0]} />
               </div>
               <div className="restaurant-photo-inside">
-                <img src={this.props.business.photos[1]} />
+                <img src={props.business.photos[1]} />
               </div>
               <div className="restaurant-photo-inside">
-                <img src={this.props.business.photos[2]} />
+                <img src={props.business.photos[2]} />
               </div>
             </div>
           </div>
@@ -165,19 +165,19 @@ class BusinessShow extends React.Component {
                 Recommended Reviews <br />
               </h2>
               <div className="business-name-review">
-                {`for ${this.props.business.businessName}`}
+                {`for ${props.business.businessName}`}
               </div>
             </div>
             <div className="comments-more-information">
               <ul>
-                {this.props.reviews.map(review => (
+                {props.reviews.map(review => (
                   <Review
-                    users={this.props.users}
+                    users={props.users}
                     review={review}
                     key={review.id}
-                    date={this.props.date}
-                    currentUser={this.props.currentUser}
-                    delete={this.props.delete}
+                    date={props.date}
+                    currentUser={props.currentUser}
+                    delete={props.delete}
                   />
                 ))}
               </ul>
@@ -189,7 +189,9 @@ class BusinessShow extends React.Component {
         </div>
       </div>
     );
+    return content;
   }
-}
+
+
 
 export default BusinessShow;
