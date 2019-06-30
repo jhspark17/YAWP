@@ -27,6 +27,10 @@ const BusinessShow = props => {
     fetchBusiness(props.match.params.businessId);
   },[])
 
+  useEffect(() => {
+
+  }, [])
+
   const costSign = () => {
     let dollarSign = [];
     for (let i = 0; i < props.business.rating; i++) {
