@@ -10,8 +10,7 @@ class ReviewForm extends React.Component {
       body: this.props.review.body,
       user_id: this.props.currentUser,
       business_id: this.props.businessId,
-      rating: 0,
-      
+      rating: 0
     };
 
     this.onSubmit = this.onSubmit.bind(this);
@@ -26,9 +25,7 @@ class ReviewForm extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-
-  }
+  componentDidUpdate() {}
 
   componentDidUpdate(prevProps) {
     if (
@@ -38,22 +35,6 @@ class ReviewForm extends React.Component {
     ) {
       this.currentUserReview();
     }
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    this.props
-      .action(this.state)
-      .then(() =>
-        this.props.history.push(`/businesses/${this.props.businessId}`)
-      );
-  }
-
-  update(field) {
-    return e =>
-      this.setState({
-        [field]: e.target.value
-      });
   }
 
   currentUserReview() {
@@ -117,6 +98,22 @@ class ReviewForm extends React.Component {
     return `/businesses/${businessId}`;
   }
 
+  onSubmit(e) {
+    e.preventDefault();
+    this.props
+      .action(this.state)
+      .then(() =>
+        this.props.history.push(`/businesses/${this.props.businessId}`)
+      );
+  }
+
+  update(field) {
+    return e =>
+      this.setState({
+        [field]: e.target.value
+      });
+  }
+
   render() {
     const placeholder =
       "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
@@ -131,7 +128,7 @@ class ReviewForm extends React.Component {
     if (this.props.business === undefined) {
       return null;
     } else if (this.props.currentUser === null) {
-      this.props.history.push(`/businesses/${this.props.businessId}`)
+      this.props.history.push(`/businesses/${this.props.businessId}`);
     }
     return (
       <div>

@@ -2,6 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 
 const NavBarSearch = props => {
+  const [search, setSerach] = useState("");
+  
+  const update = () => {
+    return e =>
+      setSerach(e.target.value)
+  }
+
   const searchBar = (
     <form className="search-bar-show">
       <span className="description find">Find</span>
@@ -15,8 +22,9 @@ const NavBarSearch = props => {
         className="middle-search"
         type="text"
         placeholder="App Academy"
+        onChange={update()}
       />
-      <button id="search-submit" type="submit">
+      <button id="search-submit" type="submit" >
         <Link to="/businesses">
           <i class="material-icons show-search-icon">search</i>
         </Link>

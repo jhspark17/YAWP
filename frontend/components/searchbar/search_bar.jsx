@@ -3,14 +3,13 @@ import HomeSearch from "./home_search"
 import NavBarSearch from "./navbar_search"
 
 const SearchBar = props => {
+  debugger;
   if (props.type === undefined) {
     return (
-      <HomeSearch />
+      <HomeSearch searchBusiness={props.searchBusinesses}/>
     );
   } else {
-    return (
-      <NavBarSearch />
-    );
+    return <NavBarSearch searchBusiness={props.searchBusinesses} />;
   }
 }
 

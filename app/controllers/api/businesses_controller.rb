@@ -26,11 +26,6 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    #if params has key search_body 
-     #@business = Business.find(search_body)
-     # json.jubiler @builder
-    #entire difreent logi 
-    #else 
     @business = Business.find(params[:id])
     if @business
       render "api/businesses/show"

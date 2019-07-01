@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import SearchBar from './search_bar';
+import {searchBusinesses} from '../../actions/business_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,6 +10,12 @@ const mapStateToProps = (state, ownProps) => {
   })
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return({
+    searchBusinesses: (search) => dispatch(searchBusinesses(search))
+  })
+}
 
 
-export default connect(mapStateToProps, null)(SearchBar)
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

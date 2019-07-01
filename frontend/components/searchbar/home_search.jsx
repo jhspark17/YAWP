@@ -3,12 +3,28 @@ import { Link } from "react-router-dom";
 
 
 const HomeSearch = props => {
-  const searchBar = ( <form className="search-bar">
+   const [search, setSearch] = useState("");
+   const searchBusiness = props.searchBusiness
+   
+   const onSubmit = e => {
+     debugger;
+     e.preventDefault();
+     searchBusiness(search)
+   }
+
+   const update = () => {
+    return e => setSearch(e.target.value);
+   };
+
+   
+
+  const searchBar = ( <form className="search-bar" onSubmit={onSubmit}>
         <span className="description find">Find</span>
         <input
           className="left-side-search"
           type="text"
           placeholder="restaurants, boba, coffee..."
+          onChange={update()}
         />
         <span className="description border-near ">Near</span>
         <input
@@ -18,9 +34,7 @@ const HomeSearch = props => {
         />
 
         <button id="search-submit" type="submit">
-          <Link to="/businesses">
             <i class="material-icons">search</i>
-          </Link>
         </button>
       </form>
   )

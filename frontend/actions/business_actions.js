@@ -2,6 +2,7 @@ import * as BusinessApiUtil from '../util/business_api_util'
 
 export const RECEIVE_ALL_BUSINESSES = "RECEIVE_ALL_BUSINESSES"
 export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
+export const RECEIVE_SPECIFIC_BUSINESSES = "RECEIVE_SPECIFIC_BUSINESSES"
 
 const receiveBusinesses = (payload) => ({
   type: RECEIVE_ALL_BUSINESSES,
@@ -13,6 +14,13 @@ const receiveBusiness = (payload) => {
     type: RECEIVE_BUSINESS,
     payload
   })};
+
+  const receiveSpecificBusinesses = (payload) => {
+    return ({
+      type: RECEIVE_SPECIFIC_BUSINESSES,
+      payload
+    })
+  }
 
 
 export const fetchBusinesses = () => dispatch => (
@@ -26,6 +34,6 @@ export const fetchBusiness = (id) => dispatch => (
 );
 
 export const searchBusinesses = (search) => dispatch => (
-  BusinessApiUti.searchBusinesses(search)
-  .then(businesses => dispatch(foundBusinesses(businesses)))
+  BusinessApiUtil.searchBusinesses(search)
+  .then(businesses => dispatch(receiveSpecificBusinesses(businesses)))
 )
