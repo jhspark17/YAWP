@@ -7,7 +7,6 @@ const HomeSearch = props => {
    const searchBusiness = props.searchBusiness
    
    const onSubmit = e => {
-     debugger;
      e.preventDefault();
      searchBusiness(search)
    }
@@ -16,14 +15,13 @@ const HomeSearch = props => {
     return e => setSearch(e.target.value);
    };
 
-   
-
-  const searchBar = ( <form className="search-bar" onSubmit={onSubmit}>
+   const searchBar = ( <form className="search-bar" onSubmit={onSubmit}>
         <span className="description find">Find</span>
         <input
           className="left-side-search"
           type="text"
           placeholder="restaurants, boba, coffee..."
+          name="q"
           onChange={update()}
         />
         <span className="description border-near ">Near</span>

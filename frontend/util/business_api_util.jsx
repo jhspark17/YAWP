@@ -22,8 +22,8 @@ export const fetchBusinesses = () => (
 
 export const searchBusinesses = (search) => {
  return ($.ajax({
-    method: "POST",
-    url: `/api/`
+    method: "Get",
+    url: `/api/search?q=${search}`
   }))
 };
 
