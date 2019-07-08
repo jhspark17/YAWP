@@ -28,4 +28,43 @@ export const searchBusinesses = (search) => {
 };
 
 
+// @reviews.each do |review|
+//   json.reviews do 
+//     json.set! review.id do
+//       json.extract! review, :id, :body, :rating, :user_id, :business_id
+//     end
+//   end
+// end
+
+// json.businesses do
+//   @businesses.each do |business|
+//     json.set! business.id do
+//       json.partial! 'api/businesses/business', business: business
+//       business.reviews.each do |review|
+//         json.reviews do 
+//           json.set! review.id do
+//           json.extract! review, :id, :body, :rating, :user_id, :business_id
+//         end
+//       end
+//     end
+//   end
+// end
+// @business.reviews.each do |review|
+//   json.reviews do 
+//     json.set! review.id do
+//       json.extract! review, :id, :body, :rating, :user_id, :business_id, :updated_at
+//     end
+//   end
+
+
+//   json.users do
+//     json.set! review.user.id do
+//       json.partial! 'api/users/user', user: review.user
+//     end
+//   end
+// end
+
+
+
+
 

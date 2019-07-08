@@ -22,7 +22,7 @@ class Api::BusinessesController < ApplicationController
 #api/business/search_bidy/id
 
   def search
-   @businesses = Business.where("business_name LIKE ?", "%" + params[:q] + "%").includes(:reviews)
+   @businesses = Business.where("business_name LIKE ?", "%" + params[:q] + "%")
  
   #  @reviews = execute("SELECT * FROM reviews JOIN businesses on business.id = review.business_id WHERE business_name LIKE #{params[:q]}")
    render :index

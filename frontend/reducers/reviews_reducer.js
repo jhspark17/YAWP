@@ -6,10 +6,10 @@ const reviewsReducer = (state = {}, action) => {
   let newState = Object.assign({}, state);
   console.log(action.type)
   switch (action.type) {
-    case RECEIVE_ALL_BUSINESSES:
-      return Object.assign({}, action.payload.reviews)
-    case RECEIVE_BUSINESS:
-       return Object.assign({},action.payload.reviews); 
+    // case RECEIVE_ALL_BUSINESSES:
+    //   return Object.assign({}, action.payload.reviews)
+    // case RECEIVE_BUSINESS:
+    //    return Object.assign({},action.payload.reviews); 
     case RECEIVE_REVIEW:
       newState = merge(newState, { [action.review.id]: action.review });
       return newState;
