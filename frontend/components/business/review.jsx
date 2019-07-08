@@ -1,30 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 
-class Review extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      current: this.findUser()
-    }
-  }
+const Review = props => {
+  const [user, setUser] = useState("")
+  debugger
+  useEffect(() => {
+    findUser();
+  }, [user])
 
-  componentDidMount(){
 
-  }
-
-  findUser() {
-    for (let i = 0; i < this.props.users.length; i++) {
+ const findUser = () => {
+    for (let i = 0; i < props.users.length; i++) {
       let user = this.props.users[i];
       let id = user.id;
 
-      if (id === this.props.review.userId) {
-        return user;
+      if (id === props.review.userId) {
+        setUser(user);
       }
     }
   }
 
-  checkUser() {
+  const checkUser = () => {
     if (this.props.currentUser === this.props.review.userId) {
       return (
         <i
@@ -36,8 +32,8 @@ class Review extends React.Component {
     return ""
   }
 
-  findReview() {
-    for (let i = 0; i < this.props.businessReviews.length; i++) {
+  const findReview = () => {
+    for (let i = 0; i < props.businessReviews.length; i++) {
       let review = this.props.businessReviews[i];
       if (review.userId === currentUser.id) {
         return review.id;
@@ -46,16 +42,14 @@ class Review extends React.Component {
     return null;
   }
 
-  deleteReview() {
-    
-    this.props
-      .delete(this.props.review.id)
-      .then(() =>
-        this.props.history.push(`/businesses/${this.props.businessId}`)
-      );
+  const deleteReview = () => {
+    props.delete(this.props.review.id)
+    .then(() =>
+      this.props.history.push(`/businesses/${this.props.businessId}`)
+    );
   }
 
-  getDate(){
+  const getDate = () => {
     let date = this.props.review.updatedAt;
     if (date === undefined) {
       return null;
@@ -63,21 +57,18 @@ class Review extends React.Component {
     return `${date.slice(5, 7)}/${date.slice(8, 10)}/${date.slice(0, 4)}`;
   }
 
+  let current = this.findUser();
+  let picture;
+  let userRating;
+  if (current === undefined) {
+    return "";
+  } else {
+    picture = current.picture;
+    userRating = this.props.review.rating * 2;
+    
+  }
 
-
-  render() {
-    let current = this.findUser();
-    let picture;
-    let userRating;
-    if (current === undefined) {
-      return "";
-    } else {
-      picture = current.picture;
-      userRating = this.props.review.rating * 2;
-     
-    }
-
-    return (
+const content = (
       <>
         <div className="comment-box-container">
           <div className="comment-box-profile">
@@ -100,7 +91,7 @@ class Review extends React.Component {
         </div>
       </>
     );
-  }
+  return content;
 }
 
 export default Review

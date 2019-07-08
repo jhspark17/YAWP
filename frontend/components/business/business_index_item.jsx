@@ -14,7 +14,7 @@ const BusinessIndexItem = props => {
   const pickPrice = () => {
     let price = [];
     let num = Math.floor(Math.random() * 4) + 1
-    for (let i = 0; i < num; i ++) {
+    for (let i = 0; i < num; i++) {
       price.push("$")
     }
     return price.join('')

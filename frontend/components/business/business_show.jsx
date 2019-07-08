@@ -8,9 +8,22 @@ import FakeInformation from './fake_information'
 import BusinessMap from './business_map'
 
 const BusinessShow = props => {
-  let businessId = props.match.params.businessId;
-  let fetchBusiness = props.fetchBusiness
+   let businessId = props.match.params.businessId;
+   let fetchBusiness = props.fetchBusiness;
+    useEffect(() => {
+      console.log("it works");
+      fetchBusiness(props.match.params.businessId);
+    }, []);
+
+    if (!props.business) {
+      return "";
+    } else {
+      final = Math.floor(props.avgRating * 2);
+    }
+ 
+  let reviewIds = Object.keys(props.business.reviews)
   let final;
+  debugger
   // componentDidMount() {
   //   this.props.fetchBusiness(this.props.match.params.businessId);
   //   window.scrollTo(0, 0);
@@ -22,10 +35,7 @@ const BusinessShow = props => {
   //   }
   // }
 
-  useEffect(() => {
-    console.log("it works")
-    fetchBusiness(props.match.params.businessId);
-  },[])
+
 
 
   const costSign = () => {
@@ -90,11 +100,7 @@ const BusinessShow = props => {
   }
 
 
-    if (!props.business) {
-      return "";
-    } else {
-      final = Math.floor(props.avgRating * 2);
-    }
+   
 
     const content = (
       <div>
@@ -175,11 +181,11 @@ const BusinessShow = props => {
             </div>
             <div className="comments-more-information">
               <ul>
-                {props.reviews.map(review => (
+                {reviewIds.map(reviewId => (
                   <Review
                     users={props.users}
-                    review={review}
-                    key={review.id}
+                    review={props.business.reviews[reviewId]}
+                    key={reviewId}
                     date={props.date}
                     currentUser={props.currentUser}
                     delete={props.delete}
