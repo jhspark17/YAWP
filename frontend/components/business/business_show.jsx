@@ -22,8 +22,6 @@ const BusinessShow = props => {
     }
     debugger
   
-  let final;
-
   // componentDidMount() {
   //   this.props.fetchBusiness(this.props.match.params.businessId);
   //   window.scrollTo(0, 0);
@@ -96,6 +94,16 @@ const BusinessShow = props => {
     );
   }
 
+  const finalRating = () => {
+    let sum = 0;
+
+    props.business.reviews.forEach(review => {
+      sum += review.rating;
+    });
+
+    return Math.floor(sum / props.business.reviews.length) * 2;
+  }
+
 
    
 
@@ -109,7 +117,7 @@ const BusinessShow = props => {
                 <div>
                   <div>{props.business.businessName}</div>
                   <img
-                    className={`star-lrg-${final}` + ` star-lrg`}
+                    className={`star-lrg-${finalRating()}` + ` star-lrg`}
                     src="https://i.imgur.com/UkZkm0D.png"
                   />
                   <div>$$</div>

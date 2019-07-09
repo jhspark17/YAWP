@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
 const BusinessIndexItem = props => {
- let starRating = Math.floor(props.business.avgRating * 2); 
-  
+ 
+  debugger
   const phoneNumber = () => {
     if (props.business.phoneNumber.split('').length < 6) {
       return "N/A"
@@ -18,6 +18,17 @@ const BusinessIndexItem = props => {
       price.push("$")
     }
     return price.join('')
+  }
+
+
+  const starRating = () => {
+    let sum = 0;
+
+    props.business.reviews.forEach(review => {
+      sum += review.rating
+    })
+
+   return Math.floor(sum / props.business.reviews.length) * 2;
   }
 
   const pickComment = () => {
@@ -55,7 +66,7 @@ const BusinessIndexItem = props => {
                 </Link>
                 <div>
                   <img
-                    className={`star-medium-${starRating}` + " star-medium"}
+                    className={`star-medium-${starRating()}` + " star-medium"}
                     src="https://i.imgur.com/UkZkm0D.png"
                   />
                   <span className="review-text">
