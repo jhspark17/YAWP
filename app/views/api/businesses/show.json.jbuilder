@@ -1,10 +1,17 @@
 json.business do
   json.partial! 'api/businesses/business', business: @business
-  json.reviews do
-    @business.reviews.each do |review|
-      json.set! review.id do
-        json.extract! review, :id, :body, :rating, :user_id, :business_id
-      end
-    end
+  json.reviews @business.reviews.map do |review|
+    json.partial! 'api/reviews/review', review: review
+    json.partial! 'api/users/user', user: review.user
   end
 end
+
+
+    # @business.reviews.each do |review|
+    #   json.set! review.id do
+    #     json.extract! review, :id, :body, :rating, :user_id, :business_id, :updated_at
+    #   end
+    #   json.set! review.user.id do
+    #     json.extract! json.partial! 'api/users/user', user: review.user
+    #   end
+    # end

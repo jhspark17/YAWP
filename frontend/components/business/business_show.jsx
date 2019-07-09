@@ -20,10 +20,10 @@ const BusinessShow = props => {
     } else {
       final = Math.floor(props.avgRating * 2);
     }
- 
-  let reviewIds = Object.keys(props.business.reviews)
+    debugger
+  
   let final;
-  debugger
+
   // componentDidMount() {
   //   this.props.fetchBusiness(this.props.match.params.businessId);
   //   window.scrollTo(0, 0);
@@ -34,9 +34,6 @@ const BusinessShow = props => {
   //     this.props.fetchBusiness(this.props.match.params.businessId);
   //   }
   // }
-
-
-
 
   const costSign = () => {
     let dollarSign = [];
@@ -181,11 +178,10 @@ const BusinessShow = props => {
             </div>
             <div className="comments-more-information">
               <ul>
-                {reviewIds.map(reviewId => (
+                {props.business.reviews.map(review => (
                   <Review
-                    users={props.users}
-                    review={props.business.reviews[reviewId]}
-                    key={reviewId}
+                    review={review}
+                    key={review.id}
                     date={props.date}
                     currentUser={props.currentUser}
                     delete={props.delete}

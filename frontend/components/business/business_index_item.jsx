@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const BusinessIndexItem = props => {
  let starRating = Math.floor(props.business.avgRating * 2); 
-  debugger;
+  
   const phoneNumber = () => {
     if (props.business.phoneNumber.split('').length < 6) {
       return "N/A"

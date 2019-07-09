@@ -2,78 +2,44 @@ import React, {useState, useEffect} from 'react';
 
 
 const Review = props => {
-  const [user, setUser] = useState("")
-  debugger
-  useEffect(() => {
-    findUser();
-  }, [user])
-
-
- const findUser = () => {
-    for (let i = 0; i < props.users.length; i++) {
-      let user = this.props.users[i];
-      let id = user.id;
-
-      if (id === props.review.userId) {
-        setUser(user);
-      }
-    }
-  }
-
-  const checkUser = () => {
-    if (this.props.currentUser === this.props.review.userId) {
+debugger
+const checkUser = () => {
+    if (!props.currentUser) return;
+    if (props.currentUser === props.review.userId) {
       return (
         <i
           class="fas fa-trash-alt fa-2x"
-          onClick={() => this.deleteReview()}
+          onClick={() => props.deleteReview()}
         />
       );
     }
     return ""
   }
 
-  const findReview = () => {
-    for (let i = 0; i < props.businessReviews.length; i++) {
-      let review = this.props.businessReviews[i];
-      if (review.userId === currentUser.id) {
-        return review.id;
-      }
-    }
-    return null;
-  }
-
-  const deleteReview = () => {
-    props.delete(this.props.review.id)
+const deleteReview = () => {
+    props.delete(props.review.id)
     .then(() =>
       this.props.history.push(`/businesses/${this.props.businessId}`)
     );
   }
 
   const getDate = () => {
-    let date = this.props.review.updatedAt;
+    let date = props.review.updatedAt;
     if (date === undefined) {
       return null;
     }
     return `${date.slice(5, 7)}/${date.slice(8, 10)}/${date.slice(0, 4)}`;
   }
 
-  let current = this.findUser();
-  let picture;
-  let userRating;
-  if (current === undefined) {
-    return "";
-  } else {
-    picture = current.picture;
-    userRating = this.props.review.rating * 2;
-    
-  }
+  let picture = props.review.picture;
+  let userRating = props.review.rating * 2
 
 const content = (
       <>
         <div className="comment-box-container">
           <div className="comment-box-profile">
             <img class="review-user-pic" src={picture} />
-            <div>{`${current.firstName}`}</div>
+            <div>{`${props.review.firstName}`}</div>
           </div>
           <div className="comment-box-body">
             <div className="comment-box-rating-date">
@@ -81,11 +47,11 @@ const content = (
                 className={`star-medium-${userRating}` + " star-medium"}
                 src="https://i.imgur.com/UkZkm0D.png"
               />
-              <span>{this.getDate()}</span>
+              <span>{getDate()}</span>
             </div>
             <div className="review-body">
-              <div className="review-text-body">{this.props.review.body}</div>
-              {this.checkUser()}
+              <div className="review-text-body">{props.review.body}</div>
+              {checkUser()}
             </div>
           </div>
         </div>
