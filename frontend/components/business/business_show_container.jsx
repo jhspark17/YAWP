@@ -25,7 +25,7 @@ return({
 const mapDispatchToProps = dispatch => ({
   fetchBusiness: id => dispatch(fetchBusiness(id)),
   demoSignIn: (demoUser) => dispatch(demoSignIn(demoUser)),
-  delete: (id) => dispatch(deleteReview(id))
+  deleteReview: (id) => dispatch(deleteReview(id))
 });
 
 

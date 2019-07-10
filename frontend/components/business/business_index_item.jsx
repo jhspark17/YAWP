@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
 const BusinessIndexItem = props => {
- 
-  debugger
+
   const phoneNumber = () => {
     if (props.business.phoneNumber.split('').length < 6) {
       return "N/A"

@@ -1,45 +1,49 @@
 import React, {useState, useEffect} from 'react';
+import { Route, withRouter } from "react-router-dom";
 
 
 const Review = props => {
-debugger
+  const {deleteReview, id, review, business, key, currentUser} = props
+
 const checkUser = () => {
-    if (!props.currentUser) return;
-    if (props.currentUser === props.review.userId) {
+    if (!currentUser) return;
+    if (currentUser === review.userId) {
       return (
         <i
           class="fas fa-trash-alt fa-2x"
-          onClick={() => props.deleteReview()}
+          onClick={() => {deleteReview(id)}}
         />
       );
     }
     return ""
   }
 
-const deleteReview = () => {
-    props.delete(props.review.id)
-    .then(() =>
-      this.props.history.push(`/businesses/${this.props.businessId}`)
-    );
-  }
+// const deleteReview = () => {
+//     debugger
+//     delete(props.review.id)
+//     .then(() => {
+//       debugger
+//       props.history.push(`/businesses/${props.business.id}`)
+//     });
+//   }
 
-  const getDate = () => {
-    let date = props.review.updatedAt;
-    if (date === undefined) {
-      return null;
-    }
-    return `${date.slice(5, 7)}/${date.slice(8, 10)}/${date.slice(0, 4)}`;
-  }
+  // const getDate = () => {
+  //   let date = props.review.updatedAt;
+  //   if (date === undefined) {
+  //     return null;
+  //   }
+  //   return `${date.slice(5, 7)}/${date.slice(8, 10)}/${date.slice(0, 4)}`;
+  // }
 
-  let picture = props.review.picture;
-  let userRating = props.review.rating * 2
+  let picture = review.picture;
+  let userRating = review.rating * 2
 
 const content = (
       <>
         <div className="comment-box-container">
           <div className="comment-box-profile">
             <img class="review-user-pic" src={picture} />
-            <div>{`${props.review.firstName}`}</div>
+            <div>{`${review.firstName}`}</div>
           </div>
           <div className="comment-box-body">
             <div className="comment-box-rating-date">
@@ -47,10 +51,10 @@ const content = (
                 className={`star-medium-${userRating}` + " star-medium"}
                 src="https://i.imgur.com/UkZkm0D.png"
               />
-              <span>{getDate()}</span>
+              {/* <span>{getDate()}</span> */}
             </div>
             <div className="review-body">
-              <div className="review-text-body">{props.review.body}</div>
+              <div className="review-text-body">{review.body}</div>
               {checkUser()}
             </div>
           </div>
@@ -60,4 +64,5 @@ const content = (
   return content;
 }
 
-export default Review
+
+export default withRouter(Review)

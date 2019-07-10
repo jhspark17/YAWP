@@ -13,7 +13,7 @@ const BusinessIndex = props => {
  if (!props.businesses[0]) {
     return null;
   }
-  debugger
+
  const content = (
     <div>
       <NavBarShowContainer type="non-home" />

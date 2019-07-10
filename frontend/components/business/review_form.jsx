@@ -4,6 +4,7 @@ import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 import { Link } from "react-router-dom";
 
 class ReviewForm extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {

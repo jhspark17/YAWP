@@ -11,6 +11,8 @@ ActiveRecord::Base.transaction do
   User.destroy_all
   Business.destroy_all
   Category.destroy_all
+  Review.destroy_all
+  Category.destroy_all
 
   #USERS
     demo = User.create!(first_name: "Demo", last_name: "User", email: "demo@email.com", password: "password123", zip_code: 11111)

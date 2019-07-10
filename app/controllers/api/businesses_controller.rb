@@ -23,7 +23,9 @@ class Api::BusinessesController < ApplicationController
 
   def search
    @businesses = Business.where("business_name LIKE ?", "%" + params[:q] + "%")
- 
+    if @businesses.length === 0 
+      @businesses = Business.all
+    end
   #  @reviews = execute("SELECT * FROM reviews JOIN businesses on business.id = review.business_id WHERE business_name LIKE #{params[:q]}")
    render :index
   end

@@ -6,53 +6,38 @@ import SignInContainer from '../session/signin_container'
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import FakeInformation from './fake_information'
 import BusinessMap from './business_map'
+import MainContentHeader from './main_content_header'
 
 const BusinessShow = props => {
-   let businessId = props.match.params.businessId;
-   let fetchBusiness = props.fetchBusiness;
+   const {deleteReview, businessId, currentUser, fetchBusiness, demoSignIn, business, match} = props
     useEffect(() => {
       console.log("it works");
-      fetchBusiness(props.match.params.businessId);
+      fetchBusiness(match.params.businessId);
     }, []);
 
-    if (!props.business) {
+    if (!business) {
       return "";
-    } else {
-      final = Math.floor(props.avgRating * 2);
-    }
-    debugger
+    } 
   
-  // componentDidMount() {
-  //   this.props.fetchBusiness(this.props.match.params.businessId);
-  //   window.scrollTo(0, 0);
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if ( prevProps.match.params.businessId !== this.props.match.params.businessId) {
-  //     this.props.fetchBusiness(this.props.match.params.businessId);
-  //   }
-  // }
-
-  const costSign = () => {
+   const costSign = () => {
     let dollarSign = [];
-    for (let i = 0; i < props.business.rating; i++) {
+    for (let i = 0; i < business.rating; i++) {
       dollarSign.push("$");
     }
     return dollarSign.join("");
   }
 
   const phoneNumber = () => {
-    
-    if (props.business.phoneNumber.split("").length < 4) {
-      return props.business.phoneNumber;
+    if (business.phoneNumber.split("").length < 4) {
+      return business.phoneNumber;
     }
-    return `(${props.business.phoneNumber.slice(
+    return `(${business.phoneNumber.slice(
       0,
       3
-    )}) ${props.business.phoneNumber.slice(
+    )}) ${business.phoneNumber.slice(
       3,
       6
-    )}-${props.business.phoneNumber.slice(6, 10)}`;
+    )}-${business.phoneNumber.slice(6, 10)}`;
   }
 
   const getStars = (num) => {
@@ -65,7 +50,7 @@ const BusinessShow = props => {
   }
 
   const hasReview = () => {
-    if (!props.currentUser) {
+    if (!currentUser) {
       return (
         <Link to={`/signin`}>
           <input id="write-a-review" type="button" value="Write a Review" />
@@ -73,13 +58,13 @@ const BusinessShow = props => {
       );
     }
 
-    for (let i = 0; i < props.reviews.length; i++) {
-      let userId = props.reviews[i].userId;
-      if (userId === props.currentUser) {
+    for (let i = 0; i < business.reviews.length; i++) {
+      let userId = business.reviews[i].userId;
+      if (userId === currentUser) {
         return (
           <Link
-            to={`/businesses/${props.match.params.businessId}/reviews/${
-              props.reviews[i].id
+            to={`/businesses/${match.params.businessId}/reviews/${
+              business.reviews[i].id
             }`}
           >
             <input id="write-a-review" type="button" value="Update Review" />
@@ -88,74 +73,50 @@ const BusinessShow = props => {
       }
     }
     return (
-      <Link to={`/businesses/${props.match.params.businessId}/reviews`}>
+      <Link to={`/businesses/${match.params.businessId}/reviews`}>
         <input id="write-a-review" type="button" value="Write a Review" />
       </Link>
     );
   }
 
-  const finalRating = () => {
-    let sum = 0;
-
-    props.business.reviews.forEach(review => {
-      sum += review.rating;
-    });
-
-    return Math.floor(sum / props.business.reviews.length) * 2;
+ 
+  const handleDelete = (id) => {
+    deleteReview(id).then(() => fetchBusiness(match.params.businessId));
   }
 
+  const allReviews = business.reviews.map(review => {
 
-   
+    return (<Review
+    id = {review.id}
+    review={review}
+    business = {business}
+    key={review.id}
+    currentUser= {currentUser}
+    deleteReview={handleDelete}
+    />)
+  })
 
     const content = (
       <div>
         <NavBarShowContainer type="show" />
         <div className="main">
-          <div className="main-header">
-            <div className="business-header-info-container">
-              <div className="business-header-info">
-                <div>
-                  <div>{props.business.businessName}</div>
-                  <img
-                    className={`star-lrg-${finalRating()}` + ` star-lrg`}
-                    src="https://i.imgur.com/UkZkm0D.png"
-                  />
-                  <div>$$</div>
-                </div>
-
-                <div className="under-header-right">
-                  <div>{hasReview()}</div>
-                  <div className="add-share-save">
-                    <input type="button" id="add-photo" value="Add Photo" />
-                    <input type="button" id="add-photo" value="Share" />
-                    <input type="button" id="add-photo" value="Save" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MainContentHeader business={business} match={match} currentUser={currentUser}/>
           <div className="outer">
             <div className="info-pictures-container">
               <div className="info-pictures">
                 <div className="mapbox-container">
                   <div className="mapbox">
                     <BusinessMap
-                      businesses={[props.business]}
+                      businesses={[business]}
                       type="show"
                       zoom="false"
                     />
-                    {/* <img
-                        alt="Map"
-                        height="135"
-                        src="https://maps.googleapis.com/maps/api/staticmap?scale=2&amp;center=37.799607%2C-122.407305&amp;language=None&amp;zoom=15&amp;markers=scale%3A2%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_64x86.png%7C37.799607%2C-122.407305&amp;client=gme-yelp&amp;sensor=false&amp;size=286x135&amp;signature=DEROAHn4U3svgGuQUypYsswInjk="
-                        width="286"
-                      /> */}
                   </div>
-                  <div>{props.business.address1}</div>
+                  <div> {business.address1}</div>
                   <div>
-                    {`${props.business.city}, ${
-                      props.business.state
-                    } ${props.business.zipCode}`}
+                    {`${business.city}, ${
+                     business.state
+                    } ${business.zipCode}`}
                   </div>
                   <div>{phoneNumber()}</div>
                 </div>
@@ -163,13 +124,13 @@ const BusinessShow = props => {
             </div>
             <div className="restaurant-photo">
               <div className="restaurant-photo-inside">
-                <img src={props.business.photos[0]} />
+                <img src= {business.photos[0]} />
               </div>
               <div className="restaurant-photo-inside">
-                <img src={props.business.photos[1]} />
+                <img src= {business.photos[1]} />
               </div>
               <div className="restaurant-photo-inside">
-                <img src={props.business.photos[2]} />
+                <img src= {business.photos[2]} />
               </div>
             </div>
           </div>
@@ -181,20 +142,12 @@ const BusinessShow = props => {
                 Recommended Reviews <br />
               </h2>
               <div className="business-name-review">
-                {`for ${props.business.businessName}`}
+                {`for ${business.businessName}`}
               </div>
             </div>
             <div className="comments-more-information">
               <ul>
-                {props.business.reviews.map(review => (
-                  <Review
-                    review={review}
-                    key={review.id}
-                    date={props.date}
-                    currentUser={props.currentUser}
-                    delete={props.delete}
-                  />
-                ))}
+                {allReviews}
               </ul>
               <div />
             </div>
