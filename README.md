@@ -9,8 +9,14 @@ Yawp is a clone of Yelp where users can search for different types of businesses
   * Ruby on Rails
   * React & Redux
   * HTML & CSS
-  * Interactive Rating for reviews
-
+  * PostgreSQL for database
+  
+### Features
+  * Gave users CRUD interactions with reviews using AJAX requests over HTTP to RESTful designed routes and controllers.
+  * Implemented Ruby on Rails’ Active Storage to attach photos for both a business and user and AWS S3 Buckets for storage
+  * Applied React Hook’s useEffect for lifecycle methods and useState for slices of local state in functional components.
+  * Back-end search functionality where params is used to find specific businesses using a SQL query.
+  * Interactive ratings system where onHover and offHover is implemented for users to select.
 
 
 ### Index Page
