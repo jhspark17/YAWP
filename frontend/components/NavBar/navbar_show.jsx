@@ -37,7 +37,7 @@ class NavBarShow extends React.Component {
                       alt=""
                     />
                  
-                  <div id="myDropdown" class="dropdown-content">
+                  <div id="myDropdown" className="dropdown-content">
                     <div className="top-dropdown">
                       Hello, {this.props.currentUser.firstName}
                     </div>

@@ -7,7 +7,9 @@ const BusinessIndex = props => {
   const fetchBusinesses = props.fetchBusinesses
   
   useEffect(() => {
+    if (!props.businesses) {
     fetchBusinesses()
+    }
   }, [])
 
  if (!props.businesses[0]) {

@@ -1,33 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const NavBarSearch = props => {
-  const [search, setSerach] = useState("");
+  const {searchBusiness, match, history} = props
+  const [search, setSearch] = useState("");
+
+   const onSubmit = e => {
+     e.preventDefault();   
+     searchBusiness(search).then(() => <Redirect to="/businesses/search"/>)
+   }
   
   const update = () => {
-    return e =>
-      setSerach(e.target.value)
+    return e => setSearch(e.target.value)
   }
 
   const searchBar = (
-    <form className="search-bar-show">
+    <form className="search-bar-show" onSubmit={onSubmit}>
       <span className="description find">Find</span>
       <input
         className="left-side-search"
         type="text"
         placeholder="restaurants, boba, coffee..."
+        onChange={update()}
       />
       <span className="description border-near">Near</span>
       <input
         className="middle-search"
         type="text"
-        placeholder="App Academy"
-        onChange={update()}
+        placeholder="App Academy" 
       />
-      <button id="search-submit" type="submit" >
-        <Link to="/businesses">
-          <i class="material-icons show-search-icon">search</i>
-        </Link>
+      <button id="search-submit" type="submit" >  
+          <i className="material-icons show-search-icon">search</i>
       </button>
     </form>
   );

@@ -2,11 +2,11 @@ import {connect} from 'react-redux'
 import Home from './home';
 import { fetchBusinesses} from '../../actions/business_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   let businesses = Object.values(state.entities.businesses)
   return({
   currentUser: state.session.currentUser,
-  businesses
+  businesses,
   })
 }
 

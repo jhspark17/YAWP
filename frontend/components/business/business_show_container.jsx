@@ -10,11 +10,6 @@ import {findAvgRatingShow} from '../../reducers/selectors'
 const mapStateToProps = (state, ownProps) => {
   const businessId = ownProps.match.params.businessId;
   const currentUser = state.session.currentUser
-  // if (reviews.length > 0 && stateTemp.length > 0) {
-    
-    
-  //   state.entities.businesses[businessId].avgRating = rating;
-  // }
   
 return({
   currentUser,

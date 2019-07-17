@@ -5,7 +5,6 @@ import SignInContainer from "../components/session/signin_container";
 import SignUpContainer from '../components/session/signup_container';
 import BusinessShowContainer from '../components/business/business_show_container';
 import BusinessIndexContainer from '../components/business/business_index_container';
-import Home from '../components/greeting/home'
 import Footer from "../components/footer/footer";
 import {AuthRoute, ProtectedRoute} from "../util/route_util";
 import CreateReviewContainer from'./business/create_review._container';
@@ -16,6 +15,7 @@ const App = () => (
     <Switch>
     <Route exact path="/" component={GreetingContainer} />
     <Route exact path="/businesses" component={BusinessIndexContainer} />
+    <Route exact path="/businesses/search" component={BusinessIndexContainer} />
     <AuthRoute path="/signin" component={SignInContainer} />
     <AuthRoute path="/signup" component={SignUpContainer} />
     <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />

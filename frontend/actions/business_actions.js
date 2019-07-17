@@ -16,6 +16,7 @@ const receiveBusiness = (payload) => {
   })};
 
   const receiveSpecificBusinesses = (payload) => {
+
     return ({
       type: RECEIVE_SPECIFIC_BUSINESSES,
       payload

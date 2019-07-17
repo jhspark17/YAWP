@@ -1,21 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import { Link } from "react-router-dom";
-
+import { Link, Redirect } from "react-router-dom";
 
 const HomeSearch = props => {
+   const {searchBusiness, match, history} = props
    const [search, setSearch] = useState("");
-   const searchBusiness = props.searchBusiness
    
    const onSubmit = e => {
-     e.preventDefault();
-     searchBusiness(search)
+     e.preventDefault();   
+
+     searchBusiness(search).then(() => history.push('/businesses/search'))
    }
 
    const update = () => {
     return e => setSearch(e.target.value);
    };
 
-   const searchBar = ( <form className="search-bar" onSubmit={onSubmit}>
+
+   const searchBar = ( 
+    <form className="search-bar" onSubmit={onSubmit}>
         <span className="description find">Find</span>
         <input
           className="left-side-search"
@@ -32,7 +34,7 @@ const HomeSearch = props => {
         />
 
         <button id="search-submit" type="submit">
-            <i class="material-icons">search</i>
+            <i className="material-icons">search</i>
         </button>
       </form>
   )

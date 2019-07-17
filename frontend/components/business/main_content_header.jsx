@@ -13,7 +13,7 @@ const hasReview = () => {
       </Link>
     );
   }
-  debugger
+
   for (let i = 0; i < business.reviews.length; i++) {
     let userId = business.reviews[i].userId;
     if (userId === currentUser) {

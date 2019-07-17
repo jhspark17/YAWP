@@ -14,7 +14,7 @@ const Home = props => {
     fetchBusinesses();
   }, []);
 
-  if (props.businesses.length < 2) {
+  if (props.businesses.length < 8) {
     return null;
   }
 

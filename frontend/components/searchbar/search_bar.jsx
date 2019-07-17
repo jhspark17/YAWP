@@ -5,12 +5,13 @@ import NavBarSearch from "./navbar_search"
 const SearchBar = props => {
   if (props.type === undefined) {
     return (
-      <HomeSearch searchBusiness={props.searchBusinesses}/>
+      <HomeSearch searchBusiness={props.searchBusinesses} match={props.match} history={props.history}/>
     );
   } else {
-    return <NavBarSearch searchBusiness={props.searchBusinesses} />;
+    return (
+      <NavBarSearch searchBusiness={props.searchBusinesses} match={props.match} history={props.history} />
+    );
   }
 }
-
 
 export default SearchBar

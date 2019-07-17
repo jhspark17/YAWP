@@ -2,6 +2,7 @@
 /// @param  {Integer} $stroke - Stroke width
 /// @param  {Color}   $color  - Stroke color
 /// @return {List}            - text-shadow list
+
 @function stroke($stroke, $color) {
   $shadow: ();
   $from: $stroke*-1;

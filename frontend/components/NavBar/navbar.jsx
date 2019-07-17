@@ -22,14 +22,14 @@
                 <div className="left-side-element">Talk</div>
               </div>
               <div id="logout-nav">
-                <div class="dropdown">
+                <div className="dropdown">
                     <img
                       onClick={this.dropdown}
                       className="logout-nav-show-picture"
                       src={`${pictureURL}`}
                       alt=""
                     />
-                  <div id="myDropdown" class="dropdown-content">
+                  <div id="myDropdown" className="dropdown-content">
                     <div className="top-dropdown">
                       Hello, {this.props.currentUser.firstName}
                     </div>
