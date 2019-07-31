@@ -16,6 +16,7 @@ class EditReviewForm extends React.Component {
   render() {
     if (!this.props.business) return null;
     const props = this.props;
+
     return (
       <ReviewForm {...props}/>
     );

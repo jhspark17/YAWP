@@ -9,8 +9,10 @@ import BusinessMap from './business_map'
 import MainContentHeader from './main_content_header'
 
 const BusinessShow = props => {
+  
    const {deleteReview, businessId, currentUser, fetchBusiness, demoSignIn, business, match} = props
     useEffect(() => {
+      window.scrollTo(0, 0);
       console.log("it works");
       fetchBusiness(match.params.businessId);
     }, []);

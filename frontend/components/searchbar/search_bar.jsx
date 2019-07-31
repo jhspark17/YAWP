@@ -3,9 +3,10 @@ import HomeSearch from "./home_search"
 import NavBarSearch from "./navbar_search"
 
 const SearchBar = props => {
+  const {searchBusinesses, match, history, businesses} = props
   if (props.type === undefined) {
     return (
-      <HomeSearch searchBusiness={props.searchBusinesses} match={props.match} history={props.history}/>
+      <HomeSearch searchBusiness={searchBusinesses} match={match} history={history} businesses={businesses}/>
     );
   } else {
     return (

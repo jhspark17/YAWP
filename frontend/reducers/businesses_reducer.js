@@ -11,10 +11,9 @@ const businessesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_BUSINESSES:
       return Object.assign({}, action.payload.businesses)
     case RECEIVE_BUSINESS:
-      newState = Object.assign({}, oldState, { [action.payload.business.id]: action.payload.business } )
+      newState = Object.assign({}, { [action.payload.business.id]: action.payload.business } )
       return newState;
     case RECEIVE_SPECIFIC_BUSINESSES:
-  
       return Object.assign({}, action.payload.businesses);
     default:
       return oldState;

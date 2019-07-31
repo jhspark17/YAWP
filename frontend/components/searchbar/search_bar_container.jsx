@@ -6,8 +6,10 @@ import {searchBusinesses} from '../../actions/business_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
+  
   return({
     type: ownProps.type,
+    businesses: ownProps.businesses,
   })
 };
 

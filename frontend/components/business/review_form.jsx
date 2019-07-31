@@ -48,7 +48,7 @@ const ReviewForm = props => {
     if (business && formType === "Create Review") {
       currentUserReview()
     } else {
-      fetchBusiness(businessId)
+      setBody(props.review)
     }
   }, [])
 
@@ -57,7 +57,7 @@ const ReviewForm = props => {
   const currentUserReview = () => {
     let foundReview = false;
     reviews.forEach(review => {
-      if (!foundReview && review.userId === userId) {
+      if (!foundReview && review.userId === currentUser) {
         history.push(`/businesses/${businessId}/reviews/${review.id}`);
         foundReview = true;
       }

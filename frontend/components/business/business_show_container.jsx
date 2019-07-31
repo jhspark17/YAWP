@@ -10,7 +10,6 @@ import {findAvgRatingShow} from '../../reducers/selectors'
 const mapStateToProps = (state, ownProps) => {
   const businessId = ownProps.match.params.businessId;
   const currentUser = state.session.currentUser
-  
 return({
   currentUser,
   business: state.entities.businesses[businessId],

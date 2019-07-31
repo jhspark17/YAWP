@@ -7,7 +7,7 @@ import TopSpots from "./top_spots"
 import { Link } from "react-router-dom";
 
 const Home = props => {
-  const fetchBusinesses = props.fetchBusinesses;
+  const {fetchBusinesses, businesses} = props
   
   useEffect(() => {
     console.log("it works");
@@ -24,7 +24,7 @@ const Home = props => {
         <div className="header-all">
           <NavBarContainer />
           <Logo />
-          <SearchBarContainer />
+          <SearchBarContainer businesses={businesses}/>
         </div>
       </header>
       <div className="home-body">

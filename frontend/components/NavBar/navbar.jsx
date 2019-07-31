@@ -17,18 +17,40 @@
           <div className="nav-container">
             <div className="nav">
               <div className="left-side-nav">
-                <div className="left-side-element">Write a Review</div>
+                <span>
+                  <a
+                    class="link-color"
+                    href="https://github.com/jhspark17"
+                  >
+                    <i class="fab fa-github fa-2x" />
+                  </a>
+                  &nbsp; &nbsp;
+                  <a
+                    class="link-color"
+                    href="https://www.linkedin.com/in/joseph-park-94b234111/"
+                  >
+                    <i class="fab fa-linkedin fa-2x" />
+                  </a>
+                  &nbsp; &nbsp;
+                  <a
+                    class="link-color"
+                    href="https://angel.co/jhspark17?public_profile=1"
+                  >
+                    <i class="fab fa-angellist fa-2x" />
+                  </a>
+                </span>
+                {/* <div className="left-side-element">Write a Review</div>
                 <div className="left-side-element">Events</div>
-                <div className="left-side-element">Talk</div>
+                <div className="left-side-element">Talk</div> */}
               </div>
               <div id="logout-nav">
                 <div className="dropdown">
-                    <img
-                      onClick={this.dropdown}
-                      className="logout-nav-show-picture"
-                      src={`${pictureURL}`}
-                      alt=""
-                    />
+                  <img
+                    onClick={this.dropdown}
+                    className="logout-nav-show-picture"
+                    src={`${pictureURL}`}
+                    alt=""
+                  />
                   <div id="myDropdown" className="dropdown-content">
                     <div className="top-dropdown">
                       Hello, {this.props.currentUser.firstName}
@@ -49,22 +71,47 @@
           </div>
         );   
       } else {
-        return(
+        return (
           <div className="nav-container">
-          <div className="nav">
-            <div className="left-side-nav">
-              <div className="left-side-element">Write a Review</div>
-              <div className="left-side-element">Events</div>
-              <div className="left-side-element">Talk</div>
-            </div>
-            <div className="right-side-nav">
-              <Link id="signin-nav" to="/signin">Log In</Link>
-              <Link id="signup-nav" to="/signup">Sign Up</Link>
-              <button id="demo-nav" onClick={this.props.demoSignIn}>Demo Login</button>
-            </div>
+            <div className="nav">
+              <div className="left-side-nav">
+                <span>
+                  <a
+                    class="link-color"
+                    href="https://github.com/jhspark17"
+                  >
+                    <i class="fab fa-github fa-2x" />
+                  </a>
+                  &nbsp; &nbsp;
+                  <a
+                    class="link-color"
+                    href="https://www.linkedin.com/in/joseph-park-94b234111/"
+                  >
+                    <i class="fab fa-linkedin fa-2x" />
+                  </a>
+                  &nbsp; &nbsp;
+                  <a
+                    class="link-color"
+                    href="https://angel.co/jhspark17?public_profile=1"
+                  >
+                    <i class="fab fa-angellist fa-2x" />
+                  </a>
+                </span>
+              </div>
+              <div className="right-side-nav">
+                <Link id="signin-nav" to="/signin">
+                  Log In
+                </Link>
+                <Link id="signup-nav" to="/signup">
+                  Sign Up
+                </Link>
+                <button id="demo-nav" onClick={this.props.demoSignIn}>
+                  Demo Login
+                </button>
+              </div>
             </div>
           </div>
-        )
+        );
       }
     }
 

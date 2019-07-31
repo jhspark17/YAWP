@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react'
 import { Link, Redirect } from "react-router-dom";
 
 const HomeSearch = props => {
-   const {searchBusiness, match, history} = props
+   const {searchBusiness, match, history, businesses} = props
    const [search, setSearch] = useState("");
    
    const onSubmit = e => {
      e.preventDefault();   
 
-     searchBusiness(search).then(() => history.push('/businesses/search'))
+     searchBusiness(search.toLowerCase()).then(() => history.push('/businesses/search'))
    }
 
    const update = () => {
@@ -32,10 +32,12 @@ const HomeSearch = props => {
           type="text"
           placeholder="App Academy"
         />
+     
 
         <button id="search-submit" type="submit">
             <i className="material-icons">search</i>
         </button>
+
       </form>
   )
   return searchBar;

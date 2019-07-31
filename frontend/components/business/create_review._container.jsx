@@ -8,12 +8,13 @@ import React from 'react';
 const mapStateToProps = (state, ownProps) => {
   let businessId = parseInt(ownProps.match.params.businessId);
   let business = state.entities.businesses[businessId];
+  
   return({
   business,
   businessId,
   currentUser: state.session.currentUser,
   review: {body: ''},
-  businessReviews: selectReviewsForBusiness(state, businessId),
+  reviews: business.reviews,
   formType: 'Create Review'
   });
 };

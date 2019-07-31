@@ -145,15 +145,6 @@
 }
 
 
-.footer{
- display: flex;
- border-top: 1px solid #ccc;
- 
-}
-
-.footer img{
-  margin: 30px auto 0;
-}
 
 .temp{
   font-size: 40px;
@@ -321,6 +312,67 @@
 .dropbtn{
   padding: 0px;
 
+}
+
+.link-color{
+  color: white;
+}
+
+.link-color:hover{
+  color: pink;
+}
+
+.wrap{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid #ccc;
+  
+  bottom: 0;
+  
+}
+.footer{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: green;
+ border-top: 1px solid #ccc;
+}
+
+.footer span{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer img{
+  margin: 30px auto 0;
+  z-index: -1;
+  height: 70%;
+}
+
+
+.footer-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-wrap{
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+  padding-top: 10px;
+}
+
+.link-color-footer{
+  color: black;
+  
+}
+
+.link-color-footer:hover{
+  color: pink;
 }
 
 

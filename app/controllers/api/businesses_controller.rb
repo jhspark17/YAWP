@@ -22,7 +22,7 @@ class Api::BusinessesController < ApplicationController
 #api/business/search_bidy/id
 
   def search
-   @businesses = Business.where("business_name LIKE ?", "%" + params[:q] + "%")
+   @businesses = Business.where("LOWER(business_name) LIKE ?", "%" + params[:q] + "%")
   
     if @businesses.length === 0 
       @businesses = Business.all
