@@ -103,7 +103,7 @@ export const fetchBusinesses = () => (
 );
 
 ```
-###Controllers for Business
+### Controllers for Business
 ```
   def create
     @business = Business.new(business_params)
@@ -135,7 +135,7 @@ export const fetchBusinesses = () => (
   end
   ```
 
-  ###JSON format for data
+### JSON format for data
 ```
   business ||= @business
 
