@@ -78,7 +78,7 @@ update review page where they can modify their original review.
   }
 
 ```
-### Axios API Calls
+### AJAX API Calls
 ```
 export const fetchBusiness = (id) => (
   $.ajax({
