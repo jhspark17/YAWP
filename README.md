@@ -141,6 +141,16 @@ export const fetchBusinesses = () => (
 
   json.extract! business, :id, :business_name, :address_1, :address_2, :city, :state, :zip_code, :latitude, :longitude, :rating, :business_info, :phone_number, :category, :website
   json.photos   business.photos.map {|photo| url_for(photo)}
+
+  @businesses.map do |business|
+  json.businesses do
+    json.set! business.id do
+      json.partial! 'api/businesses/business', business: business
+      json.reviews business.reviews
+    end 
+  end
+end
+
   ```
 
 
