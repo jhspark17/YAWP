@@ -15,11 +15,7 @@ class Api::BusinessesController < ApplicationController
       render json: @business.errors.full_messages, status: 422
     end
   end
-  #api_util have function that send ajax call to your backend
-  #method get
-  #data {search_params: []}
 
-#api/business/search_bidy/id
 
   def search
    @businesses = Business.where("LOWER(business_name) LIKE ?", "%" + params[:q] + "%")

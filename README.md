@@ -78,7 +78,70 @@ update review page where they can modify their original review.
   }
 
 ```
+### Axios API Calls
+```
+export const fetchBusiness = (id) => (
+  $.ajax({
+    method: "GET",
+    url: `/api/businesses/${id}`,
+  })
+);
 
+export const createBusiness = (business) => (
+  $.ajax({
+    method: "POST",
+    url: `/api/businesses`,
+    data: {business}
+  })
+);
+
+export const fetchBusinesses = () => (
+  $.ajax({
+    method: "GET",
+    url: `/api/businesses`
+  })
+);
+
+```
+###Controllers for Business
+```
+  def create
+    @business = Business.new(business_params)
+
+    if @business.save
+      render :show
+    else
+      render json: @business.errors.full_messages, status: 422
+    end
+  end
+
+
+  def search
+   @businesses = Business.where("LOWER(business_name) LIKE ?", "%" + params[:q] + "%")
+  
+    if @businesses.length === 0 
+      @businesses = Business.all
+    end
+   render :index
+  end
+
+  def show
+    @business = Business.find(params[:id])
+    if @business
+      render "api/businesses/show"
+    else
+      render json: @business.errors.full_messages, status: 422
+    end
+  end
+  ```
+
+  ###JSON format for data
+```
+  business ||= @business
+
+  json.extract! business, :id, :business_name, :address_1, :address_2, :city, :state, :zip_code, :latitude, :longitude, :rating, :business_info, :phone_number, :category, :website
+  json.photos   business.photos.map {|photo| url_for(photo)}
+  ```
 
 
 
