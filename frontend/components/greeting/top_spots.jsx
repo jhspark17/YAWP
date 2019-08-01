@@ -18,8 +18,7 @@ const TopSpots = props => {
               <Link className="title-business-description" to="/businesses/1">
                 {props.businesses[0].businessName}
               </Link>
-              <div className="category-business-description">Japanese</div>
-              <div className="category-business-description">Embarcadero</div>
+              <div className="category-business-description">{props.businesses[0].category.name}</div>
             </div>
           </div>
           <div className="home-restaurant">
@@ -30,8 +29,7 @@ const TopSpots = props => {
               <Link to="/businesses/4" className="title-business-description">
                 {props.businesses[3].businessName}
               </Link>
-              <div className="category-business-description">Boba</div>
-              <div className="category-business-description">Chinatown</div>
+              <div className="category-business-description">{props.businesses[3].category.name}</div>
             </div>
           </div>
           <div className="home-restaurant">
@@ -43,8 +41,7 @@ const TopSpots = props => {
               <Link to="/businesses/7" className="title-business-description">
                 {props.businesses[6].businessName}
               </Link>
-              <div className="category-business-description">Cafe</div>
-              <div className="category-business-description">North Beach</div>
+              <div className="category-business-description">{props.businesses[6].category.name}</div>
             </div>
           </div>
         </div>

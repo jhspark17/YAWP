@@ -43,6 +43,42 @@ update review page where they can modify their original review.
 <img width="1277" alt="Screen Shot 2019-05-08 at 4 39 06 PM" src="https://user-images.githubusercontent.com/42100510/57415151-e6fbfc00-71af-11e9-8b42-aee2ce16dd50.png">
 
 
+```
+
+ const [rating, setRating] = useState(0);
+  const [body, setBody] = useState("");
+
+    if (!business) {
+      return null
+    } else if (!currentUser) {
+      <Redirect to={`/businesses/${businessId}`}/>
+    }
+
+
+  useEffect(() => {
+    if (business && formType === "Create Review") {
+      currentUserReview()
+    } else {
+      setBody(props.review)
+    }
+  }, [])
+
+  const mouseEnter = index => {
+    return () => {
+      starListClass(index);
+      ratingTextContent(index);
+    };
+  }
+
+    const mouseLeave = () => {
+    return () => {
+      starListClass(rating);
+      ratingTextContent(rating);
+    };
+  }
+
+```
+
 
 
 

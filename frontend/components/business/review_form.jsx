@@ -15,34 +15,7 @@ const ReviewForm = props => {
     } else if (!currentUser) {
       <Redirect to={`/businesses/${businessId}`}/>
     }
-  // constructor(props) {
-  //   super(props);
-  //   debugger
-  //   this.state = {
-  //     body: this.props.review.body,
-  //     user_id: this.props.currentUser,
-  //     business_id: this.props.businessId,
-  //     rating: 0
-  //   };
 
-  // componentDidMount() {
-  //   if (this.props.business && this.props.formType === "Create Review") {
-  //     this.currentUserReview();
-  //   } else {
-  //     this.props.fetchBusiness(this.props.businessId);
-  //   }
-  // }
-
-
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     !prevProps.business &&
-  //     this.props.business &&
-  //     this.props.formType === "Create Review"
-  //   ) {
-  //     this.currentUserReview();
-  //   }
-  // }
 
   useEffect(() => {
     if (business && formType === "Create Review") {
@@ -51,6 +24,20 @@ const ReviewForm = props => {
       setBody(props.review)
     }
   }, [])
+
+  const mouseEnter = index => {
+    return () => {
+      starListClass(index);
+      ratingTextContent(index);
+    };
+  }
+
+    const mouseLeave = () => {
+    return () => {
+      starListClass(rating);
+      ratingTextContent(rating);
+    };
+  }
 
 
 
@@ -76,19 +63,7 @@ const ReviewForm = props => {
     element.innerHTML = options[index];
   }
 
-  const mouseEnter = index => {
-    return () => {
-      starListClass(index);
-      ratingTextContent(index);
-    };
-  }
-
-    const mouseLeave = () => {
-    return () => {
-      starListClass(rating);
-      ratingTextContent(rating);
-    };
-  }
+ 
 
   const starListClass = index => {
     const element = document.getElementById("starlist");
@@ -232,3 +207,33 @@ const showPageLink = () => {
 
 
 export default ReviewForm;
+
+
+  // constructor(props) {
+  //   super(props);
+  //   debugger
+  //   this.state = {
+  //     body: this.props.review.body,
+  //     user_id: this.props.currentUser,
+  //     business_id: this.props.businessId,
+  //     rating: 0
+  //   };
+
+  // componentDidMount() {
+  //   if (this.props.business && this.props.formType === "Create Review") {
+  //     this.currentUserReview();
+  //   } else {
+  //     this.props.fetchBusiness(this.props.businessId);
+  //   }
+  // }
+
+
+  // componentDidUpdate(prevProps) {
+  //   if (
+  //     !prevProps.business &&
+  //     this.props.business &&
+  //     this.props.formType === "Create Review"
+  //   ) {
+  //     this.currentUserReview();
+  //   }
+  // }
