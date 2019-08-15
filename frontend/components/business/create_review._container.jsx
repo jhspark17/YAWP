@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
   business,
   businessId,
   currentUser: state.session.currentUser,
-  review: {body: ''},
   reviews: business.reviews,
   formType: 'Create Review'
   });

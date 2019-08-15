@@ -19,24 +19,24 @@
               <div className="left-side-nav">
                 <span>
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://github.com/jhspark17"
                   >
-                    <i class="fab fa-github fa-2x" />
+                    <i className="fab fa-github fa-2x" />
                   </a>
                   &nbsp; &nbsp;
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://www.linkedin.com/in/joseph-park-94b234111/"
                   >
-                    <i class="fab fa-linkedin fa-2x" />
+                    <i className="fab fa-linkedin fa-2x" />
                   </a>
                   &nbsp; &nbsp;
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://angel.co/jhspark17?public_profile=1"
                   >
-                    <i class="fab fa-angellist fa-2x" />
+                    <i className="fab fa-angellist fa-2x" />
                   </a>
                 </span>
                 {/* <div className="left-side-element">Write a Review</div>
@@ -77,24 +77,24 @@
               <div className="left-side-nav">
                 <span>
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://github.com/jhspark17"
                   >
-                    <i class="fab fa-github fa-2x" />
+                    <i className="fab fa-github fa-2x" />
                   </a>
                   &nbsp; &nbsp;
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://www.linkedin.com/in/joseph-park-94b234111/"
                   >
-                    <i class="fab fa-linkedin fa-2x" />
+                    <i className="fab fa-linkedin fa-2x" />
                   </a>
                   &nbsp; &nbsp;
                   <a
-                    class="link-color"
+                    className="link-color"
                     href="https://angel.co/jhspark17?public_profile=1"
                   >
-                    <i class="fab fa-angellist fa-2x" />
+                    <i className="fab fa-angellist fa-2x" />
                   </a>
                 </span>
               </div>

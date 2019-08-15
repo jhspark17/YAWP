@@ -26,12 +26,25 @@ class EditReviewForm extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   let businessId = parseInt(ownProps.match.params.businessId);
   let business = state.entities.businesses[businessId];
+  let reviewId = Number(ownProps.match.params.reviewId)
+  let review;
+
+  if (business) {
+    for (let i = 0; i < business.reviews.length; i++) {
+
+      if (business.reviews[i].id === reviewId ) {
+        review = business.reviews[i];
+        break;
+      }
+    }
+  }
+ 
   return {
     businessId,
     business,
     businesses: state.entities.businesses,
     currentUser: state.entities.users[state.session.currentUser].id,
-    review: state.entities.reviews[ownProps.match.params.reviewId],
+    review: review,
     businessReviews: selectReviewsForBusiness(state, businessId),
     formType: 'Update Review'
   }

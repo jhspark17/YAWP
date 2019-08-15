@@ -61,11 +61,6 @@ const content = (<div className="main-header">
 
         <div className="under-header-right">
           <div>{hasReview()}</div>
-          <div className="add-share-save">
-            <input type="button" id="add-photo" value="Add Photo" />
-            <input type="button" id="add-photo" value="Share" />
-            <input type="button" id="add-photo" value="Save" />
-          </div>
         </div>
       </div>
     </div>

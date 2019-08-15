@@ -9,7 +9,6 @@ import BusinessMap from './business_map'
 import MainContentHeader from './main_content_header'
 
 const BusinessShow = props => {
-  
    const {deleteReview, businessId, currentUser, fetchBusiness, demoSignIn, business, match} = props
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -114,6 +113,7 @@ const BusinessShow = props => {
                       zoom="false"
                     />
                   </div>
+                  <div className="business-basic-info">
                   <div> {business.address1}</div>
                   <div>
                     {`${business.city}, ${
@@ -121,6 +121,7 @@ const BusinessShow = props => {
                     } ${business.zipCode}`}
                   </div>
                   <div>{phoneNumber()}</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,7 +142,7 @@ const BusinessShow = props => {
           <div className="main-body-content">
             <div className="body-header">
               <h2 className="top-recommended">
-                Recommended Reviews <br />
+                Recommended Reviews <br/>
               </h2>
               <div className="business-name-review">
                 {`for ${business.businessName}`}

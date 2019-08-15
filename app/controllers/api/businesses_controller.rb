@@ -2,7 +2,6 @@ class Api::BusinessesController < ApplicationController
 
   def index
     @businesses = Business.all
-    # @reviews = Review.all
     render :index
   end
 
@@ -42,16 +41,5 @@ class Api::BusinessesController < ApplicationController
     params.require(:business).permit(:business, :address_1, :address_2, :city, :state, :zip_code, :latitude, :rating, :business_info, :phone_number, :website, :longitude, :category_id)
   end
 
-  def execute(sql)
-  # open connection to Postgres
-  connection = PG::Connection.open(dbname: 'YAWP_development')
-  # execute query
-  query_result = connection.exec(sql).values
-  # close connection to Postgres
-  connection.close
-
-  # return result of query
-  query_result
-end
 end
 

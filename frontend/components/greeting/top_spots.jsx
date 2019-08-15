@@ -23,25 +23,25 @@ const TopSpots = props => {
           </div>
           <div className="home-restaurant">
             <div className="home-restaurant-photo">
-              <img src={`${props.businesses[3].photos}`} alt="" />
+              <img src={`${props.businesses[4].photos}`} alt="" />
             </div>
             <div className="home-business-description">
-              <Link to="/businesses/4" className="title-business-description">
-                {props.businesses[3].businessName}
+              <Link to="/businesses/5" className="title-business-description">
+                {props.businesses[4].businessName}
               </Link>
-              <div className="category-business-description">{props.businesses[3].category.name}</div>
+              <div className="category-business-description">{props.businesses[4].category.name}</div>
             </div>
           </div>
           <div className="home-restaurant">
             <div className="title-home" />
             <div className="home-restaurant-photo">
-              <img src={`${props.businesses[6].photos}`} alt="" />
+              <img src={`${props.businesses[7].photos}`} alt="" />
             </div>
             <div className="home-business-description">
-              <Link to="/businesses/7" className="title-business-description">
-                {props.businesses[6].businessName}
+              <Link to="/businesses/8" className="title-business-description">
+                {props.businesses[7].businessName}
               </Link>
-              <div className="category-business-description">{props.businesses[6].category.name}</div>
+              <div className="category-business-description">{props.businesses[7].category.name}</div>
             </div>
           </div>
         </div>

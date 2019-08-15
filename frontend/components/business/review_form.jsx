@@ -4,12 +4,13 @@ import { LOGOUT_CURRENT_USER } from "../../actions/session_actions";
 import {Link, Redirect} from "react-router-dom";
 
 const ReviewForm = props => {
-  const {business, reviews, action, currentUser, businessId, formType, fetchBusiness, history} = props;
+  const {business, reviews, action, currentUser, businessId, formType, fetchBusiness, history, review} = props;
   const placeholder = "Your review helps others learn about great local businesses.\n\nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees.";
   const options = [ "Select your rating",  "Eek! Me thinks not.", "Meh. I've experienced better.", "A-OK", "Yay! I'm a fan.", "Woohoo! As good as it gets!"];
   const [rating, setRating] = useState(0);
   const [body, setBody] = useState("");
 
+   
     if (!business) {
       return null
     } else if (!currentUser) {
@@ -20,8 +21,9 @@ const ReviewForm = props => {
   useEffect(() => {
     if (business && formType === "Create Review") {
       currentUserReview()
-    } else {
-      setBody(props.review)
+    } else if (business && formType === "Update Review") {
+      setBody(review.body);
+      setRating(review.rating);
     }
   }, [])
 
