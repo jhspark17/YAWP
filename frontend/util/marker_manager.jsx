@@ -5,7 +5,12 @@ export default class MarkerManager {
     this.markerLabel = 1;
   }
 
+
   updateMarkers(businesses) {
+    if (Object.keys(this.markers).length) {
+      console.log()
+      this.markers = {};
+    }
       businesses.forEach(business => {
       if (!this.markers[business.id]) {
         this.createMarkerForBusiness(business);

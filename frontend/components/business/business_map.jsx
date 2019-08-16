@@ -31,11 +31,15 @@ class BusinessMap extends React.Component {
     }
     };
 
+
   componentDidMount() {
     // set the map to show SF
+  
     let mapStyle = this.mapOptions()
     // wrap this.mapNode in a Google Map
+    
     this.map = new google.maps.Map(this.mapNode, mapStyle);
+    
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.businesses);
   }

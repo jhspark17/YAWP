@@ -10,7 +10,9 @@ const UnderHeaderShow = () => {
 			<div>Other</div>
 		</div>
 		<div className="under-header-right">
-  		<div>All Businesses</div>~
+		<Link to="/businesses">
+  		<div>All Businesses</div>
+		  </Link>
 		</div>
 	</div>
 	)
